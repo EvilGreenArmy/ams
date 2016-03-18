@@ -1,0 +1,44 @@
+package com.ams.controller;
+
+import com.ams.entities.UserInfo;
+import com.ams.pagination.Page;
+import com.ams.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Created by Evan on 2016/3/15.
+ */
+@Controller
+@RequestMapping("user")
+public class UserController extends BaseController {
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping(value = "list", method = RequestMethod.GET)
+    public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+        Page<UserInfo> page = new Page<UserInfo>();
+        page.setCurrentPage(1);
+        page.setTotalPage(10);
+        page = this.userService.queryList(page);
+        model.addAttribute("page", page);
+        model.addAttribute("test", "112233");
+        return "user/list";
+    }
+
+    @RequestMapping(value = "save", method = RequestMethod.GET)
+    public String save(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+        UserInfo user = new UserInfo();
+        user.setUserName("Evan");
+        user.setAge(20);
+        user.setPassword("123445");
+        this.userService.saveUser(user);
+        return "user/list";
+    }
+}

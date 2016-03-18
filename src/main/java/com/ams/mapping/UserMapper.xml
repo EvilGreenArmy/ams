@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ams.dao.UserMapper" >
+    <resultMap type="com.ams.entities.UserInfo" id="userMap">
+        <!-- 主键必须用id标签映射 -->
+        <id column="id" property="id" />
+        <!-- column为数据库字段名,property为实体类属性名 -->
+        <result column="user_name" property="userName" />
+        <result column="password" property="password" />
+        <result column="age" property="age" />
+    </resultMap>
+    <select id="userQueryPage" resultMap="userMap" >
+        select *
+        from user_t u
+    </select>
+    <insert id="insert" parameterType="com.ams.entities.UserInfo" >
+        insert into user_t (id, user_name, password,age)
+        values (#{id}, #{userName}, #{password},#{age})
+    </insert>
+</mapper>

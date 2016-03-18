@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1111</title>
+    <title>科技成果交易撮合系统登录</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -18,7 +18,8 @@
 <div class="container">
     <div class="row text-center " style="padding-top:100px;">
         <div class="col-md-12">
-            <img src="${pageContext.request.contextPath}/img/logo-invoice.png" />
+            <%--<img src="${pageContext.request.contextPath}/img/logo-invoice.png" />--%>
+
         </div>
     </div>
     <div class="row ">
@@ -28,7 +29,7 @@
             <div class="panel-body">
                 <form role="form">
                     <hr />
-                    <h5>Enter Details to Login</h5>
+                    <h5>登录</h5>
                     <br />
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>

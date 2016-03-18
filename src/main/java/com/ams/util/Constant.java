@@ -97,4 +97,9 @@ public interface Constant {
 	 * 手机号码最大长度11.
 	 */
 	Integer MODILE_MAX_LENGTH = Integer.valueOf(11);
-}
+
+	/**
+	 * 默认字符集.
+	 * */
+	String DEFAULT_CHARSET = "utf-8";
+ }
