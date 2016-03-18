@@ -1,2 +1,2 @@
 # ams
-This is a system integrated SpringMVC and Mybatis.
+This is a WebSystem integrated SpringMVC and Mybatis.
