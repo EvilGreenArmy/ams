@@ -30,7 +30,6 @@ public class UserController extends BaseController {
         page.setTotalPage(10);
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("age", 21);
-        page.setParams(params);
         page = this.userService.queryList();
         model.addAttribute("page", page);
         model.addAttribute("test", "112233");
