@@ -1,17 +1,16 @@
 package com.ams.dao;
 
 import com.ams.entities.UserInfo;
-import com.ams.pagination.Page;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Evan on 2016/3/16.
  */
 public interface UserMapper {
 
-    List<UserInfo> userQueryPage(@Param("page") Page page);
+    List<UserInfo> userQueryPage(Map map);
 
     void insertUser(UserInfo user);
 }

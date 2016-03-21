@@ -1,6 +1,8 @@
 package com.ams.pagination;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Evan on 2016/3/15.
@@ -18,7 +20,6 @@ public class Page<E> {
     private String orderBy;
 
     private List<E> resultList;
-
     public int getShowCount() {
         return showCount;
     }

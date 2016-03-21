@@ -102,4 +102,9 @@ public interface Constant {
 	 * 默认字符集.
 	 * */
 	String DEFAULT_CHARSET = "utf-8";
- }
+
+	/**
+	 * session 中用户信息key
+	 * */
+	String SESSION_LOGIN_USER = "login_user";
+  }

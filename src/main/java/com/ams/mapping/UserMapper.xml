@@ -9,9 +9,14 @@
         <result column="password" property="password" />
         <result column="age" property="age" />
     </resultMap>
-    <select id="userQueryPage" resultMap="userMap" >
+    <select id="userQueryPage" parameterType="java.util.Map" resultMap="userMap">
         select *
         from user_t u
+        <where>
+            <if test="age> 0">
+            <![CDATA[ u.age > #{age} ]]>
+            </if>
+        </where>
     </select>
     <insert id="insert" parameterType="com.ams.entities.UserInfo" >
         insert into user_t (id, user_name, password,age)

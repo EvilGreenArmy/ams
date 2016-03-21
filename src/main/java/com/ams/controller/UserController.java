@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Evan on 2016/3/15.
@@ -26,7 +28,10 @@ public class UserController extends BaseController {
         Page<UserInfo> page = new Page<UserInfo>();
         page.setCurrentPage(1);
         page.setTotalPage(10);
-        page = this.userService.queryList(page);
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("age", 21);
+        page.setParams(params);
+        page = this.userService.queryList();
         model.addAttribute("page", page);
         model.addAttribute("test", "112233");
         return "user/list";

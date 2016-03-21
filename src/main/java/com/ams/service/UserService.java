@@ -8,7 +8,9 @@ import com.ams.pagination.Page;
  */
 public interface UserService {
 
-    Page<UserInfo> queryList(Page<UserInfo> page);
+    Page<UserInfo> queryList();
 
     public void saveUser(UserInfo user);
+
+    public UserInfo getUserByLogin(String userName, String password);
 }
