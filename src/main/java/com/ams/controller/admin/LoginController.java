@@ -1,4 +1,4 @@
-package com.ams.controller;
+package com.ams.controller.admin;
 
 import com.ams.entities.UserInfo;
 import com.ams.service.UserService;
@@ -18,10 +18,15 @@ import javax.servlet.http.HttpSession;
  * Created by Evan on 2016/3/21.
  */
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/admin")
 public class LoginController extends BaseController {
     @Autowired
     private UserService userService;
+    @RequestMapping(value="index",method = RequestMethod.GET)
+    public String index(String userName, String password,HttpServletRequest request, HttpServletResponse response,
+                          Model model){
+            return "login/login";
+        }
     @RequestMapping(value="login",method = RequestMethod.POST)
     public String doLogin(String userName, String password,HttpServletRequest request, HttpServletResponse response,
                             Model model){

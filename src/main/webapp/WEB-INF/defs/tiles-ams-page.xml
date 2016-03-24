@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+		"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<!-- Base Tiles Definition -->
+	<definition name="base.definition" template="/WEB-INF/ams/admin/layout/layout.jsp">
+	    <put-attribute name="header" type="template" value="/WEB-INF/ams/admin/layout/header.jsp" />
+		<put-attribute name="navigation" type="template" value="/WEB-INF/ams/admin/layout/navigation.jsp" />
+		<put-attribute name="footer" type="template" value="/WEB-INF/ams/admin/layout/footer.jsp" />
+		<put-attribute name="title" type="string" value="延安科技成果转换系统"></put-attribute>
+	</definition>
+	
+	<definition name="page.ams.common" extends="base.definition">
+		<put-attribute name="body" type="string"  value="正在加载....." />
+	</definition>
+	<!--
+	<definition name="page.ams.error" extends="base.definition">
+		<put-attribute name="body" type="template" value="/WEB-INF/ams/error.jsp" />
+	</definition>
+	-->
+	
+</tiles-definitions>

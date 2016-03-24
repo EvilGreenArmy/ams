@@ -1,6 +1,5 @@
-package com.ams.controller;
+package com.ams.controller.admin;
 
-import com.ams.pagination.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,6 +18,7 @@ public class BaseController {
             LOGGER.error("会话不存在！");
             session = request.getSession(true);
         }
+
         return session;
     }
 }

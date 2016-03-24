@@ -45,7 +45,10 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <listener>
         <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
-
+    <listener>
+        <listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener
+        </listener-class>
+    </listener>
     <!-- Spring MVC servlet -->
     <servlet>
         <servlet-name>SpringMVC</servlet-name>
@@ -61,6 +64,21 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
         <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
+    <!-- -->
+    <servlet>
+        <servlet-name>admin</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:admin.xml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>admin</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
     <jsp-config>
         <taglib>
             <taglib-uri>http://www.ams.com/j2ee</taglib-uri>
@@ -70,7 +88,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <welcome-file-list>
         <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
-    <error-page>
+   <!-- <error-page>
         <error-code>404</error-code>
         <location>/404.html</location>
     </error-page>
@@ -81,7 +99,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <error-page>
         <error-code>500</error-code>
         <location>/500.html</location>
-    </error-page>
+    </error-page>-->
     <!-- 配置SESSION超时，单位是分钟 -->
     <session-config>
         <session-timeout>15</session-timeout>

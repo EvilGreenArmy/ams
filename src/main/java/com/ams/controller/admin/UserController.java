@@ -1,5 +1,6 @@
-package com.ams.controller;
+package com.ams.controller.admin;
 
+import com.ams.controller.admin.BaseController;
 import com.ams.entities.UserInfo;
 import com.ams.pagination.Page;
 import com.ams.service.UserService;
@@ -33,7 +34,7 @@ public class UserController extends BaseController {
         page = this.userService.queryList();
         model.addAttribute("page", page);
         model.addAttribute("test", "112233");
-        return "user/list";
+        return "login/list";
     }
 
     @RequestMapping(value = "save", method = RequestMethod.GET)

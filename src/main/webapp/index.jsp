@@ -33,24 +33,17 @@
                     <br />
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                        <input type="text" class="form-control" placeholder="Your Username " />
+                        <input type="text" class="form-control" placeholder="用户名" />
                     </div>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                        <input type="password" class="form-control"  placeholder="Your Password" />
+                        <input type="password" class="form-control"  placeholder="密码" />
                     </div>
-                    <div class="form-group">
-                        <label class="checkbox-inline">
-                            <input type="checkbox" /> Remember me
-                        </label>
-                                            <span class="pull-right">
-                                                   <a href="index.html" >Forget password ? </a>
-                                            </span>
-                    </div>
-
-                    <a href="index.html" class="btn btn-primary ">Login Now</a>
+                   <%-- <a href="index.html" class="btn btn-primary ">登录</a>
+                    <a href="index.html" class="btn btn-primary ">注册</a>--%>
+                        <button class="btn btn-sm btn-primary" type="submit">登录</button>
+                       <button class="btn btn-sm btn-primary" type="submit">注册</button>
                     <hr />
-                    Not register ? <a href="index.html" >click here </a> or go to <a href="index.html">Home</a>
                 </form>
             </div>
 

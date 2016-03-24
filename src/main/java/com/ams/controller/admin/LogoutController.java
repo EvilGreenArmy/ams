@@ -1,4 +1,4 @@
-package com.ams.controller;
+package com.ams.controller.admin;
 
 import com.ams.util.Constant;
 import org.springframework.stereotype.Controller;

@@ -159,6 +159,12 @@
       <artifactId>commons-codec</artifactId>
       <version>1.9</version>
     </dependency>
+    <!-- apache titles -->
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-extras</artifactId>
+      <version>3.0.4</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>ams</finalName>
