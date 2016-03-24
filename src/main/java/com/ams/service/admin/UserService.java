@@ -1,6 +1,6 @@
-package com.ams.service;
+package com.ams.service.admin;
 
-import com.ams.entities.UserInfo;
+import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
 
 /**

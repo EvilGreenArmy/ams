@@ -1,6 +1,6 @@
 package com.ams.filter;
 
-import com.ams.entities.UserInfo;
+import com.ams.entities.admin.UserInfo;
 import com.ams.util.Constant;
 
 import javax.servlet.*;

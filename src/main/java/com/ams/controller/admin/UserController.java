@@ -1,9 +1,8 @@
 package com.ams.controller.admin;
 
-import com.ams.controller.admin.BaseController;
-import com.ams.entities.UserInfo;
+import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
-import com.ams.service.UserService;
+import com.ams.service.admin.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

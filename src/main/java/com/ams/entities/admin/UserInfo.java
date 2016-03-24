@@ -1,4 +1,4 @@
-package com.ams.entities;
+package com.ams.entities.admin;
 
 import java.io.Serializable;
 

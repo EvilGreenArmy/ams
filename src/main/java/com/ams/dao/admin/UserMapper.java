@@ -1,6 +1,6 @@
-package com.ams.dao;
+package com.ams.dao.admin;
 
-import com.ams.entities.UserInfo;
+import com.ams.entities.admin.UserInfo;
 
 import java.util.List;
 import java.util.Map;

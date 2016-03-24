@@ -1,7 +1,7 @@
 package com.ams.controller.admin;
 
-import com.ams.entities.UserInfo;
-import com.ams.service.UserService;
+import com.ams.entities.admin.UserInfo;
+import com.ams.service.admin.UserService;
 import com.ams.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

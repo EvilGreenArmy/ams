@@ -1,9 +1,9 @@
-package com.ams.service.impl;
+package com.ams.service.admin.impl;
 
-import com.ams.dao.UserMapper;
-import com.ams.entities.UserInfo;
+import com.ams.dao.admin.UserMapper;
+import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
-import com.ams.service.UserService;
+import com.ams.service.admin.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
