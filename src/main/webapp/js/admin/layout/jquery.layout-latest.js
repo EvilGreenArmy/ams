@@ -837,8 +837,8 @@ $.layout.defaults = {
 	}
 ,	south: {
 		paneSelector:			".ui-layout-south"
-	,	size:					"auto"
-	,	resizerCursor:			"s-resize"
+	,	size:					"5%"
+	,	resizerCursor:			"s-resize" //s-resize
 	,	customHotkey:			""
 	}
 ,	east: {
