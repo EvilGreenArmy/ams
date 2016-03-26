@@ -4,7 +4,7 @@
 <configuration>
     <plugins>
         <plugin interceptor="com.ams.pagination.PageHelper">
-            <property name="dialect" value="mysql" />
+            <property name="dialect" value="oracle" />
             <property name="pageSqlId" value=".*QueryPage.*" />
         </plugin>
     </plugins>
