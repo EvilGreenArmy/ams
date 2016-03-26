@@ -35,11 +35,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<!-- tiles页面解析器-->
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass">
-			<value>org.springframework.web.servlet.view.tiles.TilesView</value>
-		</property>
-	</bean>
+	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" p:order="1"/>
 	<!-- tiles配置器-->
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
