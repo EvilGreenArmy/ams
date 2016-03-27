@@ -3,18 +3,18 @@
 <mapper namespace="com.ams.dao.admin.UserMapper" >
     <resultMap type="com.ams.entities.admin.UserInfo" id="userMap">
         <!-- 主键必须用id标签映射 -->
-        <id column="ACCT_ID" property="id" />
+        <id column="ACCT_ID" property="id" jdbcType="NUMERIC"/>
         <!-- column为数据库字段名,property为实体类属性名 -->
-        <result column="ACCT_NAME" property="acctName" />
-        <result column="USER_NAME" property="userName" />
-        <result column="FULL_NAME" property="fullName" />
-        <result column="ACCT_PWD" property="password" />
-        <result column="STATUS" property="status" />
-        <result column="DESCRIPTION" property="description" />
-        <result column="GENDER" property="gender" />
-        <result column="BIRTHDAY" property="birthday" />
-        <result column="EMAIL" property="email" />
-        <result column="PHONE" property="phone" />
+        <result column="ACCT_NAME" property="acctName" jdbcType="VARCHAR" />
+        <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
+        <result column="FULL_NAME" property="fullName" jdbcType="VARCHAR" />
+        <result column="ACCT_PWD" property="password"  jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="VARCHAR" />
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+        <result column="GENDER" property="gender" jdbcType="NUMERIC"/>
+        <result column="BIRTHDAY" property="birthday" jdbcType="DATE"/>
+        <result column="EMAIL" property="email" jdbcType="VARCHAR"/>
+        <result column="PHONE" property="phone" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="userQueryPage" parameterType="java.util.Map" resultMap="userMap">
         select *
@@ -25,14 +25,14 @@
             </if>
         </where>
     </select>
-    <insert id="insert" parameterType="com.ams.entities.admin.UserInfo" >
+    <insert id="insertUser" parameterType="com.ams.entities.admin.UserInfo" >
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
-            select ams_seq from dual
+            select SEQ_AMS.nextval  from dual
         </selectKey>
-        insert into B_ACCOUNT (ACCT_ID, ACCT_NAME, USER_NAME, FULL_NAME, ACCT_PWD, STATUS, DESCRIPTION, GENDER, BIRTHDAY, EMAIL, PHONE)
-        values(#{id}, #{acctName}, #{userName},#{fullName},#{password},#{status},#{description},#{gender},#{birthday},#{email},#{phone})
+        insert into B_ACCOUNT (ACCT_ID, ACCT_NAME, USER_NAME, FULL_NAME, ACCT_PWD, STATUS, GENDER, BIRTHDAY, EMAIL, PHONE)
+        values(#{id}, #{acctName}, #{userName},#{fullName},#{password},#{status},#{gender},#{birthday,jdbcType=DATE},#{email},#{phone})
     </insert>
     <select id="getUser" parameterType="com.ams.entities.admin.UserInfo" resultMap="userMap">
-        SELECT * FROM b_account t WHERE t.ACCT_NAME=#{acctName, jdbcType=VARCHAR}
+        SELECT * FROM b_account t WHERE t.ACCT_NAME=#{acctName}
     </select>
 </mapper>

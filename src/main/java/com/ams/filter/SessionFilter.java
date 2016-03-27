@@ -23,17 +23,20 @@ public class SessionFilter implements Filter {
         String requestURI = requestHttp.getRequestURI().toLowerCase();
         HttpServletResponse responseHttp = (HttpServletResponse) response;
         // 判断是否是首次登陆
-        boolean isLogin = requestURI.indexOf("login") >= 0;
+        boolean isLogin = requestURI.indexOf("login") >= 0 || requestURI.indexOf("admin/index.do") >= 0;
         UserInfo loginUser = (UserInfo) requestHttp.getSession().getAttribute(Constant.SESSION_LOGIN_USER);
-        //if (!isLogin && loginUser == null) {
-        if (false) {
+        if (!isLogin && loginUser == null) {
             //如果判断是 AJAX 请求,直接设置为session超时
             if (requestHttp.getHeader("x-requested-with") != null && requestHttp.getHeader("x-requested-with").equals("XMLHttpRequest")) {
                 responseHttp.setHeader("sessionstatus", "timeout");
             } else {
                 request.setAttribute("message", "登陆超时，请重新登陆！");
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
-                requestDispatcher.forward(request, response);
+                StringBuffer redirectUrl = new StringBuffer();
+                redirectUrl.append(requestHttp.getScheme()).append("://");
+                redirectUrl.append(requestHttp.getServerName()).append(":");
+                redirectUrl.append(requestHttp.getServerPort()).append(requestHttp.getContextPath());
+                redirectUrl.append("/admin/index.do");
+                ((HttpServletResponse) response).sendRedirect(redirectUrl.toString());
             }
         } else {
             chain.doFilter(request, response);

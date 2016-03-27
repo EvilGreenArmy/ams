@@ -10,11 +10,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=GBK">
     <title><tiles:getAsString name="title" /></title>
-    <link href="${pageContext.request.contextPath}/css/admin/login/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin/layout/jquery-latest.js"></script>
+    <link href="${basePath}/css/admin/login/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="${basePath}/js/admin/layout/jquery.min.js"></script>
+    <script type="text/javascript" src="${basePath}/js/admin/layout/common.js"></script>
     <style type="text/css"></style>
     <script type="text/javascript"
-            src="${pageContext.request.contextPath}/js/admin/layout/jquery.layout-latest.js"></script>
+            src="${basePath}/js/admin/layout/jquery.layout-latest.js"></script>
+    <script type="text/javascript"
+            src="${basePath}/js/admin/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript"
+            src="${basePath}/js/admin/layer/layer.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('body').layout({applyDemoStyles: true});

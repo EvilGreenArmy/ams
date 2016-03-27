@@ -5,6 +5,7 @@ import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
 import com.ams.security.PwdEncoder;
 import com.ams.service.admin.UserService;
+import com.ams.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,8 @@ import java.util.Map;
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
+
+
     @Autowired
     private UserMapper userDao;
 
@@ -40,6 +43,8 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     public void saveUser(UserInfo user) {
+        String password = pwdEncoder.encodePassword(Constant.DEFAULT_PASSWORD, salt);
+        user.setPassword(password);
         userDao.insertUser(user);
     }
 
@@ -59,5 +64,14 @@ public class UserServiceImpl implements UserService {
         }
         return loginUser;
     }
-
+    @Override
+    public boolean checkAcctName(String acctName) {
+        UserInfo user = new UserInfo();
+        user.setAcctName(acctName);
+        List<UserInfo> list = userDao.getUser(user);
+        if(list != null && list.size() > 0) {
+            return true;
+        }
+        return false;
+    }
 }

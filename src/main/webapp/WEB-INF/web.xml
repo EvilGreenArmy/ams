@@ -110,6 +110,6 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     </filter>
     <filter-mapping>
         <filter-name>session-timeout</filter-name>
-        <url-pattern>*.htm</url-pattern>
+        <url-pattern>*.do</url-pattern>
     </filter-mapping>
 </web-app>

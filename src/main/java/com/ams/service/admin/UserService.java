@@ -13,4 +13,6 @@ public interface UserService {
     public void saveUser(UserInfo user);
 
     public UserInfo getUserByLogin(String userName, String password);
+
+    public boolean checkAcctName(String acctName);
 }

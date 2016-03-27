@@ -40,6 +40,11 @@ public class LoginController extends BaseController {
             if (Constant.ACTIVE_STATUS.equalsIgnoreCase(user.getStatus())) {
                 HttpSession session = getSession(request);
                 session.setAttribute(Constant.SESSION_LOGIN_USER, user);
+                StringBuffer basePath = new StringBuffer();
+                basePath.append(request.getScheme()).append("://");
+                basePath.append(request.getServerName()).append(":");
+                basePath.append(request.getServerPort()).append(request.getContextPath());
+                session.setAttribute(Constant.BASE_PATH, basePath.toString());
                 return "redirect:/admin/main.do";
             } else {
                 model.addAttribute("errMsg", "当前用户已被禁止登录");
