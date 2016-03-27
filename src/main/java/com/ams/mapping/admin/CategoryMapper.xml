@@ -3,28 +3,41 @@
 <mapper namespace="com.ams.dao.admin.CategoryMapper" >
     <resultMap type="com.ams.entities.admin.CategoryInfo" id="categoryMap">
         <!-- 主键必须用id标签映射 -->
-        <id column="id" property="id" />
+        <id column="CATEGORY_ID" property="id" />
         <!-- column为数据库字段名,property为实体类属性名 -->
-        <result column="name" property="name" />
+        <result column="CATEGORY_NAME" property="name" />
         <result column="status" property="status" />
-        <result column="is_parent" property="isParent" />
-       <!--<association column="parent_id" property="parent" javaType="com.ams.entities.admin.CategoryInfo" select="getCategoryById"/>-->
+        <association column="parent_id" property="parent" javaType="com.ams.entities.admin.CategoryInfo" select="getCategoryById"/>
     </resultMap>
     <select id="categoryQueryPage" parameterType="java.util.Map" resultMap="categoryMap">
         select *
-        from category_t u
+        from B_CATEGORY t where 1=1
         <where>
-            <if test="age> 0">
-            <![CDATA[ u.age > #{age} ]]>
+            <if test="name!=null and name !=''">
+                AND t.CATEGORY_NAME LIKE '%'||#{acctName}||'%'
+            </if>
+            <if test="status!=null and status !=''">
+                AND t.status = #{status}
             </if>
         </where>
     </select>
-   <!-- <insert id="insert" parameterType="com.ams.entities.admin.CategoryInfo" >
-        insert into category_t (id, name, status, is_parent, parent_id)
-        values (#{id}, #{name}, #{status},#{isParent},#{parent})
-    </insert>-->
+    <insert id="insertCategory" parameterType="com.ams.entities.admin.CategoryInfo" >
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select SEQ_AMS.Nextval from dual
+        </selectKey>
+        insert into B_CATEGORY (CATEGORY_ID, CATEGORY_NAME, status)
+        values (#{id}, #{name}, #{status})
+    </insert>
+
+    <insert id="insertSubCategory" parameterType="com.ams.entities.admin.CategoryInfo" >
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select SEQ_AMS.Nextval from dual
+        </selectKey>
+        insert into B_CATEGORY (CATEGORY_ID, CATEGORY_NAME, status, parent_id)
+        values (#{id}, #{name}, #{status}, #{parent.id})
+    </insert>
     <select id="getCategoryById" parameterType="int" resultMap="categoryMap">
-        select * from category_t
-        where id = #{id}
+        select * from B_CATEGORY
+        where CATEGORY_ID = #{id}
     </select>
 </mapper>

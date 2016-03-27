@@ -11,9 +11,7 @@ public class CategoryInfo {
     // 字典状态  A - 可用  D - 删除
     private String status;
 
-   /* private CategoryInfo parent;*/
-
-    private Integer isParent;
+    private CategoryInfo parent;
 
 
     public Integer getId() {
@@ -40,19 +38,11 @@ public class CategoryInfo {
         this.status = status;
     }
 
-    /*public CategoryInfo getParent() {
+    public CategoryInfo getParent() {
         return parent;
     }
 
     public void setParent(CategoryInfo parent) {
         this.parent = parent;
-    }*/
-
-    public Integer getIsParent() {
-        return isParent;
-    }
-
-    public void setIsParent(Integer isParent) {
-        this.isParent = isParent;
     }
 }
