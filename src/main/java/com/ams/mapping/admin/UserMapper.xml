@@ -3,11 +3,18 @@
 <mapper namespace="com.ams.dao.admin.UserMapper" >
     <resultMap type="com.ams.entities.admin.UserInfo" id="userMap">
         <!-- 主键必须用id标签映射 -->
-        <id column="id" property="id" />
+        <id column="ACCT_ID" property="id" />
         <!-- column为数据库字段名,property为实体类属性名 -->
-        <result column="user_name" property="userName" />
-        <result column="password" property="password" />
-        <result column="age" property="age" />
+        <result column="ACCT_NAME" property="acctName" />
+        <result column="USER_NAME" property="userName" />
+        <result column="FULL_NAME" property="fullName" />
+        <result column="ACCT_PWD" property="password" />
+        <result column="STATUS" property="status" />
+        <result column="DESCRIPTION" property="description" />
+        <result column="GENDER" property="gender" />
+        <result column="BIRTHDAY" property="birthday" />
+        <result column="EMAIL" property="email" />
+        <result column="PHONE" property="phone" />
     </resultMap>
     <select id="userQueryPage" parameterType="java.util.Map" resultMap="userMap">
         select *
@@ -22,4 +29,7 @@
         insert into user_t (id, user_name, password,age)
         values (#{id}, #{userName}, #{password},#{age})
     </insert>
+    <select id="getUser" parameterType="com.ams.entities.admin.UserInfo" resultMap="userMap">
+        SELECT * FROM b_account t WHERE t.ACCT_NAME=#{acctName, jdbcType=VARCHAR}
+    </select>
 </mapper>

@@ -20,6 +20,16 @@
         })
     });
     function doLogin() {
+      var userName = $("#userName").val();
+      var password = $("#password").val();
+      if(userName == '') {
+        $("#errMsg").text('用户名不能为空');
+        return;
+      }
+      if(password == '') {
+        $("#errMsg").text('密码不能为空');
+        return
+      }
       $("#loginForm").submit();
     }
   </script>
@@ -51,9 +61,16 @@
   <form action="login.do" method="post" id="loginForm">
     <div class="loginbox">
       <ul>
-        <li><input name="" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''"/></li>
-        <li><input name="" type="text" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/></li>
-        <li><input name="" type="button" class="loginbtn" value="登录"  onclick="doLogin();"  /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label></li>
+        <li><input id="userName" name="userName" type="text" class="loginuser" placeholder="用户名"   onclick="JavaScript:this.value=''"/></li>
+        <li><input id="password" name="password" type="password" class="loginpwd" placeholder="密码"  onclick="JavaScript:this.value=''"/></li>
+        <li style="width:100%;white-space:nowrap">
+          <input name="" type="button" class="loginbtn" value="登录"  onclick="doLogin();"  />
+          <label id="errMsg" style="color:red">
+            <c:if test="${errMsg != null}">
+                <c:out value="${errMsg}"/>
+            </c:if>
+          </label>
+        </li>
       </ul>
     </div>
   </form>

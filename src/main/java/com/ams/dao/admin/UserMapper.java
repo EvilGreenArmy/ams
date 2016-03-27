@@ -13,4 +13,6 @@ public interface UserMapper {
     List<UserInfo> userQueryPage(Map map);
 
     void insertUser(UserInfo user);
+
+    List<UserInfo> getUser(UserInfo userInfo);
 }

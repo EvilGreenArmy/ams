@@ -40,7 +40,6 @@ public class UserController extends BaseController {
     public String save(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         UserInfo user = new UserInfo();
         user.setUserName("Evan");
-        user.setAge(20);
         user.setPassword("123445");
         this.userService.saveUser(user);
         return "user/list";

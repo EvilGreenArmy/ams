@@ -107,4 +107,13 @@ public interface Constant {
 	 * session 中用户信息key
 	 * */
 	String SESSION_LOGIN_USER = "login_user";
-  }
+
+	/**
+	 * 激活状态.
+	 * */
+	String ACTIVE_STATUS = "A";
+	/**
+	 * 禁用状态.
+	 * */
+	String DISABLE_STATUS = "D";
+    }
