@@ -8,7 +8,7 @@
         <result column="name" property="name" />
         <result column="status" property="status" />
         <result column="is_parent" property="isParent" />
-        <association column="parent_id" property="parent" javaType="Category" select="getCategoryById"/>
+       <!--<association column="parent_id" property="parent" javaType="com.ams.entities.admin.CategoryInfo" select="getCategoryById"/>-->
     </resultMap>
     <select id="categoryQueryPage" parameterType="java.util.Map" resultMap="categoryMap">
         select *
@@ -19,11 +19,11 @@
             </if>
         </where>
     </select>
-    <insert id="insert" parameterType="com.ams.entities.admin.CategoryInfo" >
+   <!-- <insert id="insert" parameterType="com.ams.entities.admin.CategoryInfo" >
         insert into category_t (id, name, status, is_parent, parent_id)
         values (#{id}, #{name}, #{status},#{isParent},#{parent})
-    </insert>
-    <select id="getCategoryById" parameterType="int" resultType="Category">
+    </insert>-->
+    <select id="getCategoryById" parameterType="int" resultMap="categoryMap">
         select * from category_t
         where id = #{id}
     </select>
