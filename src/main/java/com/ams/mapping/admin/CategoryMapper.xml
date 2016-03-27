@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ams.dao.admin.CategoryMapper" >
+    <resultMap type="com.ams.entities.admin.CategoryInfo" id="categoryMap">
+        <!-- 主键必须用id标签映射 -->
+        <id column="id" property="id" />
+        <!-- column为数据库字段名,property为实体类属性名 -->
+        <result column="name" property="name" />
+        <result column="status" property="status" />
+        <result column="is_parent" property="isParent" />
+        <association column="parent_id" property="parent" javaType="Category" select="getCategoryById"/>
+    </resultMap>
+    <select id="categoryQueryPage" parameterType="java.util.Map" resultMap="categoryMap">
+        select *
+        from category_t u
+        <where>
+            <if test="age> 0">
+            <![CDATA[ u.age > #{age} ]]>
+            </if>
+        </where>
+    </select>
+    <insert id="insert" parameterType="com.ams.entities.admin.CategoryInfo" >
+        insert into category_t (id, name, status, is_parent, parent_id)
+        values (#{id}, #{name}, #{status},#{isParent},#{parent})
+    </insert>
+    <select id="getCategoryById" parameterType="int" resultType="Category">
+        select * from category_t
+        where id = #{id}
+    </select>
+</mapper>
