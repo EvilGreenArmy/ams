@@ -58,7 +58,7 @@
 <div class="loginbody">
 
   <span class="systemlogo"></span>
-  <form action="login.do" method="post" id="loginForm">
+  <form action="${pageContext.request.contextPath}/admin/login.do" method="post" id="loginForm">
     <div class="loginbox">
       <ul>
         <li><input id="userName" name="userName" type="text" class="loginuser" placeholder="用户名"   onclick="JavaScript:this.value=''"/></li>

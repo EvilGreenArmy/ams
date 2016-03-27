@@ -6,12 +6,13 @@
     <dd>
         <div class="title">
           <span><img src="${pageContext.request.contextPath}/img/admin/login/leftico01.png" /></span><c:out value="${parent.name}" />
-
+          <div class="clear"></div>
         </div>
+
         <ul class="menuson">
           <c:forEach var="menu" items="${menuList}">
             <c:if test="${menu.parentInfo.id == parent.id}">
-              <li><cite></cite><a href="javascript:;" onclick="getData('${menu.code }','','workspace');">首页模版</a><i></i></li>
+              <li><cite></cite><a href="javascript:;" onclick="getData('${menu.code }','','workspace');"><c:out value="${menu.name}"/></a><i></i></li>
             </c:if>
           </c:forEach>
         </ul>

@@ -18,16 +18,19 @@
     </resultMap>
     <select id="userQueryPage" parameterType="java.util.Map" resultMap="userMap">
         select *
-        from user_t u
+        from B_ACCOUNT u
         <where>
-            <if test="age> 0">
-            <![CDATA[ u.age > #{age} ]]>
+            <if test="name!=null and name !=''">
+                AND u.ACCT_NAME LIKE '%'||#{acctName}||'%'
             </if>
         </where>
     </select>
     <insert id="insert" parameterType="com.ams.entities.admin.UserInfo" >
-        insert into user_t (id, user_name, password,age)
-        values (#{id}, #{userName}, #{password},#{age})
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select ams_seq from dual
+        </selectKey>
+        insert into B_ACCOUNT (ACCT_ID, ACCT_NAME, USER_NAME, FULL_NAME, ACCT_PWD, STATUS, DESCRIPTION, GENDER, BIRTHDAY, EMAIL, PHONE)
+        values(#{id}, #{acctName}, #{userName},#{fullName},#{password},#{status},#{description},#{gender},#{birthday},#{email},#{phone})
     </insert>
     <select id="getUser" parameterType="com.ams.entities.admin.UserInfo" resultMap="userMap">
         SELECT * FROM b_account t WHERE t.ACCT_NAME=#{acctName, jdbcType=VARCHAR}

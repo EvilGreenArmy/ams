@@ -21,24 +21,20 @@
         });
     </script>
 </head>
-<body class="ui-layout-container"
-      style="zoom: 1; overflow: hidden; width: auto; height: auto; margin: 0px; position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px;">
+<body class="ui-layout-container">
 <div id="workspace" class="ui-layout-center ui-layout-pane ui-layout-pane-center ui-layout-pane-hover ui-layout-pane-center-hover ui-layout-pane-open-hover ui-layout-pane-center-open-hover"
      style="position: absolute; margin: 0px; left: 206px; right: 6px; top: 46px; bottom: 46px; height: 585px; width: 1046px; z-index: 0; padding: 10px; border: 1px solid rgb(187, 187, 187); overflow: auto; display: block; visibility: visible; background: rgb(255, 255, 255);">
 
 </div>
-<div class="ui-layout-north ui-layout-pane ui-layout-pane-north"
-     style="position: absolute; margin: 0px; top: 0px; bottom: auto; left: 0px; right: 0px; width: auto; z-index: 0; padding: 10px; border: 1px solid rgb(187, 187, 187); overflow: auto; height: 18px; display: block; visibility: visible; background: rgb(255, 255, 255);">
+<div class="ui-layout-north ui-layout-pane ui-layout-pane-north">
     <tiles:insertAttribute name="header" />
 </div>
 <%--<div class="ui-layout-south ui-layout-pane ui-layout-pane-south"--%>
-<div class="ui-layout-south ui-layout-pane ui-layout-pane-south"
-     style="position: absolute; margin: 0px; top: auto; bottom: 0px; left: 0px; right: 0px; width: auto; z-index: 0; padding: 10px; border: 1px solid rgb(187, 187, 187); overflow: auto; height: 20px!important; display: block; visibility: visible; background: rgb(255, 255, 255);">
+<div class="ui-layout-south ui-layout-pane ui-layout-pane-south">
     <tiles:insertAttribute name="footer" />
 </div>
 <!--<div class="ui-layout-east ui-layout-pane ui-layout-pane-east" style="position: absolute; margin: 0px; left: auto; right: 0px; top: 46px; bottom: 46px; height: 585px; z-index: 0; padding: 10px; border: 1px solid rgb(187, 187, 187); overflow: auto; width: 178px; display: none; visibility: visible; background: rgb(255, 255, 255);">East</div>-->
-<div class="ui-layout-west ui-layout-pane ui-layout-pane-west"
-     style="position: absolute; margin: 0px; left: 0px; right: auto; top: 46px; bottom: 46px; height: 585px; z-index: 0; padding: 10px; border: 1px solid rgb(187, 187, 187); overflow: auto; width: 178px; display: block; visibility: visible; background: rgb(255, 255, 255);">
+<div class="ui-layout-west ui-layout-pane ui-layout-pane-west">
     <tiles:insertAttribute name="navigation" />
 </div>
 <%--

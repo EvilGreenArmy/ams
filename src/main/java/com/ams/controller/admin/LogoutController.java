@@ -21,6 +21,6 @@ public class LogoutController extends BaseController {
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = getSession(request);
         session.removeAttribute(Constant.SESSION_LOGIN_USER);
-        return "index";
+        return "login/login";
     }
 }

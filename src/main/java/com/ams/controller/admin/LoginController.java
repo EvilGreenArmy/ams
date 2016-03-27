@@ -1,6 +1,7 @@
 package com.ams.controller.admin;
 
 import com.ams.entities.admin.UserInfo;
+import com.ams.service.admin.SourceService;
 import com.ams.service.admin.UserService;
 import com.ams.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ import javax.servlet.http.HttpSession;
 public class LoginController extends BaseController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private SourceService sourceService;
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String index(String userName, String password, HttpServletRequest request, HttpServletResponse response,
@@ -52,6 +55,12 @@ public class LoginController extends BaseController {
     @RequestMapping(value = "main", method = RequestMethod.GET)
     public String main(HttpServletRequest request, HttpServletResponse response,
                        Model model) {
+        HttpSession session = getSession(request);
+        UserInfo user = (UserInfo)session.getAttribute(Constant.SESSION_LOGIN_USER);
+        //一级菜单
+        model.addAttribute("parentList", sourceService.getParentSource(user));
+        //二级菜单
+        model.addAttribute("menuList", sourceService.getChildrenSource(user));
         return "base.definition";
     }
 }

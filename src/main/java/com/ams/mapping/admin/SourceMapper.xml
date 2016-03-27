@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ams.dao.admin.SourceMapper" >
+    <resultMap type="com.ams.entities.admin.SourceInfo" id="sourceMap">
+        <!-- 主键必须用id标签映射 -->
+        <id column="SOURCE_ID" property="id" />
+        <!-- column为数据库字段名,property为实体类属性名 -->
+        <result column="SOURCE_NAME" property="name" />
+        <result column="SOURCE_CODE" property="code" />
+        <result column="STATUS" property="status" />
+        <result column="SOURCE_LEVEL" property="level" />
+        <result column="SOURCE_STYLE" property="style" />
+        <result column="POSITION" property="position" />
+        <result column="IS_MENU" property="isMenu" />
+        <result column="DESCRIPTION" property="description" />
+        <result column="ICON" property="icon" />
+        <association property="parentInfo" column="PARENT_ID" javaType="com.ams.entities.admin.SourceInfo"  select="queryParent">
+        </association>
+    </resultMap>
+    <resultMap type="com.ams.entities.admin.SourceInfo" id="parentMap">
+        <!-- 主键必须用id标签映射 -->
+        <id column="SOURCE_ID" property="id" />
+        <!-- column为数据库字段名,property为实体类属性名 -->
+        <result column="SOURCE_NAME" property="name" />
+        <result column="SOURCE_CODE" property="code" />
+        <result column="STATUS" property="status" />
+        <result column="SOURCE_LEVEL" property="level" />
+        <result column="SOURCE_STYLE" property="style" />
+        <result column="POSITION" property="position" />
+        <result column="IS_MENU" property="isMenu" />
+        <result column="DESCRIPTION" property="description" />
+        <result column="ICON" property="icon" />
+    </resultMap>
+    <select id="queryParent" resultMap="parentMap">
+        SELECT
+          u.SOURCE_ID,
+          u.SOURCE_NAME,
+          u.SOURCE_CODE,
+          u.STATUS,
+          u.SOURCE_LEVEL,
+          u.SOURCE_STYLE,
+          u.POSITION,
+          u.IS_MENU,
+          u.DESCRIPTION,
+          u.ICON
+        FROM B_SOURCE u WHERE u.SOURCE_ID=#{id}
+        ORDER BY u.SOURCE_STYLE
+    </select>
+    <select id="sourceQueryPage" parameterType="java.util.Map" resultMap="sourceMap">
+        select *
+        from B_SOURCE u
+        <where>
+            <if test="name!=null and name !=''">
+               AND u.SOURCE_NAME LIKE '%'||#{name}||'%'
+            </if>
+        </where>
+    </select>
+    <select id="getParentSource" parameterType="com.ams.entities.admin.UserInfo" resultMap="sourceMap">
+      SELECT * from B_SOURCE u WHERE u.SOURCE_ID IN (
+          select u.parent_id from b_source u, b_account_duty ad,b_duty_source ds where ad.duty_id=ds.duty_id
+            and u.source_id=ds.source_id
+              and ad.acct_id=#{id}
+          ) AND u.STATUS='A'
+    </select>
+    <select id="getChildrenSource" parameterType="com.ams.entities.admin.UserInfo" resultMap="sourceMap">
+        SELECT * FROM B_SOURCE u WHERE u.SOURCE_ID IN (
+        SELECT ds.source_id FROM b_account_duty ad,b_duty_source ds WHERE ad.duty_id=ds.duty_id
+          AND ad.acct_id=#{id}
+        ) AND u.STATUS='A'
+    </select>
+</mapper>

@@ -20,7 +20,7 @@
   <ul>
     <li><span><img src="${pageContext.request.contextPath}/img/admin/login/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
     <li><a href="#">关于</a></li>
-    <li><a href="login.html" target="_parent">退出</a></li>
+    <li><a href="${pageContext.request.contextPath}/member/logout.do">退出</a></li>
   </ul>
 
   <div class="user">
