@@ -7,6 +7,7 @@ import com.ams.pagination.Page;
 import com.ams.service.admin.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -22,12 +23,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryMapper categoryDao;
 
-    @Override
     public List<CategoryInfo> querySubCategorys(Integer parentId) {
         return categoryDao.querySubCategorys(parentId);
     }
 
-    @Override
     public boolean checkCategoryName(String categoryName, Integer parentId) {
 
         CategoryInfo category = new CategoryInfo();
@@ -44,7 +43,6 @@ public class CategoryServiceImpl implements CategoryService {
         return true;
     }
 
-    @Override
     public Page<CategoryInfo> queryList() {
         Page<CategoryInfo> page = new Page<CategoryInfo>();
         Map<String, Object> paramMap = new HashMap<String, Object>();
@@ -54,22 +52,21 @@ public class CategoryServiceImpl implements CategoryService {
         return page;
     }
 
-    @Override
+    @Transactional
     public void saveCategory(CategoryInfo category) {
         categoryDao.insertCategory(category);
     }
 
-    @Override
     public CategoryInfo getCategoryById(Integer id) {
         return this.categoryDao.getCategoryById(id);
     }
 
-    @Override
+    @Transactional
     public void editCategory(CategoryInfo category) {
         this.categoryDao.updateCategory(category);
     }
 
-    @Override
+    @Transactional
     public void deletes(Integer[] ids) {
         this.categoryDao.deletes(ids);
 }

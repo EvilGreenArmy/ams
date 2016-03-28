@@ -26,16 +26,10 @@ public class CategoryController extends BaseController {
 
     private static Logger logger = Logger.getLogger(CategoryController.class);
 
-    @Autowired
-    private CategoryService categoryService;
-
     @RequestMapping(value = "list", method = RequestMethod.GET)
-    public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
-        Page<CategoryInfo> page = new Page<CategoryInfo>();
-        page.setCurrentPage(1);
-        page.setTotalPage(10);
-        page = this.categoryService.queryList();
-        System.out.print("Query list size:"+page.getResultList().size());
+    public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model, Page<CategoryInfo> page) {
+        page = categoryService.queryList();
+        logger.debug("Page info : " + page);
         model.addAttribute("page", page);
         return "category/list";
     }

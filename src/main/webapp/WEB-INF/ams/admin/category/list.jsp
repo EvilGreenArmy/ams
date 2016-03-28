@@ -26,6 +26,10 @@
 
 
     function delCategory(){
+        if(!checkSelect()){
+            layer.alert('至少选择一个删除对象');
+            return ;
+        }
         layer.confirm('确定要删除数据吗？', {
             btn: ['确定','取消'] //按钮
         }, function(){
@@ -39,8 +43,17 @@
 
     function checkSelect(){
         var ids = $("input:checked");
-        alert(ids.size());
+        if(ids.size()>0){
+            return true;
+        }
+        return false;
     }
+
+    $(function(){
+        $("#chk_all").click(function(){
+            $("input[name='id']").prop("checked",$(this).prop("checked"));
+        });
+    })
 
 </script>
 <form action="${basePath}/category/list.do" method="post" id="categoryList" name="categoryList">
@@ -61,7 +74,6 @@
             <li onclick="delCategory();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
         </ul>
 
-
         <ul class="toolbar1">
             <li><span><img src="${basePath}/img/admin/login/t05.png" /></span>设置</li>
         </ul>
@@ -72,7 +84,7 @@
     <table class="tablelist">
         <thead>
         <tr>
-            <th><input name="" type="checkbox" value="" /></th>
+            <th><input name="" type="checkbox" id="chk_all" /></th>
             <th>名称</th>
             <th>状态</th>
             <th>操作</th>
@@ -116,24 +128,6 @@
         </ul>
     </div>
 
-
-    <div class="tip">
-        <div class="tiptop"><span>提示信息</span><a></a></div>
-
-        <div class="tipinfo">
-            <span><img src="${basePath}/img/admin/login/ticon.png" /></span>
-            <div class="tipright">
-                <p>是否确认对信息的修改 ？</p>
-                <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
-            </div>
-        </div>
-
-        <div class="tipbtn">
-            <input name="" type="button"  class="sure" value="确定" />&nbsp;
-            <input name="" type="button"  class="cancel" value="取消" />
-        </div>
-
-    </div>
 </div>
 </form>
 <script type="text/javascript">

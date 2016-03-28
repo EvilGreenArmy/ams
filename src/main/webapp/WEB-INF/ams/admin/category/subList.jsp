@@ -23,7 +23,41 @@
      });
 
      });*/
+
+
+
+    function delCategory(){
+        if(!checkSelect()){
+            layer.alert('至少选择一个删除对象');
+            return ;
+        }
+        layer.confirm('确定要删除数据吗？', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            trimForm('categoryList');
+            $("#categoryList").attr("action","${basePath}/category/del.do?parentId=${parentId}")
+            layer.closeAll();
+            postDataByFormName('categoryList','workspace');
+        }, function(){
+        });
+    }
+
+    function checkSelect(){
+        var ids = $("input:checked");
+        if(ids.size()>0){
+            return true;
+        }
+        return false;
+    }
+
+    $(function(){
+        $("#chk_all").click(function(){
+            $("input[name='id']").prop("checked",$(this).prop("checked"));
+        });
+    })
+
 </script>
+<form action="${basePath}/category/list.do" method="post" id="categoryList" name="categoryList">
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -38,7 +72,7 @@
 
         <ul class="toolbar">
             <li class="click" onclick="getData('${basePath}/category/add.do?parentId=${parentId}','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加</li>
-            <li><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
+            <li onclick="delCategory();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
         </ul>
     </div>
 
@@ -54,7 +88,7 @@
         <tbody>
         <c:forEach var="obj" items="${list}">
             <tr>
-                <td><input name="ids" type="checkbox" value="${obj.id}" /></td>
+                <td><input name="id" type="checkbox" value="${obj.id}" /></td>
                 <td>${obj.name}</td>
                 <td>
                     <c:if test="${'A' eq obj.status}">
@@ -90,7 +124,7 @@
 
     </div>
 </div>
-
+</form>
 <script type="text/javascript">
     $('.tablelist tbody tr:odd').addClass('odd');
 </script>

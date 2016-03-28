@@ -13,7 +13,7 @@ public class Page<E> {
     private int showCount = 10;
     private int totalPage;
     private int totalResult;
-    private int currentPage;
+    private int currentPage = 1;
     private int currentResult;
 
     private String sortField;
@@ -82,5 +82,19 @@ public class Page<E> {
 
     public void setResultList(List<E> resultList) {
         this.resultList = resultList;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Page{" +
+                "orderBy='" + orderBy + '\'' +
+                ", showCount=" + showCount +
+                ", totalPage=" + totalPage +
+                ", totalResult=" + totalResult +
+                ", currentPage=" + currentPage +
+                ", currentResult=" + currentResult +
+                ", sortField='" + sortField + '\'' +
+                '}';
     }
 }

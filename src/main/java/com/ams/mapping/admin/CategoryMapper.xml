@@ -11,15 +11,13 @@
     </resultMap>
     <select id="categoryQueryPage" parameterType="java.util.Map" resultMap="categoryMap">
         select *
-        from B_CATEGORY t
-        <where>
-            <if test="name!=null and name !=''">
-                AND t.CATEGORY_NAME LIKE '%'||#{acctName}||'%'
-            </if>
-            <if test="status!=null and status !=''">
-                AND t.status = #{status}
-            </if>
-        </where>
+        from B_CATEGORY t where t.parent_id is null
+        <if test="name!=null and name !=''">
+            AND t.CATEGORY_NAME LIKE '%'||#{acctName}||'%'
+        </if>
+        <if test="status!=null and status !=''">
+            AND t.status = #{status}
+        </if>
     </select>
     <insert id="insertCategory" parameterType="com.ams.entities.admin.CategoryInfo" >
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
