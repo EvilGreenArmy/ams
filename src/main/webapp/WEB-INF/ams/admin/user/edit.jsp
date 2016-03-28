@@ -59,10 +59,11 @@
     }
   }
   function checkAcctName(val) {
+    var id = $("#id").val();
     $.ajax({
       type: "GET",
       url: '${basePath}/user/checkAcctName.do?t=' + Math.random(),
-      data: {acctName:val},
+      data: {acctName:val, id :id},
       dataType: "json",
       success: function(data) {
         data = eval("(" + data +")");
@@ -85,7 +86,7 @@
     });
   }
 </script>
-<form action="${basePath}/user/add.do" method="post" id="user" name="user">
+<form action="${basePath}/user/edit.do" method="post" id="user" name="user">
   <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -96,25 +97,25 @@
   </div>
 
   <div class="formbody">
-
+    <input type="hidden" id="id" name="id" value="${user.id}" readonly />
     <div class="formtitle"><span>用户信息</span></div>
 
     <ul class="forminfo">
-      <li><label>账号</label><input name="acctName" id="acctName" type="text" class="dfinput"  /><i style="color: red;"></i></li>
-      <li><label>用户名</label><input name="userName" id="userName" type="text" class="dfinput" /><i style="color: red;"></i></li>
-      <li><label>用户名全称</label><input name="fullName" id="fullName" type="text" class="dfinput" /></li>
+      <li><label>账号</label><input name="acctName" value="${user.acctName}" readonly id="acctName" type="text" class="dfinput"  /><i></i></li>
+      <li><label>用户名</label><input name="userName" value="${user.userName}" id="userName" type="text" class="dfinput" /><i style="color: red;"></i></li>
+      <li><label>用户名全称</label><input name="fullName" value="${user.fullName}" id="fullName" type="text" class="dfinput" /></li>
       <li><label>状态</label><cite>
-        <input name="status" type="radio" value="A" checked="checked" />启用&nbsp;&nbsp;&nbsp;&nbsp;
-        <input name="status" type="radio" value="D" />禁用</cite>
+        <input name="status" type="radio" value="A" <c:if test="${'A' eq user.status}">checked="checked"</c:if> />启用&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="status" type="radio" value="D" <c:if test="${'D' eq user.status}">checked="checked"</c:if> />禁用</cite>
       </li>
       <%--<li><label>生日</label><input name="birthday" id="birthday" readonly type="text" class="dfinput" onClick="WdatePicker({el:'birthday',dateFmt:'yyyy-MM-dd'});"/><i></i></li>--%>
       <li><label>性别</label><cite>
-        <input name="gender"  type="radio" value="1" checked="checked" />男&nbsp;&nbsp;&nbsp;&nbsp;
-        <input name="gender" type="radio" value="0" />女</cite>
+        <input name="gender"  type="radio" value="1" <c:if test="${'1' eq user.gender}">checked="checked"</c:if> />男&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="gender" type="radio" value="0" <c:if test="${'0' eq user.gender}">checked="checked"</c:if> />女</cite>
       </li>
 
-      <li><label>电子邮件</label><input name="email" id="email" type="text" class="dfinput" /><i style="color: red;"></i></li>
-      <li><label>手机</label><input name="phone" id="phone" type="text" class="dfinput" /><i style="color: red;"></i></li>
+      <li><label>电子邮件</label><input name="email" id="email" value="${user.email}" type="text" class="dfinput" /><i style="color: red;"></i></li>
+      <li><label>手机</label><input name="phone" id="phone" value="${user.phone}" type="text" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>&nbsp;</label><input onclick="saveUser();" type="button" class="btn" value="确认保存"/></li>
     </ul>
   </div>

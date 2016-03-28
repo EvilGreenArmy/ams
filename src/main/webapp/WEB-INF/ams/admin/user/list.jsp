@@ -23,7 +23,42 @@
         });
 
     });*/
+    function delUser(){
+        layer.confirm('确定要删除数据吗？', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            trimForm('userList');
+            $("#userList").attr("action","${basePath}/user/delete.do")
+            layer.closeAll();
+            postDataByFormName('userList','workspace');
+        }, function(){
+        });
+    }
+
+    function checkSelect(){
+        var ids = $("input:checked");
+        if(ids.size()>0){
+            return true;
+        }
+        return false;
+    }
+
+    $(function(){
+        $("#chk_all").click(function(){
+            $("input[name='id']").prop("checked",$(this).prop("checked"));
+        });
+    })
+    function singleDelete(id) {
+        layer.confirm('确定要删除数据吗？', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            postDataByURL('${basePath}/user/delete.do',{id:id},'workspace');
+            layer.closeAll();
+        }, function(){
+        });
+    }
 </script>
+<form action="${basePath}/user/list.do" method="post" id="userList" name="userList">
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -38,13 +73,13 @@
 
         <ul class="toolbar">
             <li class="click" onclick="getData('${basePath}/user/add.do','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加</li>
-            <li class="click"><span><img src="${basePath}/img/admin/login/t02.png" /></span>修改</li>
-            <li><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
+            <%--<li class="click"><span><img src="${basePath}/img/admin/login/t02.png" /></span>激活</li>--%>
+            <li onclick="delUser();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
         </ul>
 
 
         <ul class="toolbar1">
-            <li><span><img src="${basePath}/img/admin/login/t05.png" /></span>设置</li>
+            <%--<li><span><img src="${basePath}/img/admin/login/t05.png" /></span>设置</li>--%>
         </ul>
 
     </div>
@@ -53,13 +88,13 @@
     <table class="tablelist">
         <thead>
         <tr>
-            <th><input name="" type="checkbox" value="" /></th>
+            <th><input id="chk_all" type="checkbox" value="" /></th>
             <th>账号</th>
             <th>用户名</th>
             <th>用户名全称</th>
             <th>状态</th>
             <th>性别</th>
-            <th>生日</th>
+            <%--<th>生日</th>--%>
             <th>电子邮件</th>
             <th>手机</th>
             <th>操作</th>
@@ -88,10 +123,13 @@
                         女
                     </c:if>
                 </td>
-                <td><fmt:formatDate value="${obj.birthday}" pattern="yyyy-MM-dd"/></td>
+                <%--<td><fmt:formatDate value="${obj.birthday}" pattern="yyyy-MM-dd"/></td>--%>
                 <td>${obj.email}</td>
                 <td>${obj.phone}</td>
-                <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+                <td>
+                    <a href="javascript:;" class="tablelink" onclick="getData('${basePath}/user/edit.do?id=${obj.id}','','workspace');">修改</a> |
+                    <a href="javascript:;" onclick="singleDelete(${obj.id})" class="tablelink"> 删除</a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
@@ -113,29 +151,8 @@
         </ul>
     </div>
 
-
-    <div class="tip">
-        <div class="tiptop"><span>提示信息</span><a></a></div>
-
-        <div class="tipinfo">
-            <span><img src="${basePath}/img/admin/login/ticon.png" /></span>
-            <div class="tipright">
-                <p>是否确认对信息的修改 ？</p>
-                <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
-            </div>
-        </div>
-
-        <div class="tipbtn">
-            <input name="" type="button"  class="sure" value="确定" />&nbsp;
-            <input name="" type="button"  class="cancel" value="取消" />
-        </div>
-
     </div>
-
-
-
-
-</div>
+    </form>
 
 <script type="text/javascript">
     $('.tablelist tbody tr:odd').addClass('odd');

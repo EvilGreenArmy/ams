@@ -19,8 +19,6 @@ import java.util.Map;
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
-
-
     @Autowired
     private UserMapper userDao;
 
@@ -45,6 +43,8 @@ public class UserServiceImpl implements UserService {
     public void saveUser(UserInfo user) {
         String password = pwdEncoder.encodePassword(Constant.DEFAULT_PASSWORD, salt);
         user.setPassword(password);
+        //删除状态默认为A 未删除
+
         userDao.insertUser(user);
     }
 
@@ -65,13 +65,29 @@ public class UserServiceImpl implements UserService {
         return loginUser;
     }
     @Override
-    public boolean checkAcctName(String acctName) {
-        UserInfo user = new UserInfo();
-        user.setAcctName(acctName);
-        List<UserInfo> list = userDao.getUser(user);
+    public boolean checkAcctName(UserInfo userInfo) {
+        List<UserInfo> list = userDao.getUser(userInfo);
         if(list != null && list.size() > 0) {
             return true;
         }
         return false;
+    }
+    @Override
+    public UserInfo getUserById(Integer id) {
+        List<UserInfo> userList = userDao.getUserById(id);
+        if(userList != null && userList.size() > 0) {
+            return  userList.get(0);
+        }
+        return null;
+    }
+
+    @Transactional
+    public void updateUser(UserInfo user) {
+        userDao.updateUser(user);
+    }
+
+    @Transactional
+    public void deleteUser(Integer[] ids) {
+        userDao.deleteUser(ids);
     }
 }

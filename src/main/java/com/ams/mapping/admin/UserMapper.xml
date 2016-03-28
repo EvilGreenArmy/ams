@@ -12,27 +12,44 @@
         <result column="STATUS" property="status" jdbcType="VARCHAR" />
         <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
         <result column="GENDER" property="gender" jdbcType="NUMERIC"/>
-        <result column="BIRTHDAY" property="birthday" jdbcType="DATE"/>
+        <!--<result column="BIRTHDAY" property="birthday" jdbcType="DATE"/>-->
         <result column="EMAIL" property="email" jdbcType="VARCHAR"/>
         <result column="PHONE" property="phone" jdbcType="VARCHAR"/>
+        <result column="DEL_STATE" property="delState" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="userQueryPage" parameterType="java.util.Map" resultMap="userMap">
         select *
         from B_ACCOUNT u
-        <where>
+        WHERE  1=1 AND u.DEL_STATE='A'
             <if test="name!=null and name !=''">
-                AND u.ACCT_NAME LIKE '%'||#{acctName}||'%'
+              AND u.ACCT_NAME LIKE '%'||#{acctName}||'%'
             </if>
-        </where>
     </select>
     <insert id="insertUser" parameterType="com.ams.entities.admin.UserInfo" >
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
             select SEQ_AMS.nextval  from dual
         </selectKey>
-        insert into B_ACCOUNT (ACCT_ID, ACCT_NAME, USER_NAME, FULL_NAME, ACCT_PWD, STATUS, GENDER, BIRTHDAY, EMAIL, PHONE)
-        values(#{id}, #{acctName}, #{userName},#{fullName},#{password},#{status},#{gender},#{birthday,jdbcType=DATE},#{email},#{phone})
+        insert into B_ACCOUNT (ACCT_ID, ACCT_NAME, USER_NAME, FULL_NAME, ACCT_PWD, STATUS, GENDER, EMAIL, PHONE, DEL_STATE)
+        values(#{id}, #{acctName}, #{userName},#{fullName},#{password},#{status},#{gender},#{email},#{phone}, #{delState})
     </insert>
     <select id="getUser" parameterType="com.ams.entities.admin.UserInfo" resultMap="userMap">
-        SELECT * FROM b_account t WHERE t.ACCT_NAME=#{acctName}
+        SELECT * FROM b_account t WHERE t.ACCT_NAME=#{acctName} AND t.DEL_STATE='A'
+        <if test="id != null">
+            AND t.ACCT_ID != #{id}
+        </if>
     </select>
+
+    <select id="getUserById" parameterType="java.lang.Integer" resultMap="userMap">
+        SELECT * FROM b_account t WHERE t.ACCT_ID=#{id}
+    </select>
+    <update id="updateUser" parameterType="com.ams.entities.admin.UserInfo">
+        UPDATE b_account
+        SET USER_NAME=#{userName, jdbcType=VARCHAR},FULL_NAME=#{fullName, jdbcType=VARCHAR},STATUS=#{status, jdbcType=VARCHAR},GENDER=#{gender, jdbcType=NUMERIC},
+        EMAIL=#{email, jdbcType=VARCHAR},PHONE=#{phone, jdbcType=VARCHAR}
+        WHERE ACCT_ID=#{id}
+    </update>
+    <update id="deleteUser">
+        UPDATE b_account set DEL_STATE='D' WHERE ACCT_ID  in
+        <foreach collection="array" item="id" open="(" separator="," close=")">#{id}</foreach>
+    </update>
 </mapper>

@@ -3,6 +3,7 @@ package com.ams.controller.admin;
 import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
 import com.ams.service.admin.UserService;
+import com.ams.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,7 @@ public class UserController extends BaseController {
         page.setCurrentPage(1);
         page.setTotalPage(10);
         Map<String, Object> params = new HashMap<String, Object>();
+       // params.put("delState", Constant.ACTIVE_STATUS);
         page = this.userService.queryList();
         model.addAttribute("page", page);
         return "user/list";
@@ -51,8 +53,11 @@ public class UserController extends BaseController {
     }
     @RequestMapping(value = "checkAcctName", method = RequestMethod.GET)
     public @ResponseBody String checkAcctName(HttpServletRequest request, HttpServletResponse response, ModelMap model,
-                      @RequestParam("acctName") String acctName) {
-        boolean exist = this.userService.checkAcctName(acctName);
+                      @RequestParam("acctName") String acctName, @RequestParam("id") Integer id) {
+        UserInfo user = new UserInfo();
+        user.setAcctName(acctName);
+        user.setId(id);
+        boolean exist = this.userService.checkAcctName(user);
         StringBuffer sb = new StringBuffer("{");
         if(exist) {
             sb.append("\"state\":\"1\"");
@@ -62,7 +67,25 @@ public class UserController extends BaseController {
         sb.append("}");
         return sb.toString();
     }
-
+    @RequestMapping(value = "edit", method = RequestMethod.GET)
+    public String initEdit(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+                           @RequestParam("id") Integer id) {
+        UserInfo user = this.userService.getUserById(id);
+        model.addAttribute("user", user);
+        return "user/edit";
+    }
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+     public String edit(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+                        @ModelAttribute UserInfo user) {
+        this.userService.updateUser(user);
+        return "redirect:/user/list.do";
+    }
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public String delete(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+                       @RequestParam("id") Integer[] ids) {
+        this.userService.deleteUser(ids);
+        return "redirect:/user/list.do";
+    }
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

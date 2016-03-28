@@ -29,6 +29,8 @@ public class UserInfo implements Serializable {
 
     private String phone;
 
+    private String delState;
+
     public Integer getId() {
         return id;
     }
@@ -115,5 +117,13 @@ public class UserInfo implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getDelState() {
+        return delState;
+    }
+
+    public void setDelState(String delState) {
+        this.delState = delState;
     }
 }

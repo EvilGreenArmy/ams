@@ -14,5 +14,11 @@ public interface UserService {
 
     public UserInfo getUserByLogin(String userName, String password);
 
-    public boolean checkAcctName(String acctName);
+    public boolean checkAcctName(UserInfo userInfo);
+
+    public UserInfo getUserById(Integer id);
+
+    public void updateUser(UserInfo user);
+
+    public void deleteUser(Integer[] ids);
 }

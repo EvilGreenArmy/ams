@@ -17,4 +17,10 @@ public interface UserMapper {
     void insertUser(UserInfo user);
 
     List<UserInfo> getUser(UserInfo userInfo);
+
+    List<UserInfo> getUserById(Integer id);
+
+    void updateUser(UserInfo userInfo);
+
+    void deleteUser(Integer[] ids);
 }
