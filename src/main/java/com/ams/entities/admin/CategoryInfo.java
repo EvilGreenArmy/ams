@@ -45,4 +45,14 @@ public class CategoryInfo {
     public void setParent(CategoryInfo parent) {
         this.parent = parent;
     }
+
+    @Override
+    public String toString() {
+        return "CategoryInfo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", status='" + status + '\'' +
+                ", parent=" + parent +
+                '}';
+    }
 }

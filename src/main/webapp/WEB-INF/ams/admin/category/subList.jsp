@@ -23,27 +23,7 @@
      });
 
      });*/
-
-
-    function delCategory(){
-        layer.confirm('确定要删除数据吗？', {
-            btn: ['确定','取消'] //按钮
-        }, function(){
-            trimForm('categoryList');
-            $("#categoryList").attr("action","${basePath}/category/del.do")
-            layer.closeAll();
-            postDataByFormName('categoryList','workspace');
-        }, function(){
-        });
-    }
-
-    function checkSelect(){
-        var ids = $("input:checked");
-        alert(ids.size());
-    }
-
 </script>
-<form action="${basePath}/category/list.do" method="post" id="categoryList" name="categoryList">
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -57,17 +37,10 @@
     <div class="tools">
 
         <ul class="toolbar">
-            <li class="click" onclick="getData('${basePath}/category/add.do','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加</li>
-            <li onclick="delCategory();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
+            <li class="click" onclick="getData('${basePath}/category/add.do?parentId=${parentId}','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加</li>
+            <li><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
         </ul>
-
-
-        <ul class="toolbar1">
-            <li><span><img src="${basePath}/img/admin/login/t05.png" /></span>设置</li>
-        </ul>
-
     </div>
-
 
     <table class="tablelist">
         <thead>
@@ -79,9 +52,9 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="obj" items="${page.resultList}">
+        <c:forEach var="obj" items="${list}">
             <tr>
-                <td><input name="id" type="checkbox" value="${obj.id}" /></td>
+                <td><input name="ids" type="checkbox" value="${obj.id}" /></td>
                 <td>${obj.name}</td>
                 <td>
                     <c:if test="${'A' eq obj.status}">
@@ -92,30 +65,12 @@
                     </c:if>
                 </td>
                 <td>
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/category/edit.do?id=${obj.id}','','workspace');">修改</a> |
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/category/subList.do?parentId=${obj.id}','','workspace');">字典值管理</a>
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/category/edit.do?id=${obj.id}','','workspace');">修改</a>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-
-
-    <div class="pagin">
-        <div class="message">共<i class="blue"><c:out value="${page.totalResult}"/></i>条记录，当前显示第&nbsp;<i class="blue"><c:out value="${page.currentPage + 1}"/>&nbsp;</i>页</div>
-        <ul class="paginList">
-            <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-            <li class="paginItem"><a href="javascript:;">1</a></li>
-            <li class="paginItem current"><a href="javascript:;">2</a></li>
-            <li class="paginItem"><a href="javascript:;">3</a></li>
-            <li class="paginItem"><a href="javascript:;">4</a></li>
-            <li class="paginItem"><a href="javascript:;">5</a></li>
-            <li class="paginItem more"><a href="javascript:;">...</a></li>
-            <li class="paginItem"><a href="javascript:;">10</a></li>
-            <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
-    </div>
-
 
     <div class="tip">
         <div class="tiptop"><span>提示信息</span><a></a></div>
@@ -135,7 +90,7 @@
 
     </div>
 </div>
-</form>
+
 <script type="text/javascript">
     $('.tablelist tbody tr:odd').addClass('odd');
 </script>

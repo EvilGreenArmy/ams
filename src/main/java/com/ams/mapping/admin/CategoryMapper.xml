@@ -3,15 +3,15 @@
 <mapper namespace="com.ams.dao.admin.CategoryMapper" >
     <resultMap type="com.ams.entities.admin.CategoryInfo" id="categoryMap">
         <!-- 主键必须用id标签映射 -->
-        <id column="CATEGORY_ID" property="id" />
+        <id column="CATEGORY_ID" property="id"  jdbcType="NUMERIC"/>
         <!-- column为数据库字段名,property为实体类属性名 -->
-        <result column="CATEGORY_NAME" property="name" />
-        <result column="status" property="status" />
-        <association column="parent_id" property="parent" javaType="com.ams.entities.admin.CategoryInfo" select="getCategoryById"/>
+        <result column="CATEGORY_NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="status" property="status"  jdbcType="VARCHAR"/>
+        <association column="parent_id" property="parent" javaType="com.ams.entities.admin.CategoryInfo" jdbcType="NUMERIC"  select="getCategoryById"/>
     </resultMap>
     <select id="categoryQueryPage" parameterType="java.util.Map" resultMap="categoryMap">
         select *
-        from B_CATEGORY t where 1=1
+        from B_CATEGORY t
         <where>
             <if test="name!=null and name !=''">
                 AND t.CATEGORY_NAME LIKE '%'||#{acctName}||'%'
@@ -25,19 +25,36 @@
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
             select SEQ_AMS.Nextval from dual
         </selectKey>
-        insert into B_CATEGORY (CATEGORY_ID, CATEGORY_NAME, status)
-        values (#{id}, #{name}, #{status})
-    </insert>
-
-    <insert id="insertSubCategory" parameterType="com.ams.entities.admin.CategoryInfo" >
-        <selectKey keyProperty="id" resultType="int" order="BEFORE">
-            select SEQ_AMS.Nextval from dual
-        </selectKey>
         insert into B_CATEGORY (CATEGORY_ID, CATEGORY_NAME, status, parent_id)
-        values (#{id}, #{name}, #{status}, #{parent.id})
+        values (#{id}, #{name}, #{status}, #{parent.id,jdbcType=NUMERIC})
     </insert>
     <select id="getCategoryById" parameterType="int" resultMap="categoryMap">
         select * from B_CATEGORY
         where CATEGORY_ID = #{id}
     </select>
+
+    <select id="querySubCategorys" parameterType="int" resultMap="categoryMap">
+        select * from B_CATEGORY
+        where PARENT_ID = #{parentId}
+    </select>
+
+    <select id="getCategory" parameterType="com.ams.entities.admin.CategoryInfo" resultMap="categoryMap">
+        select * from B_CATEGORY t
+        where 1=1
+        <if test="name != null and name != ''">
+            AND t.CATEGORY_NAME = #{name}
+        </if>
+        <if test="parent != null">
+            AND t.print_id = #{parent.id}
+        </if>
+    </select>
+
+    <update id="updateCategory" parameterType="com.ams.entities.admin.CategoryInfo">
+        update B_CATEGORY set CATEGORY_NAME=#{name}, status=#{status}, parent_id=#{parent.id,jdbcType=NUMERIC} where CATEGORY_ID = #{id}
+    </update>
+
+    <delete id="deletes">
+        delete from B_CATEGORY where CATEGORY_ID in
+        <foreach collection="array" item="id" open="(" separator="," close=")">#{id}</foreach>
+    </delete>
 </mapper>

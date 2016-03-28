@@ -18,4 +18,12 @@ public interface CategoryMapper {
     void insertCategory(CategoryInfo category);
 
     CategoryInfo getCategoryById(Integer id);
+
+    CategoryInfo getCategory(CategoryInfo category);
+
+    List<CategoryInfo> querySubCategorys(Integer parentId);
+
+    void updateCategory(CategoryInfo category);
+
+    void deletes(Integer[] ids);
 }
