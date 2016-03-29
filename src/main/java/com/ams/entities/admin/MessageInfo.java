@@ -15,7 +15,7 @@ public class MessageInfo {
     // 状态 N-未阅读 R-阅读 D-删除
     private String status;
 
-    private UserInfo from;
+    private UserInfo fromUser;
 
     private Date sendDate;
 
@@ -59,12 +59,12 @@ public class MessageInfo {
         this.status = status;
     }
 
-    public UserInfo getFrom() {
-        return from;
+    public UserInfo getFromUserr() {
+        return fromUser;
     }
 
-    public void setFrom(UserInfo from) {
-        this.from = from;
+    public void setFromUserr(UserInfo fromUser) {
+        this.fromUser = fromUser;
     }
 
     @Override
@@ -74,7 +74,7 @@ public class MessageInfo {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", status='" + status + '\'' +
-                ", from=" + from +
+                ", fromUser=" + fromUser +
                 ", sendDate=" + sendDate +
                 '}';
     }
