@@ -83,7 +83,11 @@ public class PageHelper implements Interceptor {
                         page = (Page) map.get("page");
                         if (page == null)
                             page = new Page();
+                        //总记录数
                         page.setTotalResult(count);
+                        //总页数
+                        int totalPage = (count + page.getShowCount() - 1) / page.getShowCount();
+                        page.setTotalPage(totalPage);
                     } else {
                         Field pageField = ReflectHelper.getFieldByFieldName(
                                 parameterObject, "page");
@@ -92,7 +96,11 @@ public class PageHelper implements Interceptor {
                                     parameterObject, "page");
                             if (page == null)
                                 page = new Page();
+                            //总记录数
                             page.setTotalResult(count);
+                            //总页数
+                            int totalPage = (count + page.getShowCount() - 1) / page.getShowCount();
+                            page.setTotalPage(totalPage);
                             ReflectHelper.setValueByFieldName(parameterObject,
                                     "page", page);
                         } else {
