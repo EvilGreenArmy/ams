@@ -136,7 +136,9 @@
         </tbody>
     </table>
 
-    <jsp:include page="../pagination/ajaxPager.jsp" flush="true" />
+    <jsp:include page="../pagination/ajaxPager.jsp" flush="true" >
+        <jsp:param name="formName" value="userList" />
+    </jsp:include>
     </div>
     </form>
 

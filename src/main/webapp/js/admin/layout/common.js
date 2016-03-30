@@ -200,6 +200,8 @@ function hideDiv(div_id) {
  */
 
 function postDataByFormName(formName,resultArea,doSuccess,doError){
+    alert(111);
+    alert(formName);
     var dataString = $("#"+formName).serialize();
     actionUrl = $("#"+formName)[0].action;
     postDataByURL(actionUrl,dataString,resultArea,doSuccess,doError);
@@ -456,5 +458,25 @@ function replaceQueryHtml(content){
 
     return html;
 }
+/**
+ * 分页公共方法.
+ * */
 
+function changePage(currentPage, pageSize, formName) {
+    document.getElementsByName("currentPage").value = currentPage;
+    document.getElementsByName("pageSize").value = pageSize;
+    postDataByFormName(formName,'workspace');
+}
+function goPage( pageSize, formName) {
+    var currentPage = document.getElementsByName("input_page").value;
+    if(currentPage == null || currentPage == '') {
+        currentPage = 0;
+    }
+    if(currentPage > 0) {
+        document.getElementsByName("currentPage").value = currentPage;
+        document.getElementsByName("pageSize").value = pageSize;
+        postDataByFormName(formName,'workspace');
+    }
+
+}
 

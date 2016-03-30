@@ -28,12 +28,8 @@ public class UserServiceImpl implements UserService {
     private static final String salt = "googlebaidu";
     private static final String MD5_KEY = "amsMd5";
     @Override
-    public Page<UserInfo> queryList() {
-        Page<UserInfo> page = new Page<UserInfo>();
-        UserInfo user = new UserInfo();
-        Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("page", page);
-        paramMap.put("age", 20);
+    public Page<UserInfo> queryList(Map<String, Object> paramMap) {
+        Page<UserInfo> page = (Page<UserInfo>)paramMap.get("page");
         List<UserInfo> result = userDao.userQueryPage(paramMap);
         page.setResultList(result);
         return page;

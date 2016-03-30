@@ -3,14 +3,29 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript">
+    function pagework(){
+        var num=parseInt($("#input_page").val());
+        if(isNaN(num)) {
+            $("#input_page").val("");
+        }
+        var totalPage = '${page.totalPage}';
+        if(num <= 0 || num > totalPage){
+            $("#input_page").val("");
+        }
+
+    }
+</script>
 <div class="pagin">
     <div class="message">共<i class="blue"><c:out value="${page.totalResult}"/></i>条记录，当前显示第&nbsp;<i class="blue"><c:out
             value="${page.currentPage}"/>&nbsp;</i>页
     </div>
     <ul class="paginList">
         <c:if test="${page.currentPage > 1}">
-            <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
+            <li class="paginItem"><a href="javascript:;" onclick="changePage(${page.currentPage - 1}, ${page.showCount}, '${param.formName}')">
+                <span class="pagepre"></span></a></li>
         </c:if>
+        <!-- 禁用状态 -->
         <c:if test="${page.currentPage <= 1}">
             <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
         </c:if>
@@ -20,7 +35,7 @@
                     <li class="paginItem current"><a href="javascript:;">${i}</a></li>
                 </c:if>
                 <c:if test="${page.currentPage != i}">
-                    <li class="paginItem"><a href="javascript:;">${i}</a></li>
+                    <li class="paginItem"><a href="javascript:;" onclick="changePage(${i}, ${page.showCount}, '${param.formName}')">${i}</a></li>
                 </c:if>
             </c:forEach>
         </c:if>
@@ -31,14 +46,14 @@
                         <li class="paginItem current"><a href="javascript:;">${i}</a></li>
                     </c:if>
                     <c:if test="${page.currentPage != i}">
-                        <li class="paginItem"><a href="javascript:;">${i}</a></li>
+                        <li class="paginItem"><a href="javascript:;" onclick="changePage(${i}, ${page.showCount}, '${param.formName}')">${i}</a></li>
                     </c:if>
                 </c:forEach>
             </c:if>
             <c:if test="${page.currentPage > 5}">
                 <!-- 默认显示第一页、第二页 -->
-                <li class="paginItem"><a href="javascript:;">1</a></li>
-                <li class="paginItem"><a href="javascript:;">2</a></li>
+                <li class="paginItem"><a href="javascript:;" onclick="changePage(1, ${page.showCount}, '${param.formName}')">1</a></li>
+                <li class="paginItem"><a href="javascript:;" onclick="changePage(2, ${page.showCount}, '${param.formName}')">2</a></li>
                 <li class="paginItem more"><a href="javascript:;">...</a></li>
                 <c:set var="begin" value="${page.currentPage - 2 }"/>
                 <c:set var="end" value="${page.currentPage + 2 }"/>
@@ -57,10 +72,10 @@
                 </c:choose>
                 <c:forEach var="i" begin="${begin}" end="${end}">
                     <c:if test="${page.currentPage == i}">
-                        <li class="paginItem current"><a href="javascript:;">${i}</a></li>
+                        <li class="paginItem current"><a href="javascript:;" >${i}</a></li>
                     </c:if>
                     <c:if test="${page.currentPage != i}">
-                        <li class="paginItem"><a href="javascript:;">${i}</a></li>
+                        <li class="paginItem"><a href="javascript:;" onclick="changePage(${i}, ${page.showCount}, '${param.formName}')">${i}</a></li>
                     </c:if>
                 </c:forEach>
                 <c:if test="${end != page.totalPage}">
@@ -69,13 +84,13 @@
             </c:if>
         </c:if>
         <c:if test="${page.currentPage < page.totalPage}">
-            <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
+            <li class="paginItem"><a href="javascript:;" onclick="changePage(${page.currentPage + 1}, ${page.showCount}, '${param.formName}')"><span class="pagenxt"></span></a></li>
         </c:if>
         <c:if test="${page.currentPage >= page.totalPage}">
             <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </c:if>
     </ul>
-    <span>到<input type="text" name="go" />页<input type="button" onclick="goPage();" value="确定"></span>
+    <span>到<input type="text" id="input_page" name="input_page" onkeyup="pagework();" />页<input type="button" onclick="goPage();" value="确定"></span>
     <input name="currentPage" type="hidden" value="${page.currentPage}" readonly />
     <input name="pageSize" type="hidden" value="${page.showCount}" readonly />
 </div>
