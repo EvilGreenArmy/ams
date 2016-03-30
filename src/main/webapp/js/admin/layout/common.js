@@ -167,7 +167,7 @@ function hiddenProcess(){
 
 function showDiv(div_id) {
     if(!$("#"+div_id)[0]){
-        $("<div id='"+div_id+"' style='display: none;'><img src='images/loading.gif' alt='正在加载.....' /></div>").appendTo("body");
+        $("<div id='"+div_id+"' style='display: none;'><img src='../img/admin/login/loading.gif' alt='正在加载.....' /></div>").appendTo("body");
     }
     var div_obj = $("#"+div_id);
     var windowWidth = document.body.clientWidth;
@@ -456,5 +456,25 @@ function replaceQueryHtml(content){
 
     return html;
 }
+/**
+ * 分页公共方法.
+ * */
 
+function changePage(currentPage, pageSize, formName) {
+    document.getElementsByName("currentPage").value = currentPage;
+    document.getElementsByName("pageSize").value = pageSize;
+    postDataByFormName(formName,'workspace');
+}
+function goPage( pageSize, formName) {
+    var currentPage = document.getElementsByName("input_page").value;
+    if(currentPage == null || currentPage == '') {
+        currentPage = 0;
+    }
+    if(currentPage > 0) {
+        document.getElementsByName("currentPage").value = currentPage;
+        document.getElementsByName("pageSize").value = pageSize;
+        postDataByFormName(formName,'workspace');
+    }
+
+}
 

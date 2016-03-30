@@ -27,14 +27,16 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "list", method = RequestMethod.GET)
-    public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+    @RequestMapping(value = "list")
+    public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+                       @RequestParam(value="currentPage", defaultValue = "1") Integer currentPage,
+                       @RequestParam(value="pageSize", defaultValue = "10") Integer pageSize) {
         Page<UserInfo> page = new Page<UserInfo>();
-        page.setCurrentPage(1);
-        page.setTotalPage(10);
-        Map<String, Object> params = new HashMap<String, Object>();
-       // params.put("delState", Constant.ACTIVE_STATUS);
-        page = this.userService.queryList();
+        page.setCurrentPage(currentPage);
+        page.setShowCount(pageSize);
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("page", page);
+        page = this.userService.queryList(paramMap);
         model.addAttribute("page", page);
         return "user/list";
     }

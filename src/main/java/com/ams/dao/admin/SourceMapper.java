@@ -19,4 +19,12 @@ public interface SourceMapper {
 
     List<SourceInfo> getChildrenSource(UserInfo user);
 
+    void insertSource(SourceInfo source);
+
+    List<SourceInfo> getSourceById(Integer id);
+
+    void updateSource(SourceInfo source);
+
+    void deleteSource(Integer[] ids);
+
 }
