@@ -59,13 +59,9 @@ public class MessageInfo {
         this.status = status;
     }
 
-    public UserInfo getFromUserr() {
-        return fromUser;
-    }
+    public UserInfo getFromUser() { return fromUser; }
 
-    public void setFromUserr(UserInfo fromUser) {
-        this.fromUser = fromUser;
-    }
+    public void setFromUser(UserInfo fromUser) { this.fromUser = fromUser; }
 
     @Override
     public String toString() {

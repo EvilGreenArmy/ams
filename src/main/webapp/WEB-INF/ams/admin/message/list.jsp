@@ -70,7 +70,7 @@
     <div class="tools">
 
         <ul class="toolbar">
-            <li class="click" onclick="getData('${basePath}/message/add.do','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加</li>
+            <li class="click" onclick="getData('${basePath}/message/add.do','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>发送消息</li>
             <li onclick="delCategory();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
         </ul>
 
@@ -98,19 +98,12 @@
             <tr>
                 <td><input name="id" type="checkbox" value="${obj.id}" /></td>
                 <td>${obj.title}</td>
-                <td>${obj.fromUser.name}</td>
+                <td>${obj.fromUser.userName}</td>
                 <td>${obj.content}</td>
+                <td>${obj.status}</td>
+                <td><fmt:formatDate value="${obj.sendDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                 <td>
-                    <c:if test="${'A' eq obj.status}">
-                        激活
-                    </c:if>
-                    <c:if test="${'A' ne obj.status}">
-                        禁用
-                    </c:if>
-                </td>
-                <td>${obj.sendDate}</td>
-                <td>
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/category/edit.do?id=${obj.id}','','workspace');">回复</a>
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?id=${obj.fromUser.id}','','workspace');">回复</a>
                 </td>
             </tr>
         </c:forEach>

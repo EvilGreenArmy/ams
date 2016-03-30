@@ -11,8 +11,8 @@ import java.util.List;
  */
 public interface MessageService {
 
-    public List<MessageInfo> queryList();
+    public Page<MessageInfo> queryList();
 
-    public void saveMessage(UserMessageInfo message);
+    public void saveMessage(MessageInfo message, Integer[] toUsers);
 
 }

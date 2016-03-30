@@ -8,18 +8,18 @@
         <result column="MSG_TITLE" property="title" jdbcType="VARCHAR"/>
         <result column="MSG_CONTENT" property="content" jdbcType="VARCHAR"/>
         <result column="STATUS" property="status"  jdbcType="VARCHAR"/>
-        <result column="SEND_DATE" property="sendDate"  jdbcType="TIME"/>
-        <collection property="fromUser" column="FROM_USER_ID" ofType="com.ams.entities.admin.UserInfo">
-            <id property="id" column="ACCT_ID" jdbcType="NUMERIC" />
+        <result column="SEND_DATE" property="sendDate"  jdbcType="TIMESTAMP"/>
+        <association property="fromUser" column="FROM_USER_ID" javaType="com.ams.entities.admin.UserInfo">
+            <id column="ACCT_ID" property="id" jdbcType="NUMERIC"/>
             <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
-        </collection>
+        </association>
     </resultMap>
 
     <select id="messageQueryPage" parameterType="java.util.Map" resultMap="messageMap">
-        select *
-        from T_MESSAGE t where 1=1
+        select t.*, u.ACCT_ID, u.USER_NAME
+        from T_MESSAGE t left outer join B_ACCOUNT u on t.FROM_USER_ID = u.ACCT_ID where 1=1
         <if test="title!=null and title !=''">
-            AND t.CATEGORY_NAME LIKE '%'||#{acctName}||'%'
+            AND t.MSG_TITLE LIKE '%'||#{title}||'%'
         </if>
         <if test="status!=null and status !=''">
             AND t.status = #{status}
