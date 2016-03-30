@@ -8,12 +8,12 @@
 </div>
 
 <ul class="nav">
-  <li><a href="javascript:;" class="selected"><img src="${pageContext.request.contextPath}/img/admin/login/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
+  <%--<li><a href="javascript:;" class="selected"><img src="${pageContext.request.contextPath}/img/admin/login/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
   <li><a href="javascript:;" ><img src="${pageContext.request.contextPath}/img/admin/login/icon02.png" title="模型管理" /><h2>模型管理</h2></a></li>
   <li><a href="javascript:;" ><img src="${pageContext.request.contextPath}/img/admin/login/icon03.png" title="模块设计" /><h2>模块设计</h2></a></li>
   <li><a href="javascript:;" ><img src="${pageContext.request.contextPath}/img/admin/login/icon04.png" title="常用工具" /><h2>常用工具</h2></a></li>
   <li><a href="javascript:;" ><img src="${pageContext.request.contextPath}/img/admin/login/icon05.png" title="文件管理" /><h2>文件管理</h2></a></li>
-  <li><a href="javascript:;" ><img src="${pageContext.request.contextPath}/img/admin/login/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
+  <li><a href="javascript:;" ><img src="${pageContext.request.contextPath}/img/admin/login/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>--%>
 </ul>
 
 <div class="topright">

@@ -33,7 +33,7 @@ public class UserController extends BaseController {
                        @RequestParam(value="pageSize", defaultValue = "10") Integer pageSize) {
         Page<UserInfo> page = new Page<UserInfo>();
         page.setCurrentPage(currentPage);
-        page.setTotalPage(pageSize);
+        page.setShowCount(pageSize);
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("page", page);
         page = this.userService.queryList(paramMap);

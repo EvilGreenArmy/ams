@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ams.dao.admin.RoleMapper" >
+    <resultMap type="com.ams.entities.admin.RoleInfo" id="roleMap">
+        <!-- 主键必须用id标签映射 -->
+        <id column="DUTY_ID" property="id" jdbcType="NUMERIC"/>
+        <!-- column为数据库字段名,property为实体类属性名 -->
+        <result column="DUTY_NAME" property="name" jdbcType="VARCHAR" />
+        <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="roleQueryPage" parameterType="java.util.Map" resultMap="roleMap">
+        select *
+        from B_DUTY u
+        WHERE  1=1 AND u.STATUS='A'
+            <if test="name!=null and name !=''">
+              AND u.DUTY_NAME LIKE '%'||#{name}||'%'
+            </if>
+    </select>
+    <insert id="insertRole" parameterType="com.ams.entities.admin.RoleInfo" >
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select SEQ_AMS.nextval  from dual
+        </selectKey>
+        insert into B_DUTY (DUTY_ID, DUTY_NAME, STATUS, DESCRIPTION)
+        values(#{id}, #{name}, #{status},#{description})
+    </insert>
+    <select id="getRoleById" parameterType="java.lang.Integer" resultMap="roleMap">
+        SELECT * FROM B_DUTY t WHERE t.DUTY_ID=#{id}
+    </select>
+    <update id="updateRole" parameterType="com.ams.entities.admin.UserInfo">
+        UPDATE B_DUTY
+        SET DUTY_NAME=#{name, jdbcType=VARCHAR},DESCRIPTION=#{description, jdbcType=VARCHAR}
+        WHERE DUTY_ID=#{id}
+    </update>
+    <update id="deleteRole">
+        UPDATE B_DUTY set STATUS='D' WHERE DUTY_ID  in
+        <foreach collection="array" item="id" open="(" separator="," close=")">#{id}</foreach>
+    </update>
+</mapper>

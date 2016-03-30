@@ -167,7 +167,7 @@ function hiddenProcess(){
 
 function showDiv(div_id) {
     if(!$("#"+div_id)[0]){
-        $("<div id='"+div_id+"' style='display: none;'><img src='images/loading.gif' alt='正在加载.....' /></div>").appendTo("body");
+        $("<div id='"+div_id+"' style='display: none;'><img src='../img/admin/login/loading.gif' alt='正在加载.....' /></div>").appendTo("body");
     }
     var div_obj = $("#"+div_id);
     var windowWidth = document.body.clientWidth;
@@ -200,8 +200,6 @@ function hideDiv(div_id) {
  */
 
 function postDataByFormName(formName,resultArea,doSuccess,doError){
-    alert(111);
-    alert(formName);
     var dataString = $("#"+formName).serialize();
     actionUrl = $("#"+formName)[0].action;
     postDataByURL(actionUrl,dataString,resultArea,doSuccess,doError);
