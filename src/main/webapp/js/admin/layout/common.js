@@ -461,18 +461,18 @@ function replaceQueryHtml(content){
  * */
 
 function changePage(currentPage, pageSize, formName) {
-    document.getElementsByName("currentPage").value = currentPage;
-    document.getElementsByName("pageSize").value = pageSize;
+    $("#currentPage").val(currentPage);
+    $("#pageSize").val(pageSize);
     postDataByFormName(formName,'workspace');
 }
 function goPage( pageSize, formName) {
-    var currentPage = document.getElementsByName("input_page").value;
+    var currentPage = $("#input_page").val();
     if(currentPage == null || currentPage == '') {
         currentPage = 0;
     }
     if(currentPage > 0) {
-        document.getElementsByName("currentPage").value = currentPage;
-        document.getElementsByName("pageSize").value = pageSize;
+        $("#currentPage").val(currentPage);
+        $("#pageSize").val(10);
         postDataByFormName(formName,'workspace');
     }
 

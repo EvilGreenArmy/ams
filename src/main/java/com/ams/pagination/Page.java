@@ -53,7 +53,7 @@ public class Page<E> {
     }
 
     public int getCurrentResult() {
-        return currentResult;
+        return showCount*(currentPage-1);
     }
 
     public void setCurrentResult(int currentResult) {

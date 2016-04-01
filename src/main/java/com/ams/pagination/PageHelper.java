@@ -199,6 +199,7 @@ public class PageHelper implements Interceptor {
                 pageSql.append(sql);
                 pageSql.append(")  tmp_tb where ROWNUM<=");
                 pageSql.append(page.getCurrentResult() + page.getShowCount());
+                //pageSql.append(page.getCurrentPage() * page.getShowCount());
                 pageSql.append(") where row_id>");
                 pageSql.append(page.getCurrentResult());
             }

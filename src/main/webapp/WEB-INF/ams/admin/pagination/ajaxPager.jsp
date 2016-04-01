@@ -90,7 +90,7 @@
             <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </c:if>
     </ul>
-    <span>到<input type="text" id="input_page" name="input_page" onkeyup="pagework();" />页<input type="button" onclick="goPage();" value="确定"></span>
-    <input name="currentPage" type="hidden" value="${page.currentPage}" readonly />
-    <input name="pageSize" type="hidden" value="${page.showCount}" readonly />
+    <span>到<input type="text" id="input_page" name="input_page" onkeyup="pagework();" />页<input type="button" onclick="goPage(${page.showCount},'${param.formName}');" value="确定"></span>
+    <input id="currentPage" name="currentPage" type="hidden" value="${page.currentPage}" readonly />
+    <input id="pageSize" name="pageSize" type="hidden" value="${page.showCount}" readonly />
 </div>
