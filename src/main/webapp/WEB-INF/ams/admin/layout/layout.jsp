@@ -24,6 +24,9 @@
         $(document).ready(function () {
             $('body').layout({applyDemoStyles: true});
         });
+        function goIndex() {
+            window.location.href = "${basePath}/admin/index.do";
+        }
     </script>
 </head>
 <body class="ui-layout-container">

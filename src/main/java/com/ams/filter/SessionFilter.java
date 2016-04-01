@@ -28,7 +28,7 @@ public class SessionFilter implements Filter {
         if (!isLogin && loginUser == null) {
             //如果判断是 AJAX 请求,直接设置为session超时
             if (requestHttp.getHeader("x-requested-with") != null && requestHttp.getHeader("x-requested-with").equals("XMLHttpRequest")) {
-                responseHttp.setHeader("sessionstatus", "timeout");
+                response.getWriter().print("<script>goIndex();</script>");
             } else {
                 request.setAttribute("message", "登陆超时，请重新登陆！");
                 StringBuffer redirectUrl = new StringBuffer();

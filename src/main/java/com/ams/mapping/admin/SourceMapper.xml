@@ -76,14 +76,12 @@
         values(#{id}, #{name}, #{code}, #{status},#{level},#{style},#{position}, #{isMenu}, #{description}, #{icon}, #{parentInfo.id})
     </insert>
     <select id="getSourceById" parameterType="java.lang.Integer" resultMap="sourceMap">
-        SELECT * FROM B_DUTY t WHERE t.DUTY_ID=#{id}
+        SELECT * FROM B_SOURCE t WHERE t.SOURCE_ID=#{id}
     </select>
     <update id="updateSource" parameterType="com.ams.entities.admin.SourceInfo">
         UPDATE B_SOURCE
         SET SOURCE_NAME=#{name, jdbcType=VARCHAR},
-        SOURCE_CODE=#{code, jdbcType=VARCHAR},
-        DESCRIPTION=#{description, jdbcType=VARCHAR},
-        PARENT_ID=#{parentInfo.id, jdbcType=NUMERIC}
+        DESCRIPTION=#{description, jdbcType=VARCHAR}
         WHERE SOURCE_ID=#{id}
     </update>
     <update id="deleteSource">

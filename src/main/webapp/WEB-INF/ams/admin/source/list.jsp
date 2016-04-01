@@ -89,7 +89,6 @@
     <table class="tablelist">
         <thead>
         <tr>
-            <th><input id="chk_all" type="checkbox" value="" /></th>
             <th>菜单名称</th>
             <th>对应URL</th>
             <th>上级菜单名称</th>
@@ -100,7 +99,6 @@
         <tbody>
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
-                <td><input name="id" type="checkbox" value="${obj.id}" /></td>
                 <td>${obj.name}</td>
                 <td>${obj.code}</td>
                 <td>${obj.parentInfo.name}</td>

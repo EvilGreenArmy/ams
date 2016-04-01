@@ -8,17 +8,7 @@
  *@param errorInfo is a JSON object containing key and value properties.
  *@return null
  */
-$.ajaxSetup({cache:false,
-    complete:function(XMLHttpRequest,textStatus){
-        //通过XMLHttpRequest取得响应头，sessionstatus
-        var sessionstatus=XMLHttpRequest.getResponseHeader("sessionstatus");
-        if(sessionstatus=="timeout"){
-           //这里跳转的登录页面
-            window.location.href = "admin/index.do";
-
-        }
-    }
-});
+$.ajaxSetup({cache:false});
 
 function showErrorMessage(errorInfo){
     //$('#info_box').hide();

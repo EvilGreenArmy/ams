@@ -94,4 +94,8 @@ public class UserController extends BaseController {
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
+    @RequestMapping(value = "assign", method = RequestMethod.GET)
+    public String initAssign(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+        return "user/assign";
+    }
 }

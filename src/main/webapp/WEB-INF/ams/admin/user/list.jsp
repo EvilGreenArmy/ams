@@ -80,7 +80,7 @@
 
 
         <ul class="toolbar1">
-            <%--<li><span><img src="${basePath}/img/admin/login/t05.png" /></span>设置</li>--%>
+            <li onclick="getData('${basePath}/user/assign.do','','workspace');"><span><img src="${basePath}/img/admin/login/t05.png" /></span>设置</li>
         </ul>
 
     </div>
