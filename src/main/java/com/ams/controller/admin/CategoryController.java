@@ -26,9 +26,14 @@ public class CategoryController extends BaseController {
 
     private static Logger logger = Logger.getLogger(CategoryController.class);
 
-    @RequestMapping(value = "list", method = RequestMethod.GET)
+    @RequestMapping(value = "list")
     public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model, Page<CategoryInfo> page) {
-        page = categoryService.queryList();
+//        Page<CategoryInfo> page = new Page<CategoryInfo>();
+//        page.setCurrentPage(currentPage);
+//        page.setShowCount(pageSize);
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("page", page);
+        page = categoryService.queryList(paramMap);
         logger.debug("Page info : " + page);
         model.addAttribute("page", page);
         return "category/list";

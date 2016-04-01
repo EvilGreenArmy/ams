@@ -43,10 +43,8 @@ public class CategoryServiceImpl implements CategoryService {
         return true;
     }
 
-    public Page<CategoryInfo> queryList() {
-        Page<CategoryInfo> page = new Page<CategoryInfo>();
-        Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("page", page);
+    public Page<CategoryInfo> queryList(Map<String, Object> paramMap) {
+        Page<CategoryInfo> page = (Page<CategoryInfo>) paramMap.get("page");
         List<CategoryInfo> result = categoryDao.categoryQueryPage(paramMap);
         page.setResultList(result);
         return page;

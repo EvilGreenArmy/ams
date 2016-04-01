@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 消息控制类
@@ -34,11 +36,13 @@ public class MessageController extends BaseController {
     @Autowired
     private MessageService messageService;
 
-    @RequestMapping(value = "list", method = RequestMethod.GET)
+    @RequestMapping(value = "list")
     public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model, Page<MessageInfo> page) {
 
         logger.debug("Page info : " + page);
-        page = messageService.queryList();
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("page", page);
+        page = messageService.queryList(paramMap);
         model.addAttribute("page", page);
         return "message/list";
 

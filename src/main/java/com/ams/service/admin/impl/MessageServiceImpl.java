@@ -22,11 +22,8 @@ public class MessageServiceImpl implements MessageService {
     private MessageMapper messageDao;
 
     @Override
-    public Page<MessageInfo> queryList() {
-        Page<MessageInfo> page = new Page<MessageInfo>();
-        Map<String, Object> paramMap = new HashMap<String, Object>();
-        paramMap.put("title","测试");
-        paramMap.put("page", page);
+    public Page<MessageInfo> queryList(Map<String, Object> paramMap) {
+        Page<MessageInfo> page = (Page<MessageInfo>)paramMap.get("page");
         List<MessageInfo> result = messageDao.messageQueryPage(paramMap);
         page.setResultList(result);
         return page;
