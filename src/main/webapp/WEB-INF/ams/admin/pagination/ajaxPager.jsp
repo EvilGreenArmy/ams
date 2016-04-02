@@ -16,8 +16,12 @@
 
     }
 </script>
+<style>
+    .page_commit{padding:3px 5px; border-radius:3px; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+    .page_commit:hover{ background:rgb(61,128,218); color:#fff;}
+</style>
 <div class="pagin">
-    <div class="message">共<i class="blue"><c:out value="${page.totalResult}"/></i>条记录，当前显示第&nbsp;<i class="blue"><c:out
+    <div class="message" style="float:left; line-height:30px;">共<i class="blue"><c:out value="${page.totalResult}"/></i>条记录，当前显示第&nbsp;<i class="blue"><c:out
             value="${page.currentPage}"/>&nbsp;</i>页
     </div>
     <ul class="paginList">
@@ -90,7 +94,7 @@
             <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </c:if>
     </ul>
-    <span>到<input type="text" id="input_page" name="input_page" onkeyup="pagework();" />页<input type="button" onclick="goPage(${page.showCount},'${param.formName}');" value="确定"></span>
+    <span>到<input type="text" id="input_page" name="input_page" onkeyup="pagework();" style="border:1px solid #ccc; width:30px; height:20px;padding-left:5px; line-height:30px; margin:5px 10px;" />页<input type="button" class="page_commit" onclick="goPage(${page.showCount},'${param.formName}');" value="确定"></span>
     <input id="currentPage" name="currentPage" type="hidden" value="${page.currentPage}" readonly />
     <input id="pageSize" name="pageSize" type="hidden" value="${page.showCount}" readonly />
 </div>

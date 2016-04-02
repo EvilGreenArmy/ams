@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="topleft">
-  <a href="main.html" target="_parent"><img src="${pageContext.request.contextPath}/img/admin/login/logo.png" title="系统首页" /></a>
+  <a href="main.html" target="_parent"><img src="${pageContext.request.contextPath}/img/admin/login/pic_logo_kjjh.png" title="系统首页" /></a>
 </div>
 
 <ul class="nav">
