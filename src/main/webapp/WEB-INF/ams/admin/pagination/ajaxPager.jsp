@@ -17,6 +17,7 @@
     }
 </script>
 <style>
+    .page_span{margin-left:10px;display:inline-block; line-height:30px;}
     .page_commit{padding:3px 5px; border-radius:3px; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
     .page_commit:hover{ background:rgb(61,128,218); color:#fff;}
 </style>
@@ -94,7 +95,7 @@
             <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </c:if>
     </ul>
-    <span>到<input type="text" id="input_page" name="input_page" onkeyup="pagework();" style="border:1px solid #ccc; width:30px; height:20px;padding-left:5px; line-height:30px; margin:5px 10px;" />页<input type="button" class="page_commit" onclick="goPage(${page.showCount},'${param.formName}');" value="确定"></span>
+    <span class="page_span">到<input type="text" id="input_page" name="input_page" onkeyup="pagework();" style="border:1px solid #ccc; width:30px; height:20px;padding-left:5px; line-height:10px; margin:0px 10px;" />页<input type="button" class="page_commit" onclick="goPage(${page.showCount},'${param.formName}');" value="确定"></span>
     <input id="currentPage" name="currentPage" type="hidden" value="${page.currentPage}" readonly />
     <input id="pageSize" name="pageSize" type="hidden" value="${page.showCount}" readonly />
 </div>

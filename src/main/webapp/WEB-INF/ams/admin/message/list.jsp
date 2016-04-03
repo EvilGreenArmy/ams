@@ -56,6 +56,9 @@
     })
 
 </script>
+<style>
+
+</style>
 <form action="${basePath}/message/list.do" method="post" id="messageList" name="messageList">
 <div class="place">
     <span>位置：</span>
@@ -67,17 +70,44 @@
 
 <div class="rightinfo">
 
+
+  <div class="seach_box">
+
+      <fieldset>
+          <legend>消息查询</legend>
+          <table>
+              <tbody>
+              <tr>
+                  <td class="tabel_title">标题</td>
+                  <td class="table_cont">
+                      <input type="text" placeholder="Search" class="search_input"/>
+                  </td>
+                  <td  class="tabel_title">内容</td>
+                  <td  class="table_cont">
+                      <input type="text" placeholder="Search" class="search_input"/>
+                  </td>
+              </tr>
+              </tbody>
+              <tfoot>
+              <tr>
+                  <td colspan="3"></td>
+                  <td>
+                      <button class="search_btn">查询</button>
+                  </td>
+              </tr>
+              </tfoot>
+          </table>
+      </fieldset>
+
+
+  </div>
+
     <div class="tools">
 
         <ul class="toolbar">
             <li class="click" onclick="getData('${basePath}/message/add.do','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>发送通知</li>
             <li onclick="delCategory();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
         </ul>
-
-        <ul class="toolbar1">
-            <li><span><img src="${basePath}/img/admin/login/t05.png" /></span>设置</li>
-        </ul>
-
     </div>
 
 
@@ -103,7 +133,7 @@
                 <td>${obj.status}</td>
                 <td><fmt:formatDate value="${obj.sendDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                 <td>
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?id=${obj.fromUser.id}','','workspace');">回复</a>
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?toUserId=${obj.fromUser.id}','','workspace');">回复</a>
                 </td>
             </tr>
         </c:forEach>

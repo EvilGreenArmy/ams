@@ -17,6 +17,31 @@
         .pull_left{ float:left;}
         .clear{ clear:both;}
         .left_side{background:#f0f9fd;}
+        /** list search css **/
+        fieldset {
+            display: block;
+            -webkit-margin-start: 2px;
+            -webkit-margin-end: 2px;
+            -webkit-padding-before: 0.35em;
+            -webkit-padding-start: 0.75em;
+            -webkit-padding-end: 0.75em;
+            -webkit-padding-after: 0.625em;
+            min-width: -webkit-min-content;
+            border: 1px solid #ccc;
+            padding:20px;
+            margin-bottom: 20px;
+        }
+        fieldset legend{ padding:0 10px;}
+        .seach_box{ margin-bottom: 10px;}
+        .seach_box legend{ font-weight: bold;}
+        .seach_box table{ width:100%;table-layout: fixed}
+        .seach_box table .tabel_title{width:25%;; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+        .seach_box table .table_cont{ width:45%;}
+        .seach_box table td{ height:40px; border:1px solid #ccc; border-collapse: collapse; padding:0 10px;}
+        .search_input{border:1px solid #ccc; border-radius: 3px; min-width: 300px; padding-left:10px; height:26px; line-height:16px; margin-right:10px; display:block; float:left;}
+        .search_btn{  border:1px solid #ccc; border-radius: 3px;;line-height:26px; color:#333; padding:0 20px;}
+        .search_btn:hover{ background:rgb(61,128,218); color:#fff;}
+
     </style>
     <link href="${basePath}/css/admin/login/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="${basePath}/js/admin/layout/jquery.min.js"></script>
