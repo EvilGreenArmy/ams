@@ -1,8 +1,11 @@
 package com.ams.controller.admin;
 
-import com.ams.entities.admin.RoleInfo;
+import com.ams.entities.admin.*;
 import com.ams.pagination.Page;
 import com.ams.service.admin.RoleService;
+import com.ams.service.admin.SourceService;
+import com.ams.util.Constant;
+import com.ams.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,7 +29,8 @@ import java.util.Map;
 public class RoleController extends BaseController {
     @Autowired
     private RoleService roleService;
-
+    @Autowired
+    private SourceService sourceService;
     @RequestMapping(value = "list")
     public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model,
                        @RequestParam(value = "currentPage", defaultValue = "1") Integer currentPage,
@@ -73,5 +79,63 @@ public class RoleController extends BaseController {
                          @RequestParam("id") Integer[] ids) {
         this.roleService.deleteRole(ids);
         return "redirect:/role/list.do";
+    }
+    @RequestMapping(value = "assign", method = RequestMethod.GET)
+    public String initAssign(HttpServletRequest request, HttpServletResponse response,
+                             ModelMap model,
+                             @RequestParam("id") Integer roleId) {
+        StringBuffer sb = new StringBuffer("[");
+        List<SourceInfo> parent = this.sourceService.getParentSource();
+        List<SourceInfo> children = this.sourceService.getChildrenSource();
+        UserInfo user = (UserInfo) getSession(request).getAttribute(Constant.SESSION_LOGIN_USER);
+        Map<Integer, Integer> map = this.sourceService.getRoleSource(roleId);
+        if(parent != null && parent.size() > 0) {
+            for (SourceInfo source : parent) {
+                sb.append("{ \"id\":\"").append(source.getId()).append("\",\"name\":\"").append(source.getName()).append("\", \"pId\":\"0\", \"open\":\"true\"");
+                if(map.containsKey(source.getId())) {
+                    sb.append(",\"checked\":\"true\"");
+                }
+                sb.append("},");
+            }
+        }
+        if(children != null && children.size() > 0) {
+            for (SourceInfo source : children) {
+                sb.append("{ \"id\":\"").append(source.getId()).append("\",\"name\":\"")
+                        .append(source.getName()).append("\", \"pId\":\"").
+                        append(source.getParentInfo().getId()).append("\", \"open\":\"true\"");
+                if(map.containsKey(source.getId())) {
+                    sb.append(",\"checked\":\"true\"");
+                }
+                sb.append("},");
+            }
+        }
+        sb = sb.deleteCharAt(sb.length() - 1);
+        sb.append("]");
+        model.addAttribute("roleId", roleId);
+        model.addAttribute("data", sb.toString());
+        return "role/assign";
+    }
+    @RequestMapping(value = "assign", method = RequestMethod.POST)
+    public String assign(HttpServletRequest request, HttpServletResponse response,
+                         ModelMap model,
+                         @RequestParam("role") Integer roleId,
+                         @RequestParam("sources") String sources) {
+        Map<String, Object> map = new HashMap<String, Object>(3);
+        map.put("roleId", roleId);
+        if(StringUtil.isNotBlank(sources)) {
+            String[] sourceArr = sources.split(",");
+            if(sourceArr != null && sourceArr.length > 0) {
+                List<SourceDutyInfo> sourceDutyList = new ArrayList<SourceDutyInfo>();
+                for(String str : sourceArr) {
+                    SourceDutyInfo sourceDuty = new SourceDutyInfo();
+                    sourceDuty.setRoleId(roleId);
+                    sourceDuty.setSourceId(Integer.parseInt(str));
+                    sourceDutyList.add(sourceDuty);
+                }
+                map.put("sourceDuty", sourceDutyList);
+            }
+        }
+        this.roleService.saveSourceDuty(map);
+        return "user/assign";
     }
 }

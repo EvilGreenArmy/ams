@@ -26,4 +26,10 @@ public interface SourceService {
     public void updateSource(SourceInfo source);
 
     public void deleteSource(Integer[] ids);
+
+    public List<SourceInfo> getParentSource();
+
+    public List<SourceInfo> getChildrenSource();
+
+    public Map<Integer, Integer> getRoleSource(Integer roleId);
 }

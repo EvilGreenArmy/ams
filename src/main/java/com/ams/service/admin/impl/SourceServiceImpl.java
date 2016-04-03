@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -60,5 +61,27 @@ public class SourceServiceImpl implements SourceService {
     @Transactional
     public void deleteSource(Integer[] ids) {
         sourceDao.deleteSource(ids);
+    }
+
+    @Override
+    public List<SourceInfo> getParentSource() {
+        return sourceDao.getAllParentSource();
+    }
+
+    @Override
+    public List<SourceInfo> getChildrenSource() {
+        return sourceDao.getAllChildrenSource();
+    }
+
+    @Override
+    public Map<Integer, Integer> getRoleSource(Integer roleId) {
+        List<SourceInfo> sourceList = sourceDao.getRoleSource(roleId);
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        if (sourceList != null && sourceList.size() > 0) {
+            for (SourceInfo source : sourceList) {
+                map.put(source.getId(), roleId);
+            }
+        }
+        return map;
     }
 }

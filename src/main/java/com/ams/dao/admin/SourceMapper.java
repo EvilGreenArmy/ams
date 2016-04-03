@@ -27,4 +27,10 @@ public interface SourceMapper {
 
     void deleteSource(Integer[] ids);
 
+    List<SourceInfo> getAllParentSource();
+
+    List<SourceInfo> getAllChildrenSource();
+
+    List<SourceInfo> getRoleSource(Integer roleId);
+
 }

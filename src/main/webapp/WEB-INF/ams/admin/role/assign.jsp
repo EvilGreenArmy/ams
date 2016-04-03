@@ -39,8 +39,8 @@
     }
     $.ajax({
       type: "POST",
-      url: "${basePath}/user/assign.do",
-      data: {roles : r , acctId : "${acctId}"},
+      url: "${basePath}/role/assign.do",
+      data: {sources : r , role : "${roleId}"},
       success: function (result) {
         layer.msg('分派成功！');
       }
@@ -51,8 +51,8 @@
   <span>位置：</span>
   <ul class="placeul">
     <li><a href="#">系统管理</a></li>
-    <li><a href="#">用户管理</a></li>
-    <li><a href="#">分派角色</a></li>
+    <li><a href="#">角色管理</a></li>
+    <li><a href="#">分派菜单</a></li>
   </ul>
 </div>
 <div class="content_wrap">

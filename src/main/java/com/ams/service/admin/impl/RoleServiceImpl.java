@@ -2,6 +2,7 @@ package com.ams.service.admin.impl;
 
 import com.ams.dao.admin.RoleMapper;
 import com.ams.entities.admin.RoleInfo;
+import com.ams.entities.admin.SourceDutyInfo;
 import com.ams.pagination.Page;
 import com.ams.service.admin.RoleService;
 import com.ams.util.Constant;
@@ -71,5 +72,21 @@ public class RoleServiceImpl implements RoleService {
             }
         }
         return map;
+    }
+
+    @Transactional
+    public void saveSourceDuty(Map<String, Object> map) {
+        Integer roleId = Integer.parseInt(map.get("roleId").toString());
+        clearSourceDuty(roleId);
+        List<SourceDutyInfo> sourceDutyList = (List<SourceDutyInfo>)map.get("sourceDuty");
+        if(sourceDutyList != null && !sourceDutyList.isEmpty()) {
+            insertSourceDuty(sourceDutyList);
+        }
+    }
+    private void clearSourceDuty(Integer roleId)  {
+        roleDao.deleteSourceDuty(roleId);
+    }
+    private void insertSourceDuty(List<SourceDutyInfo> sourceDutyList) {
+        roleDao.insertSourceDuty(sourceDutyList);
     }
 }

@@ -44,4 +44,18 @@
           SELECT ad.duty_id FROM b_account_duty ad WHERE ad.acct_id=#{accountId}
         )
     </select>
+    <delete id="deleteSourceDuty" parameterType="java.lang.Integer">
+      DELETE  FROM b_duty_source WHERE duty_id=#{roleId}
+    </delete>
+    <insert id="insertSourceDuty" parameterType="java.util.List">
+       <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select SEQ_AMS.nextval  from dual
+        </selectKey>
+        insert into b_duty_source (DUTY_SOURCE_ID, SOURCE_ID, DUTY_ID)
+        SELECT  SEQ_AMS.nextval,a.* FROM (
+        <foreach collection="list" item="item" index="index" separator="UNION ALL" >
+            SELECT
+            #{item.sourceId},#{item.roleId} FROM  dual
+        </foreach>) a
+    </insert>
 </mapper>

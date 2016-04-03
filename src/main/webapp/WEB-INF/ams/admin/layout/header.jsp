@@ -24,7 +24,7 @@
   </ul>
 
   <div class="user">
-    <span>admin</span>
+    <span><c:out value="${login_user.userName}" /></span>
     <i>消息</i>
     <b>5</b>
   </div>

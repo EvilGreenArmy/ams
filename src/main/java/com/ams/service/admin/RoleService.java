@@ -23,4 +23,6 @@ public interface RoleService {
     public List<RoleInfo> getAllRole();
 
     public Map<Integer, Integer> getAccountRole(Integer acctId);
+
+    public void saveSourceDuty(Map<String, Object> map);
 }

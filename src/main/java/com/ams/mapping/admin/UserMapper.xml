@@ -60,10 +60,10 @@
             select SEQ_AMS.nextval  from dual
         </selectKey>
         insert into b_account_duty (ACC_DUTY_ID, DUTY_ID, ACCT_ID)
-        values
-        <foreach collection="list" item="item" index="index" separator="," >
-            (#{id},#{item.dutyId},#{item.accountId})
-        </foreach>
+         SELECT SEQ_AMS.nextval, a.* FROM (
+        <foreach collection="list" item="item" index="index" separator="UNION ALL">
+            SELECT #{item.dutyId},#{item.accountId} FROM  dual
+        </foreach>) a
     </insert>
     <select id="isAdminUser" parameterType="java.lang.Integer" resultType="java.lang.Integer">
         SELECT count(1) FROM b_account_duty t WHERE t.ACCT_ID=#{id}

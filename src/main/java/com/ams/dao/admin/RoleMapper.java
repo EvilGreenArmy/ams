@@ -1,6 +1,7 @@
 package com.ams.dao.admin;
 
 import com.ams.entities.admin.RoleInfo;
+import com.ams.entities.admin.SourceDutyInfo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,4 +25,8 @@ public interface RoleMapper {
     List<RoleInfo> findAll();
 
     public List<RoleInfo> getAccountRole(Integer accountId);
+
+    public void deleteSourceDuty(Integer roleId);
+
+    public void insertSourceDuty(List<SourceDutyInfo> sourceDutyList);
 }
