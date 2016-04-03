@@ -129,9 +129,16 @@
             <tr>
                 <td><input name="id" type="checkbox" value="${obj.id}" /></td>
                 <td>${obj.name}</td>
-                <td>${obj.organizatione}</td>
+                <td>${obj.organization}</td>
                 <td>${obj.linkman}</td>
-                <td>${obj.type}</td>
+                <td>
+                    <c:if test="${'1' eq obj.type}">
+                        成果
+                    </c:if>
+                    <c:if test="${'1' ne obj.type}">
+                        专利
+                    </c:if>
+                </td>
                 <td><fmt:formatDate value="${obj.editDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                 <td>${obj.addUser.userName}</td>
                 <td>

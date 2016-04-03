@@ -57,6 +57,23 @@ public class ProductController extends BaseController {
         return "product/add";
     }
 
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public String add(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+                       @ModelAttribute ProductInfo product) {
+        logger.debug("product info :"+product.toString());
+
+        product.setStartDate(new Date());
+        product.setEndDate(new Date());
+
+        UserInfo currentUser = (UserInfo)getSession(request).getAttribute(Constant.SESSION_LOGIN_USER);
+        product.setAddDate(new Date());
+        product.setAddUser(currentUser);
+        product.setEditDate(new Date());
+        product.setEditUser(currentUser);
+        product.setStatus(Constant.ACTIVE_STATUS);
+        this.productService.saveProduct(product);
+        return "redirect:/product/list.do";
+    }
 
     @RequestMapping(value = "edit", method = RequestMethod.GET)
     public String initEdit(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer id) {

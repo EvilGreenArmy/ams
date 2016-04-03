@@ -51,8 +51,14 @@
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
             select SEQ_AMS.nextval  from dual
         </selectKey>
-        insert into T_PRODUCT (PRD_ID, PRD_NAME, PRD_ORGANIZATION, START_DATE, END_DATE, ADDR, LINKMAN, AREA, CONTENT, TELEPHONE, PRICE_UNIT, ZIP_CODE, TYPE, STATUS, ADD_DATE, EDIT_DATE, ADD_USER_ID, EDIT_USER_ID)
-        values(#{id}, #{name}, #{organization},#{startDate},#{endDate},#{addr},#{linkman},#{area},#{content}, #{telephone}, #{priceUnit}, #{zipCode}, #{type}, #{status}, #{addDate}, #{editDate}, #{addUser.id}, #{editUser.id})
+        insert into T_PRODUCT (PRD_ID, PRD_NAME, PRD_ORGANIZATION, START_DATE, END_DATE,
+        ADDR, LINKMAN, AREA, CONTENT, TELEPHONE,
+        PRICE_UNIT, ZIP_CODE, TYPE, STATUS, ADD_DATE,
+        EDIT_DATE, ADD_USER_ID, EDIT_USER_ID)
+        values(#{id}, #{name,jdbcType=VARCHAR}, #{organization,jdbcType=VARCHAR},#{startDate,jdbcType=TIMESTAMP},#{endDate,jdbcType=TIMESTAMP},
+        #{addr,jdbcType=VARCHAR},#{linkman,jdbcType=VARCHAR},#{area,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR},
+        #{priceUnit,jdbcType=VARCHAR}, #{zipCode,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{addDate},
+        #{editDate}, #{addUser.id,jdbcType=NUMERIC}, #{editUser.id,jdbcType=NUMERIC})
     </insert>
     <select id="getProductById" parameterType="com.ams.entities.admin.ProductInfo" resultMap="productMap">
         SELECT * FROM T_PRODUCT t WHERE t.PRD_ID=#{id}

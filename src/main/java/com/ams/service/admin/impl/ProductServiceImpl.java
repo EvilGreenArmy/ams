@@ -1,10 +1,13 @@
 package com.ams.service.admin.impl;
 
+import com.ams.dao.admin.ProductMapper;
 import com.ams.entities.admin.ProductInfo;
 import com.ams.pagination.Page;
 import com.ams.service.admin.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,14 +15,20 @@ import java.util.Map;
  */
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
+    @Autowired
+    ProductMapper productDao;
+
     @Override
     public Page<ProductInfo> queryList(Map<String, Object> paramMap) {
-        return null;
+        Page<ProductInfo> page = (Page<ProductInfo>)paramMap.get("page");
+        List<ProductInfo> result = productDao.productQueryPage(paramMap);
+        page.setResultList(result);
+        return page;
     }
 
     @Override
     public void saveProduct(ProductInfo product) {
-
+        productDao.insertProduct(product);
     }
 
     @Override

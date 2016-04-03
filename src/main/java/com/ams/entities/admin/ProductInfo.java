@@ -188,4 +188,28 @@ public class ProductInfo {
     public void setEditUser(UserInfo editUser) {
         this.editUser = editUser;
     }
+
+    @Override
+    public String toString() {
+        return "ProductInfo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", organization='" + organization + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", addr='" + addr + '\'' +
+                ", linkman='" + linkman + '\'' +
+                ", area='" + area + '\'' +
+                ", content='" + content + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", priceUnit='" + priceUnit + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", type='" + type + '\'' +
+                ", status='" + status + '\'' +
+                ", addDate=" + addDate +
+                ", addUser=" + addUser +
+                ", editDate=" + editDate +
+                ", editUser=" + editUser +
+                '}';
+    }
 }
