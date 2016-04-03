@@ -58,12 +58,14 @@ public class UserController extends BaseController {
         this.userService.saveUser(user);
         return "redirect:/user/list.do";
     }
-    @RequestMapping(value = "checkAcctName", method = RequestMethod.GET)
+    @RequestMapping(value = "checkAcctName", method = RequestMethod.POST)
     public @ResponseBody String checkAcctName(HttpServletRequest request, HttpServletResponse response, ModelMap model,
-                      @RequestParam("acctName") String acctName, @RequestParam("id") Integer id) {
+                      @RequestParam("acctName") String acctName, @RequestParam(value = "id", required = false) Integer id) {
         UserInfo user = new UserInfo();
         user.setAcctName(acctName);
-        user.setId(id);
+        if(id  != null) {
+            user.setId(id);
+        }
         boolean exist = this.userService.checkAcctName(user);
         StringBuffer sb = new StringBuffer("{");
         if(exist) {

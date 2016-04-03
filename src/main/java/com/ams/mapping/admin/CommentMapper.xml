@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ams.dao.admin.CommentMapper" >
+    <resultMap type="com.ams.entities.admin.CommentInfo" id="commentMap">
+        <!-- 主键必须用id标签映射 -->
+        <id column="COMMENTS_ID" property="id"  jdbcType="NUMERIC"/>
+        <!-- column为数据库字段名,property为实体类属性名 -->
+        <result column="CREATE_TIME" property="createTime"  jdbcType="TIMESTAMP"/>
+        <result column="COM_CONTENT" property="content"  jdbcType="VARCHAR"/>
+        <association property="orgUser" column="ORG_ACCT" javaType="com.ams.entities.admin.UserInfo">
+            <id column="ACCT_ID" property="orgId" jdbcType="NUMERIC"/>
+            <result column="USER_NAME" property="orgName" jdbcType="VARCHAR"/>
+        </association>
+        <association property="repUser" column="REP_ACCT" javaType="com.ams.entities.admin.UserInfo">
+            <id column="ACCT_ID" property="repId" jdbcType="NUMERIC"/>
+            <result column="USER_NAME" property="repName" jdbcType="VARCHAR"/>
+        </association>
+        <association property="productInfo" column="PRODUCT_ID" javaType="com.ams.entities.admin.ProductInfo">
+            <id column="PRD_ID" property="id" jdbcType="NUMERIC"/>
+            <result column="PRD_NAME" property="name" jdbcType="VARCHAR"/>
+            <result column="TYPE" property="type" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+
+    <select id="commentQueryPage" parameterType="java.util.Map" resultMap="commentMap">
+        select t.COMMENTS_ID,t.COM_CONTENT, t.CREATE_TIME,u.ACCT_ID as orgId, u.USER_NAME as orgName ,
+        bu.ACCT_ID AS repId, bu.USER_NAME as repName,
+        p.PRD_NAME, p.TYPE
+        from T_COMMENTS t left outer join B_ACCOUNT u on t.ORG_ACCT = u.ACCT_ID
+        left outer join B_ACCOUNT bu on t.REP_ACCT = bu.ACCT_ID
+        left outer join T_PRODUCT p ON t.PRODUCT_ID=p.PRD_ID
+        WHERE 1=1
+        <if test="acctId != null">
+            AND (t.ORG_ACCT=#{acctId} )
+        </if>
+    </select>
+
+
+    <insert id="insertComment" parameterType="com.ams.entities.admin.CommentInfo" >
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select SEQ_AMS.Nextval from dual
+        </selectKey>
+        insert into T_COMMENTS (COMMENTS_ID, ORG_ACCT,REP_ACCT,PRODUCT_ID,COM_CONTENT,, CREATE_TIME)
+        values (#{id}, #{orgUser.id}, #{repUser.id, jdbcType=NUMERIC},#{productInfo.id},#{content}, #{createTime})
+    </insert>
+
+    <delete id="deleteComment">
+        delete from T_COMMENTS where COMMENTS_ID in
+        <foreach collection="array" item="id" open="(" separator="," close=")">#{id}</foreach>
+    </delete>
+</mapper>

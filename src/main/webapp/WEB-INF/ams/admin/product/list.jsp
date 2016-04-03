@@ -54,7 +54,22 @@
             $("input[name='id']").prop("checked",$(this).prop("checked"));
         });
     })
-
+    function favourite(productId) {
+        $.ajax({
+            type: "POST",
+            url: '${basePath}/favorites/add.do?t=' + Math.random(),
+            data: {productId:productId},
+            dataType: "json",
+            success: function(data) {
+                data = eval("(" + data +")");
+                if(data.state != '0') {
+                    layer.msg('收藏成功！');
+                } else {
+                    layer.msg('收藏失败！');
+                }
+            }
+        });
+    }
 </script>
 <form action="${basePath}/product/list.do" method="post" id="productList" name="productList">
 <div class="place">
@@ -143,7 +158,8 @@
                 <td>${obj.addUser.userName}</td>
                 <td>
                     <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?id=${obj.addUser.id}','','workspace');">回复</a>|
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/edit.do?id=${obj.id}','','workspace');">修改</a>
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/edit.do?id=${obj.id}','','workspace');">修改</a>|
+                    <a href="#" class="tablelink" onclick="favourite('${obj.id}');">收藏</a>
                 </td>
             </tr>
         </c:forEach>

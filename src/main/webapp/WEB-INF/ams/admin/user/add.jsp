@@ -60,7 +60,7 @@
   }
   function checkAcctName(val) {
     $.ajax({
-      type: "GET",
+      type: "POST",
       url: '${basePath}/user/checkAcctName.do?t=' + Math.random(),
       data: {acctName:val},
       dataType: "json",

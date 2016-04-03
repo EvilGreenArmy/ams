@@ -61,7 +61,7 @@
   function checkAcctName(val) {
     var id = $("#id").val();
     $.ajax({
-      type: "GET",
+      type: "POST",
       url: '${basePath}/user/checkAcctName.do?t=' + Math.random(),
       data: {acctName:val, id :id},
       dataType: "json",
