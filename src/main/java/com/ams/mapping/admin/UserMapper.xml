@@ -65,4 +65,8 @@
             (#{id},#{item.dutyId},#{item.accountId})
         </foreach>
     </insert>
+    <select id="isAdminUser" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        SELECT count(1) FROM b_account_duty t WHERE t.ACCT_ID=#{id}
+        AND t.DUTY_ID=1
+    </select>
 </mapper>

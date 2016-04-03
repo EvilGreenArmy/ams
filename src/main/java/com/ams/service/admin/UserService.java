@@ -25,4 +25,6 @@ public interface UserService {
     public void deleteUser(Integer[] ids);
 
     public void editAccountDuty(Map<String, Object> map);
+
+    public boolean isAdmin(Integer acctId);
 }

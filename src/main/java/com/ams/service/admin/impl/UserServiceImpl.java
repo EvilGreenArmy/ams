@@ -97,6 +97,16 @@ public class UserServiceImpl implements UserService {
             insertAcctDuty(acctDutyList);
         }
     }
+
+    @Override
+    public boolean isAdmin(Integer acctId) {
+        Integer count = userDao.isAdminUser(acctId);
+        if(count != null && count.intValue() > 0) {
+            return true;
+        }
+        return false;
+    }
+
     private void clearAcctDuty(Integer acctId) {
         userDao.clearAcctDuty(acctId);
     }

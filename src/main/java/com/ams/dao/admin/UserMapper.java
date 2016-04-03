@@ -28,4 +28,6 @@ public interface UserMapper {
     void clearAcctDuty(Integer id);
 
     void insertAcctDuty(List<AccountDutyInfo> acctDutyList);
+
+    Integer isAdminUser(Integer acctId);
 }
