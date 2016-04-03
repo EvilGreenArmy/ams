@@ -56,12 +56,12 @@
     })
 
 </script>
-<form action="${basePath}/message/list.do" method="post" id="messageList" name="messageList">
+<form action="${basePath}/product/list.do" method="post" id="productList" name="productList">
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
         <li><a href="#">业务管理</a></li>
-        <li><a href="#">消息管理</a></li>
+        <li><a href="#">成果专利维护</a></li>
     </ul>
 </div>
 
@@ -70,14 +70,9 @@
     <div class="tools">
 
         <ul class="toolbar">
-            <li class="click" onclick="getData('${basePath}/message/add.do','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>发送通知</li>
+            <li class="click" onclick="getData('${basePath}/product/add.do','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加专利</li>
             <li onclick="delCategory();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
         </ul>
-
-        <ul class="toolbar1">
-            <li><span><img src="${basePath}/img/admin/login/t05.png" /></span>设置</li>
-        </ul>
-
     </div>
 
 
@@ -85,11 +80,12 @@
         <thead>
         <tr>
             <th><input name="" type="checkbox" id="chk_all" /></th>
-            <th>标题</th>
-            <th>发信人</th>
-            <th>内容</th>
-            <th>状态</th>
-            <th>发信时间</th>
+            <th>名称</th>
+            <th>单位</th>
+            <th>联系人</th>
+            <th>类型</th>
+            <th>提交时间</th>
+            <th>提交人</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -97,13 +93,15 @@
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
                 <td><input name="id" type="checkbox" value="${obj.id}" /></td>
-                <td>${obj.title}</td>
-                <td>${obj.fromUser.userName}</td>
-                <td>${obj.content}</td>
-                <td>${obj.status}</td>
-                <td><fmt:formatDate value="${obj.sendDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+                <td>${obj.name}</td>
+                <td>${obj.organizatione}</td>
+                <td>${obj.linkman}</td>
+                <td>${obj.type}</td>
+                <td><fmt:formatDate value="${obj.editDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+                <td>${obj.addUser.userName}</td>
                 <td>
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?id=${obj.fromUser.id}','','workspace');">回复</a>
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?id=${obj.addUser.id}','','workspace');">回复</a>|
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/edit.do?id=${obj.id}','','workspace');">修改</a>
                 </td>
             </tr>
         </c:forEach>
@@ -112,7 +110,7 @@
 
 
     <jsp:include page="../pagination/ajaxPager.jsp" flush="true" >
-        <jsp:param name="formName" value="messageList" />
+        <jsp:param name="formName" value="productList" />
     </jsp:include>
 
 </div>

@@ -15,5 +15,5 @@ public interface ProductMapper {
 
     List<ProductInfo> productQueryPage(Map map);
 
-    void insertUser(ProductInfo product);
+    void insertProduct(ProductInfo product);
 }

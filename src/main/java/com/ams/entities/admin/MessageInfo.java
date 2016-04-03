@@ -17,6 +17,8 @@ public class MessageInfo {
 
     private UserInfo fromUser;
 
+    private UserInfo toUser;
+
     private Date sendDate;
 
     public Date getSendDate() {
@@ -62,6 +64,14 @@ public class MessageInfo {
     public UserInfo getFromUser() { return fromUser; }
 
     public void setFromUser(UserInfo fromUser) { this.fromUser = fromUser; }
+
+    public UserInfo getToUser() {
+        return toUser;
+    }
+
+    public void setToUser(UserInfo toUser) {
+        this.toUser = toUser;
+    }
 
     @Override
     public String toString() {

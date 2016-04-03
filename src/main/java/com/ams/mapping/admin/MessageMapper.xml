@@ -18,7 +18,10 @@
     <select id="messageQueryPage" parameterType="java.util.Map" resultMap="messageMap">
         select t.*, u.ACCT_ID, u.USER_NAME
         from T_MESSAGE t left outer join B_ACCOUNT u on t.FROM_USER_ID = u.ACCT_ID where 1=1
-        <if test="title!=null and title !=''">
+        <if test="title!=null and toUserId !=''">
+            AND (t.TO_USER_ID=#{toUserId} OR t.TO_USER_ID IS NULL )
+        </if>
+        <if test="toUserId!=null and title !=''">
             AND t.MSG_TITLE LIKE '%'||#{title}||'%'
         </if>
         <if test="status!=null and status !=''">
@@ -26,12 +29,13 @@
         </if>
     </select>
 
+
     <insert id="insertMessage" parameterType="com.ams.entities.admin.MessageInfo" >
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
             select SEQ_AMS.Nextval from dual
         </selectKey>
-        insert into T_MESSAGE (MSG_ID, MSG_TITLE,MSG_CONTENT, STATUS, SEND_DATE, FROM_USER_ID)
-        values (#{id}, #{title},#{content}, #{status},#{sendDate}, #{fromUser.id,jdbcType=NUMERIC})
+        insert into T_MESSAGE (MSG_ID, MSG_TITLE,MSG_CONTENT, STATUS, SEND_DATE, FROM_USER_ID, TO_USER_ID)
+        values (#{id}, #{title},#{content}, #{status},#{sendDate}, #{fromUser.id,jdbcType=NUMERIC}, #{toUser.id,jdbcType=NUMERIC})
     </insert>
 
     <select id="getMessageById" parameterType="int" resultMap="messageMap">
