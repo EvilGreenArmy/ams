@@ -23,4 +23,6 @@ public interface UserService {
     public void updateUser(UserInfo user);
 
     public void deleteUser(Integer[] ids);
+
+    public void editAccountDuty(Map<String, Object> map);
 }

@@ -20,4 +20,8 @@ public interface RoleMapper {
     void updateRole(RoleInfo roleInfo);
 
     void deleteRole(Integer[] ids);
+
+    List<RoleInfo> findAll();
+
+    public List<RoleInfo> getAccountRole(Integer accountId);
 }

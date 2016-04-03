@@ -3,6 +3,7 @@ package com.ams.service.admin;
 import com.ams.entities.admin.RoleInfo;
 import com.ams.pagination.Page;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,4 +19,8 @@ public interface RoleService {
     public void updateRole(RoleInfo role);
 
     public void deleteRole(Integer[] ids);
+
+    public List<RoleInfo> getAllRole();
+
+    public Map<Integer, Integer> getAccountRole(Integer acctId);
 }

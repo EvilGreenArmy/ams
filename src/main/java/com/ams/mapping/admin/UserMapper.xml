@@ -52,4 +52,17 @@
         UPDATE b_account set DEL_STATE='D' WHERE ACCT_ID  in
         <foreach collection="array" item="id" open="(" separator="," close=")">#{id}</foreach>
     </update>
+    <delete id="clearAcctDuty" parameterType="java.lang.Integer">
+        DELETE  FROM b_account_duty WHERE acct_id=#{id}
+    </delete>
+    <insert id="insertAcctDuty" parameterType="java.util.List" >
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select SEQ_AMS.nextval  from dual
+        </selectKey>
+        insert into b_account_duty (ACC_DUTY_ID, DUTY_ID, ACCT_ID)
+        values
+        <foreach collection="list" item="item" index="index" separator="," >
+            (#{id},#{item.dutyId},#{item.accountId})
+        </foreach>
+    </insert>
 </mapper>

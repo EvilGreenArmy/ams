@@ -1,6 +1,7 @@
 package com.ams.service.admin.impl;
 
 import com.ams.dao.admin.UserMapper;
+import com.ams.entities.admin.AccountDutyInfo;
 import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
 import com.ams.security.PwdEncoder;
@@ -85,5 +86,21 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void deleteUser(Integer[] ids) {
         userDao.deleteUser(ids);
+    }
+
+    @Transactional
+    public void editAccountDuty(Map<String, Object> map) {
+        Integer acctId = Integer.parseInt(map.get("acctId").toString());
+        clearAcctDuty(acctId);
+        List<AccountDutyInfo> acctDutyList = (List)map.get("acctRoles");
+        if(acctDutyList != null && acctDutyList.size() > 0) {
+            insertAcctDuty(acctDutyList);
+        }
+    }
+    private void clearAcctDuty(Integer acctId) {
+        userDao.clearAcctDuty(acctId);
+    }
+    private void insertAcctDuty(List<AccountDutyInfo> acctDutyList) {
+        userDao.insertAcctDuty(acctDutyList);
     }
 }

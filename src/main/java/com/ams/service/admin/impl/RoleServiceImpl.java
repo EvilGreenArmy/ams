@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,8 @@ import java.util.Map;
  */
 @Service("roleService")
 public class RoleServiceImpl implements RoleService {
+
+
     @Autowired
     private RoleMapper roleDao;
 
@@ -51,5 +54,22 @@ public class RoleServiceImpl implements RoleService {
     @Transactional
     public void deleteRole(Integer[] ids) {
         roleDao.deleteRole(ids);
+    }
+
+    @Override
+    public List<RoleInfo> getAllRole() {
+        return roleDao.findAll();
+    }
+
+    @Override
+    public Map<Integer, Integer> getAccountRole(Integer acctId) {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        List<RoleInfo> roleList = roleDao.getAccountRole(acctId);
+        if(roleList != null && roleList.size() > 0) {
+            for(RoleInfo role : roleList) {
+                map.put(role.getId(), acctId);
+            }
+        }
+        return map;
     }
 }

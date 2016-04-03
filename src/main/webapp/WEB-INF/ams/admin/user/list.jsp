@@ -58,6 +58,13 @@
         }, function(){
         });
     }
+    function assign() {
+        if(isSelectData('id')){
+            if(isMultiSelectData('id')){
+                pageEditData('${basePath}/user/assign.do','id','id','workspace');
+            }
+        }
+    }
 </script>
 <form action="${basePath}/user/list.do" method="post" id="userList" name="userList">
 <div class="place">
@@ -76,12 +83,13 @@
             <li class="click" onclick="getData('${basePath}/user/add.do','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加</li>
             <%--<li class="click"><span><img src="${basePath}/img/admin/login/t02.png" /></span>激活</li>--%>
             <li onclick="delUser();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
+            <li class="click" onclick="assign();"><span><img src="${basePath}/img/admin/login/t05.png" /></span>分派角色</li>
         </ul>
 
 
-        <ul class="toolbar1">
-            <li onclick="getData('${basePath}/user/assign.do','','workspace');"><span><img src="${basePath}/img/admin/login/t05.png" /></span>设置</li>
-        </ul>
+        <%--<ul class="toolbar">
+            <li class="click" onclick="assign();"><span><img src="${basePath}/img/admin/login/t05.png" /></span>分派角色</li>
+        </ul>--%>
 
     </div>
 

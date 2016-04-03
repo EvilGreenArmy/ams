@@ -1,5 +1,6 @@
 package com.ams.dao.admin;
 
+import com.ams.entities.admin.AccountDutyInfo;
 import com.ams.entities.admin.UserInfo;
 import org.springframework.stereotype.Repository;
 
@@ -23,4 +24,8 @@ public interface UserMapper {
     void updateUser(UserInfo userInfo);
 
     void deleteUser(Integer[] ids);
+
+    void clearAcctDuty(Integer id);
+
+    void insertAcctDuty(List<AccountDutyInfo> acctDutyList);
 }
