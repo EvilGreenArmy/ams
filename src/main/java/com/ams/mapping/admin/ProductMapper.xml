@@ -56,6 +56,14 @@
         #{priceUnit,jdbcType=VARCHAR}, #{zipCode,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{addDate},
         #{editDate}, #{addUser.id,jdbcType=NUMERIC}, #{editUser.id,jdbcType=NUMERIC})
     </insert>
+    <update id="updateProduct" parameterType="com.ams.entities.admin.ProductInfo" >
+        UPDATE  T_PRODUCT SET
+        PRD_NAME=#{name,jdbcType=VARCHAR}, PRD_ORGANIZATION= #{organization,jdbcType=VARCHAR}, START_DATE=#{startDate,jdbcType=TIMESTAMP},
+        END_DATE=#{endDate,jdbcType=TIMESTAMP}, ADDR=#{addr,jdbcType=VARCHAR}, LINKMAN=#{linkman,jdbcType=VARCHAR}, AREA=#{area,jdbcType=VARCHAR},
+        CONTENT=#{content,jdbcType=VARCHAR}, TELEPHONE=#{telephone,jdbcType=VARCHAR}, PRICE_UNIT=#{priceUnit,jdbcType=VARCHAR},
+        ZIP_CODE=#{zipCode,jdbcType=VARCHAR}, EDIT_DATE=#{editDate}, EDIT_USER_ID=#{editUser.id}
+        WHERE PRD_ID=#{id}
+    </update>
     <select id="getProductById" parameterType="com.ams.entities.admin.ProductInfo" resultMap="productMap">
         SELECT * FROM T_PRODUCT t WHERE t.PRD_ID=#{id}
     </select>

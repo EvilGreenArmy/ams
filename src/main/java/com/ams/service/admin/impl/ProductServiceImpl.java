@@ -33,12 +33,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void editProduct(ProductInfo product) {
-
+        productDao.updateProduct(product);
     }
 
     @Override
     public ProductInfo getProductById(Integer id) {
-        return null;
+        return productDao.getProductById(id);
     }
 
     @Override

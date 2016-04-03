@@ -71,7 +71,7 @@
         });
     }
 </script>
-<form action="${basePath}/product/list.do" method="post" id="productList" name="productList">
+<form action="${basePath}/product/frontList.do" method="post" id="productList" name="productList">
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -115,19 +115,9 @@
 
 
     </div>
-
-    <div class="tools">
-
-        <ul class="toolbar">
-            <li onclick="delCategory();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
-        </ul>
-    </div>
-
-
     <table class="tablelist">
         <thead>
         <tr>
-            <th><input name="" type="checkbox" id="chk_all" /></th>
             <th>名称</th>
             <th>单位</th>
             <th>联系人</th>
@@ -140,7 +130,6 @@
         <tbody>
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
-                <td><input name="id" type="checkbox" value="${obj.id}" /></td>
                 <td>${obj.name}</td>
                 <td>${obj.organization}</td>
                 <td>${obj.linkman}</td>
@@ -155,8 +144,7 @@
                 <td><fmt:formatDate value="${obj.editDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                 <td>${obj.addUser.userName}</td>
                 <td>
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?id=${obj.addUser.id}','','workspace');">回复</a>|
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/edit.do?id=${obj.id}','','workspace');">修改</a>|
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?toUserId=${obj.addUser.id}','','workspace');">回复</a>|
                     <a href="#" class="tablelink" onclick="favourite('${obj.id}');">收藏</a>
                 </td>
             </tr>

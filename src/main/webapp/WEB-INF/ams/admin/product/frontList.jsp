@@ -71,7 +71,7 @@
         });
     }
 </script>
-<form action="${basePath}/product/list.do" method="post" id="productList" name="productList">
+<form action="${basePath}/product/frontList.do" method="post" id="productList" name="productList">
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -119,6 +119,8 @@
     <div class="tools">
 
         <ul class="toolbar">
+            <li class="click" onclick="getData('${basePath}/product/add.do?type=1','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加成果</li>
+            <li class="click" onclick="getData('${basePath}/product/add.do?type=2','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加专利</li>
             <li onclick="delCategory();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
         </ul>
     </div>
@@ -155,9 +157,7 @@
                 <td><fmt:formatDate value="${obj.editDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                 <td>${obj.addUser.userName}</td>
                 <td>
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?id=${obj.addUser.id}','','workspace');">回复</a>|
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/edit.do?id=${obj.id}','','workspace');">修改</a>|
-                    <a href="#" class="tablelink" onclick="favourite('${obj.id}');">收藏</a>
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/frontEdit.do?id=${obj.id}','','workspace');">修改</a>
                 </td>
             </tr>
         </c:forEach>

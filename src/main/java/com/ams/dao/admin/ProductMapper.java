@@ -16,4 +16,8 @@ public interface ProductMapper {
     List<ProductInfo> productQueryPage(Map map);
 
     void insertProduct(ProductInfo product);
+
+    void updateProduct(ProductInfo product);
+
+    ProductInfo getProductById(Integer id);
 }
