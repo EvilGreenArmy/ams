@@ -25,14 +25,10 @@
             <id column="ACCT_ID" property="id" jdbcType="NUMERIC"/>
             <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
         </association>
-        <association property="editUser" column="EDIT_USER_ID" javaType="com.ams.entities.admin.UserInfo">
-            <id column="ACCT_ID" property="id" jdbcType="NUMERIC"/>
-            <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
-        </association>
     </resultMap>
     <select id="productQueryPage" parameterType="java.util.Map" resultMap="productMap">
-        select *
-        from T_PRODUCT u
+        select u.*, a.ACCT_ID, a.USER_NAME
+        from T_PRODUCT u LEFT join B_ACCOUNT a on u.ADD_USER_ID=a.ACCT_ID
         WHERE  1=1
         <if test="name!=null and name !=''">
           AND u.PRD_NAME LIKE '%'||#{name}||'%'
