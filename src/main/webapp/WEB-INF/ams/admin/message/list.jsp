@@ -24,6 +24,10 @@
 
      });*/
 
+    function queryMessage(){
+        postDataByFormName('messageList','workspace');
+    }
+
 
     function delCategory(){
         if(!checkSelect()){
@@ -36,7 +40,7 @@
             trimForm('categoryList');
             $("#categoryList").attr("action","${basePath}/category/del.do")
             layer.closeAll();
-            postDataByFormName('categoryList','workspace');
+            postDataByFormName('messageList','workspace');
         }, function(){
         });
     }
@@ -80,11 +84,11 @@
               <tr>
                   <td class="tabel_title">标题</td>
                   <td class="table_cont">
-                      <input type="text" placeholder="Search" class="search_input"/>
+                      <input type="text" name="title" placeholder="Search" value="${paramMap.title}" class="search_input"/>
                   </td>
                   <td  class="tabel_title">内容</td>
                   <td  class="table_cont">
-                      <input type="text" placeholder="Search" class="search_input"/>
+                      <input type="text" name="content" placeholder="Search" value="${paramMap.content}" class="search_input"/>
                   </td>
               </tr>
               </tbody>
@@ -92,7 +96,7 @@
               <tr>
                   <td colspan="3"></td>
                   <td>
-                      <button class="search_btn">查询</button>
+                      <button type="button" class="search_btn" onclick="queryMessage();">查询</button>
                   </td>
               </tr>
               </tfoot>

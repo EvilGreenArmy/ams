@@ -18,14 +18,17 @@
     <select id="messageQueryPage" parameterType="java.util.Map" resultMap="messageMap">
         select t.*, u.ACCT_ID, u.USER_NAME
         from T_MESSAGE t left outer join B_ACCOUNT u on t.FROM_USER_ID = u.ACCT_ID where 1=1
-        <if test="title!=null and toUserId !=''">
+        <if test="toUserId!=null and toUserId !=''">
             AND (t.TO_USER_ID=#{toUserId} OR t.TO_USER_ID IS NULL )
         </if>
-        <if test="toUserId!=null and title !=''">
+        <if test="title!=null and title !=''">
             AND t.MSG_TITLE LIKE '%'||#{title}||'%'
         </if>
         <if test="status!=null and status !=''">
             AND t.status = #{status}
+        </if>
+        <if test="content!=null and content !=''">
+            AND t.MSG_CONTENT LIKE '%'||#{content}||'%'
         </if>
     </select>
 

@@ -13,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,13 +38,17 @@ public class MessageController extends BaseController {
     private MessageService messageService;
 
     @RequestMapping(value = "list")
-    public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model, Page<MessageInfo> page) {
+    public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model, Page<MessageInfo> page,
+                       @RequestParam(value="title", required = false) String title, @RequestParam(value="content", required = false)String content) {
 
-        logger.debug("Page info : " + page);
+        logger.debug("Page info : " + title);
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("page", page);
+        paramMap.put("title", title);
+        paramMap.put("content", content);
         page = messageService.queryList(paramMap);
         model.addAttribute("page", page);
+        model.addAttribute("paramMap", paramMap);
         return "message/list";
 
     }

@@ -66,11 +66,46 @@
 </div>
 
 <div class="rightinfo">
+    <div class="seach_box">
+
+        <fieldset>
+            <legend>消息查询</legend>
+            <table>
+                <tbody>
+                <tr>
+                    <td class="tabel_title">类型：</td>
+                    <td class="table_cont">
+                        <select name="type" class="search_input">
+                            <option value=""></option>
+                            <option value="成果">成果</option>
+                            <option value="专利">专利</option>
+                        </select>
+                    </td>
+                    <td  class="tabel_title">名称：</td>
+                    <td  class="table_cont">
+                        <input type="text" placeholder="Search" class="search_input"/>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>
+                        <button class="search_btn">查询</button>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </fieldset>
+
+
+    </div>
 
     <div class="tools">
 
         <ul class="toolbar">
-            <li class="click" onclick="getData('${basePath}/product/add.do','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加专利</li>
+            <li class="click" onclick="getData('${basePath}/product/add.do?type=1','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加成果</li>
+            <li class="click" onclick="getData('${basePath}/product/add.do?type=2','','workspace');"><span><img src="${basePath}/img/admin/login/t01.png" /></span>添加专利</li>
             <li onclick="delCategory();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
         </ul>
     </div>

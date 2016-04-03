@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,6 +45,18 @@ public class ProductController extends BaseController {
         return "product/list";
 
     }
+
+    @RequestMapping(value = "add", method = RequestMethod.GET)
+    public String initAdd(HttpServletRequest request, HttpServletResponse response, ModelMap model, String type) {
+        logger.debug("initEdit type:" + type);
+        if("1".equals(type))
+            model.addAttribute("typeName", "成果");
+        else
+            model.addAttribute("typeName", "专利");
+        model.addAttribute("type", type);
+        return "product/add";
+    }
+
 
     @RequestMapping(value = "edit", method = RequestMethod.GET)
     public String initEdit(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer id) {
