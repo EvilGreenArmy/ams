@@ -69,4 +69,7 @@
         SELECT count(1) FROM b_account_duty t WHERE t.ACCT_ID=#{id}
         AND t.DUTY_ID=1
     </select>
+    <update id="modifyPassword" parameterType="com.ams.entities.admin.UserInfo">
+        UPDATE b_account SET ACCT_PWD=#{password} WHERE ACCT_ID=#{id}
+    </update>
 </mapper>

@@ -107,6 +107,16 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
+    @Override
+    public String encodePassword(String password) {
+        return pwdEncoder.encodePassword(password, salt);
+    }
+
+    @Transactional
+    public void modifyPassword(UserInfo user) {
+        userDao.modifyPassword(user);
+    }
+
     private void clearAcctDuty(Integer acctId) {
         userDao.clearAcctDuty(acctId);
     }

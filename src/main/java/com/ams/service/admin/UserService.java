@@ -27,4 +27,8 @@ public interface UserService {
     public void editAccountDuty(Map<String, Object> map);
 
     public boolean isAdmin(Integer acctId);
+
+    public String encodePassword(String password);
+
+    public void modifyPassword(UserInfo user);
 }

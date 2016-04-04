@@ -18,8 +18,7 @@
 
 <div class="topright">
   <ul>
-    <li><span><img src="${pageContext.request.contextPath}/img/admin/login/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
-    <li><a href="#">关于</a></li>
+    <li><span><img src="${pageContext.request.contextPath}/img/admin/login/help.png" title="修改密码"  class="helpimg"/></span><a href="javascript:;" onclick="modifyPassword();">修改密码</a></li>
     <li><a href="${pageContext.request.contextPath}/member/logout.do">退出</a></li>
   </ul>
 
@@ -37,4 +36,19 @@
       $(this).addClass("selected");
     })
   })
+  function modifyPassword() {
+    var user = "${login_user}"
+    if(user != null) {
+    layer.open({
+      type: 2,
+      title: '修改密码',
+      shadeClose: true,
+      shade: 0.8,
+      area: ['380px', '65%'],
+      content: '${basePath}/admin/modifyPassword.do?t=' + Math.random() //iframe的url
+    });
+  } else {
+      window.location.href = "${basePath}/admin/index.do";
+  }
+  }
 </script>

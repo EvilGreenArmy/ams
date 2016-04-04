@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -67,5 +69,29 @@ public class LoginController extends BaseController {
         //二级菜单
         model.addAttribute("menuList", sourceService.getChildrenSource(user));
         return "base.definition";
+    }
+    @RequestMapping(value = "modifyPassword", method = RequestMethod.GET)
+    public String initModifyPassword(HttpServletRequest request, HttpServletResponse response,
+                       Model model) {
+        return "user/password";
+    }
+    @RequestMapping(value = "modifyPassword", method = RequestMethod.POST)
+    public @ResponseBody String modifyPassword(HttpServletRequest request, HttpServletResponse response,
+                                     Model model, @RequestParam("oldPassword") String oldPassword,
+                                     @RequestParam("newPassword") String newPassword,
+                                     @RequestParam("newPasswordReply") String newPasswordReply) {
+
+        UserInfo user = (UserInfo)getSession(request).getAttribute(Constant.SESSION_LOGIN_USER);
+        if(!this.userService.encodePassword(oldPassword).equals(user.getPassword())) {
+            return "{\"state\":\"0\", \"errMsg\":\"原密码不正确!\"}";
+        }
+        if(!newPassword.equals(newPasswordReply)) {
+            return "{\"state\":\"0\", \"errMsg\":\"两次密码不一致!\"}";
+        }
+        newPassword = this.userService.encodePassword(newPassword);
+        user.setPassword(newPassword);
+        this.userService.modifyPassword(user);
+        getSession(request).setAttribute(Constant.SESSION_LOGIN_USER, user);
+        return "{\"state\":\"1\", \"errMsg\":\"\"}";
     }
 }

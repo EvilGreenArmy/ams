@@ -30,4 +30,6 @@ public interface UserMapper {
     void insertAcctDuty(List<AccountDutyInfo> acctDutyList);
 
     Integer isAdminUser(Integer acctId);
+
+    void modifyPassword(UserInfo userInfo);
 }
