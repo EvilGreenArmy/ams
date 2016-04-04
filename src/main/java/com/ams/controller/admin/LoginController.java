@@ -94,4 +94,9 @@ public class LoginController extends BaseController {
         getSession(request).setAttribute(Constant.SESSION_LOGIN_USER, user);
         return "{\"state\":\"1\", \"errMsg\":\"\"}";
     }
+    @RequestMapping(value = "register", method = RequestMethod.GET)
+    public String initRegister(HttpServletRequest request, HttpServletResponse response,
+                        Model model) {
+        return "login/register";
+    }
 }

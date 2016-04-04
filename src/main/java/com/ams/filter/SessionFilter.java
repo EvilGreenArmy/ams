@@ -23,7 +23,11 @@ public class SessionFilter implements Filter {
         String requestURI = requestHttp.getRequestURI().toLowerCase();
         HttpServletResponse responseHttp = (HttpServletResponse) response;
         // 判断是否是首次登陆
-        boolean isLogin = requestURI.indexOf("login") >= 0 || requestURI.indexOf("admin/index.do") >= 0;
+        boolean isLogin = requestURI.indexOf("login") >= 0 ||
+                requestURI.indexOf("admin/index.do") >= 0;
+        if(requestURI.indexOf("admin/register.do") >= 0) {
+            isLogin = true;
+        }
         UserInfo loginUser = (UserInfo) requestHttp.getSession().getAttribute(Constant.SESSION_LOGIN_USER);
         if (!isLogin && loginUser == null) {
             //如果判断是 AJAX 请求,直接设置为session超时

@@ -61,11 +61,11 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                       target="_blank">延安市人民政府</A></TD>
                     <TD width="559" align="center">欢迎您访问延安市科学技术局（延安市知识产权局）官方网站！</TD>
                     <TD width="20"><IMG width="16" height="16" src="${pageContext.request.contextPath}/img/front/icon_home.gif"></TD>
-                    <TD width="60"><A onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.xainfo.gov.cn/');"
-                                      href="javascript:void(0);">设为首页</A></TD>
+                    <TD width="60"><A href="${pageContext.request.contextPath}/admin/index.do">登录</A></TD>
                     <TD width="20"><IMG width="16" height="16" src="${pageContext.request.contextPath}/img/front/icon_fav.gif"></TD>
-                    <TD width="50" align="right"><A onclick="window.external.addFavorite('http://www.xainfo.gov.cn/','延安科技网');"
-                                                    href="javascript:void(0);">加入收藏</A></TD></TR></TBODY></TABLE></TD></TR>
+                    <TD width="25" align="right"><A href="${pageContext.request.contextPath}/admin/register.do">注册</A>
+                    </TD>
+                </TR></TBODY></TABLE></TD></TR>
     <TR>
         <TD height="160" style='background-image: url("/image/body_bg.gif");'>
             <TABLE width="1004" align="center" border="0" cellspacing="0" cellpadding="0">
