@@ -30,6 +30,7 @@
         <if test="content!=null and content !=''">
             AND t.MSG_CONTENT LIKE '%'||#{content}||'%'
         </if>
+        ORDER by t.MSG_ID DESC
     </select>
 
 

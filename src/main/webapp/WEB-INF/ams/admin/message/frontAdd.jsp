@@ -34,7 +34,7 @@
 
 </script>
 <form action="${basePath}/message/add.do" method="post" id="message" name="message">
-    <input type="hidden" name="parentId" value="${parentId}"/>
+    <input type="hidden" name="toUserId" value="${toUser.id}"/>
   <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -47,7 +47,7 @@
     <div class="formtitle"><span>消息信息</span></div>
     <ul class="forminfo">
       <li><label>消息标题<b>*</b></label><input name="title" id="title" type="text" class="dfinput" /><i style="color: red;"></i></li>
-      <li><label>收信人</label><input name="name" id="name" type="text" value="所有人" class="dfinput" readonly /><i style="color: red;"></i></li>
+      <li><label>收信人</label><input name="name" id="name" type="text" value="${toUser.userName}" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>消息内容<b>*</b></label>
           <textarea id="content" name="content" cols="" rows="" class="textinput"></textarea><i style="color: red;"></i>
       </li>
