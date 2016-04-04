@@ -1,0 +1,96 @@
+* {
+	margin: 0px; padding: 0px; font-size: 12px;
+}
+table {
+	margin: 0px auto;
+}
+a {
+	color: rgb(40, 40, 40); text-decoration: none;
+}
+a:hover {
+	color: rgb(255, 0, 0); text-decoration: underline;
+}
+a img {
+	border: currentColor; border-image: none;
+}
+.border {
+	border: 1px solid rgb(224, 224, 224); border-image: none;
+}
+.tupian {
+	background: url("/image/title_tupian_bg.gif") no-repeat; height: 32px; padding-right: 5px;
+}
+.tupian a {
+	color: rgb(255, 0, 0); font-size: 14px;
+}
+.tupian a:hover {
+	color: rgb(255, 0, 0); font-size: 14px;
+}
+.focus {
+	border-bottom-color: rgb(222, 222, 222); border-bottom-width: 1px; border-bottom-style: dashed;
+}
+.focus a {
+	color: rgb(255, 0, 0); font-family: Î¢ÈíÑÅºÚ; font-size: 18px; font-weight: bold;
+}
+.focus a:hover {
+	color: rgb(255, 0, 0); font-family: Î¢ÈíÑÅºÚ; font-size: 18px; font-weight: bold;
+}
+.tags_kjdt_title {
+	width: 517px;
+}
+.tags_kjdt_title ul {
+	height: 26px; border-bottom-color: rgb(224, 224, 224); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.tags_kjdt_title ul li {
+	background: rgb(242, 242, 242); list-style: none; width: 82px; height: 26px; text-align: center; color: rgb(102, 102, 102); line-height: 26px; font-size: 14px; margin-right: 5px; float: left; cursor: pointer;
+}
+.tags_kjdt_title ul li a {
+	color: rgb(255, 0, 0); font-size: 14px;
+}
+.tags_kjdt_title ul li a:hover {
+	color: rgb(255, 0, 0); font-size: 14px;
+}
+.tags_kjdt_title .menuhover {
+	background: rgb(255, 0, 0); color: rgb(255, 255, 255);
+}
+.tags_kjdt_con {
+	width: 517px; padding-top: 10px;
+}
+.tags_kjdt_con ul li {
+	list-style: none; width: 517px; height: 24px; line-height: 24px; overflow: hidden;
+}
+.tags_kjdt_con ul li a {
+	font-size: 14px;
+}
+.tags_kjdt_con ul li span {
+	color: rgb(40, 40, 40); font-size: 12px; float: right;
+}
+.tags_kjdt_con ul li span a {
+	color: rgb(255, 0, 0); font-size: 14px;
+}
+.tags_kjdt_con ul li span a£ºhover {
+	color: rgb(255, 0, 0); font-size: 14px;
+}
+.title_left {
+	background: url("/image/title_left_bg.gif") no-repeat; height: 32px; padding-left: 10px;
+}
+.title_left span {
+	height: 32px; color: rgb(254, 0, 0); line-height: 32px; font-family: »ªÎÄÏ¸ºÚ; font-size: 16px; font-weight: bold;
+}
+.title_left div {
+	color: rgb(255, 51, 0); font-weight: bold;
+}
+.title_left a {
+	color: rgb(255, 51, 0); font-weight: bold;
+}
+.title_left a:hover {
+	color: rgb(255, 51, 0); font-weight: bold;
+}
+.title_right {
+	background: url("/image/title_right_bg.gif"); height: 32px;
+}
+.title_right span {
+	height: 32px; color: rgb(0, 0, 0); line-height: 32px; font-family: Î¢ÈíÑÅºÚ; font-size: 14px; font-weight: bold;
+}
+.zwgk {
+	background: url("/image/zwgk_bg.gif"); height: 26px; line-height: 26px;
+}

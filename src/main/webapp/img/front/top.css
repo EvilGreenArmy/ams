@@ -1,0 +1,9 @@
+.menu {
+	height: 38px; line-height: 38px;
+}
+.menu a {
+	color: rgb(255, 255, 255); padding-right: 18px; font-size: 14px; font-weight: bold; text-decoration: none;
+}
+.menu a:hover {
+	color: rgb(0, 51, 221); font-size: 14px; font-weight: bold; text-decoration: none;
+}
