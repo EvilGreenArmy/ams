@@ -134,7 +134,14 @@
                 <td>${obj.title}</td>
                 <td>${obj.fromUser.userName}</td>
                 <td>${obj.content}</td>
-                <td>${obj.status}</td>
+                <td>
+                    <c:if test="${'N' eq obj.status}">
+                        未读
+                    </c:if>
+                    <c:if test="${'R' eq obj.status}">
+                        已读
+                    </c:if>
+                </td>
                 <td><fmt:formatDate value="${obj.sendDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                 <td>
                     <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?toUserId=${obj.fromUser.id}','','workspace');">回复</a>

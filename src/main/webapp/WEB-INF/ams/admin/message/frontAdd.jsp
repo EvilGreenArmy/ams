@@ -39,7 +39,7 @@
     <span>位置：</span>
     <ul class="placeul">
       <li><a href="#">业务管理</a></li>
-      <li><a href="#">消息管理</a></li>
+      <li><a href="#">我的消息</a></li>
       <li><a href="#">发送消息</a></li>
     </ul>
   </div>

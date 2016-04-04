@@ -16,4 +16,8 @@ public interface MessageService {
 
     public void saveMessage(MessageInfo message, Integer[] toUsers);
 
+    public  MessageInfo getMessageById(Integer id);
+
+    public void setRead(Integer id);
+
 }

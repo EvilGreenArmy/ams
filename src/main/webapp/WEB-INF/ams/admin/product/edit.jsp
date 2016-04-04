@@ -33,7 +33,7 @@
   }
 
 </script>
-<form action="${basePath}/product/add.do" method="post" id="product" name="product">
+<form action="${basePath}/product/edit.do" method="post" id="product" name="product">
     <input type="hidden" name="id" value="${product.id}"/>
     <input type="hidden" name="type" value="${type}"/>
   <div class="place">
@@ -49,15 +49,15 @@
     <ul class="forminfo">
       <li><label>${typeName}名称<b>*</b></label><input name="name" id="name" value="${product.name}" type="text" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>单位名称</label><input name="organization" id="organization" value="${product.organization}" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
-      <li><label>开始时间</label><input name="startDate_" id="startDate" value="${product.startDate}" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
-      <li><label>结束时间</label><input name="endDate_" id="endDate" value="${product.endDate}" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
+      <li><label>开始时间</label><input name="startDate" id="startDate" value="<fmt:formatDate value='${product.startDate}' pattern='yyyy-MM-dd'/>" type="text" class="dfinput"  onClick="WdatePicker()"/><i style="color: red;"></i></li>
+      <li><label>结束时间</label><input name="endDate" id="endDate" value="<fmt:formatDate value='${product.endDate}' pattern='yyyy-MM-dd'/>" type="text" class="dfinput"  onClick="WdatePicker()"/><i style="color: red;"></i></li>
       <li><label>通讯地址</label><input name="addr" id="addr" value="${product.addr}" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>联系人</label><input name="linkman" id="linkman" value="${product.linkman}" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>联系电话</label><input name="telephone" id="telephone" value="${product.telephone}" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>所在区域</label><input name="area" id="area" value="${product.area}" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>邮政编码</label><input name="zipCode" id="zipCode" value="${product.zipCode}" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>内容简介<b>*</b></label>
-          <textarea id="content" name="content" value="${product.content}" cols="" rows="" class="textinput"></textarea><i style="color: red;"></i>
+          <textarea id="content" name="content" cols="" rows="" class="textinput">${product.content}</textarea><i style="color: red;"></i>
       </li>
       <li><label>&nbsp;</label><input onclick="saveProduct();" type="button" class="btn" value="提交"/></li>
     </ul>

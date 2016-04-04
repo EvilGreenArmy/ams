@@ -95,12 +95,22 @@ public class MessageController extends BaseController {
         }
         message.setFromUser(currentUser);
         message.setSendDate(new Date());
-        message.setStatus("未读");
+        message.setStatus("N");
         this.messageService.saveMessage(message, null);
         if(null != toUserId){
             return "redirect:/message/frontList.do";
         }
         return "redirect:/message/list.do";
     }
+
+
+    @RequestMapping(value = "detail", method = RequestMethod.GET)
+    public String detail(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer id){
+        MessageInfo message = this.messageService.getMessageById(id);
+        this.messageService.setRead(id);
+        model.addAttribute("message",message);
+        return "message/frontDetail";
+    }
+
 
 }

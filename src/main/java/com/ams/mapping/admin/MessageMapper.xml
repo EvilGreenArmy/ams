@@ -17,7 +17,7 @@
 
     <select id="messageQueryPage" parameterType="java.util.Map" resultMap="messageMap">
         select t.*, u.ACCT_ID, u.USER_NAME
-        from T_MESSAGE t left outer join B_ACCOUNT u on t.FROM_USER_ID = u.ACCT_ID where 1=1
+        from T_MESSAGE t left join B_ACCOUNT u on t.FROM_USER_ID = u.ACCT_ID where 1=1
         <if test="toUserId!=null and toUserId !=''">
             AND (t.TO_USER_ID=#{toUserId} OR t.TO_USER_ID IS NULL )
         </if>
@@ -43,15 +43,18 @@
     </insert>
 
     <select id="getMessageById" parameterType="int" resultMap="messageMap">
-        select * from T_MESSAGE
-        where MSG_ID = #{id}
+        select t.*, u.ACCT_ID, u.USER_NAME
+        FROM T_MESSAGE t LEFT JOIN B_ACCOUNT u on t.FROM_USER_ID = u.ACCT_ID
+        where t.MSG_ID = #{id}
     </select>
 
     <update id="deleteMessages">
         update T_MESSAGE set status='D' where MSG_ID in
         <foreach collection="array" item="id" open="(" separator="," close=")">#{id}</foreach>
     </update>
-
+    <update id="updateStatus" parameterType="java.util.Map">
+        update T_MESSAGE set status=#{status} where MSG_ID=#{id}
+    </update>
     <delete id="deletes">
         delete from T_MESSAGE where MSG_ID in
         <foreach collection="array" item="id" open="(" separator="," close=")">#{id}</foreach>

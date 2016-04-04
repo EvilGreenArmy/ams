@@ -15,4 +15,8 @@ public interface MessageMapper {
 
     public void insertMessage(MessageInfo message);
 
+    public MessageInfo getMessageById(Integer id);
+
+    public void updateStatus(Map map);
+
 }

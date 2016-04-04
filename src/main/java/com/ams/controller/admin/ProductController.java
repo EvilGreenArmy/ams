@@ -174,4 +174,11 @@ public class ProductController extends BaseController {
         }
         return "redirect:/product/approveList.do";
     }
+
+    @RequestMapping(value = "detail", method = RequestMethod.GET)
+    public String detail(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer id) {
+        ProductInfo product = this.productService.getProductById(id);
+        model.addAttribute("product", product);
+        return "product/detail";
+    }
 }

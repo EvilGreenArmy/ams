@@ -31,8 +31,19 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void saveMessage(MessageInfo message, Integer[] toUsers) {
-
         messageDao.insertMessage(message);
+    }
 
+    @Override
+    public MessageInfo getMessageById(Integer id) {
+        return messageDao.getMessageById(id);
+    }
+
+    @Override
+    public void setRead(Integer id) {
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("id",id);
+        paramMap.put("status","R");
+        messageDao.updateStatus(paramMap);
     }
 }

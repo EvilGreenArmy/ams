@@ -133,7 +133,7 @@
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
                 <td><input name="id" type="checkbox" value="${obj.id}" /></td>
-                <td>${obj.name}</td>
+                <td><a href="#" onclick="getData('${basePath}/product/detail.do?id=${obj.id}','','workspace');">${obj.name}</a></td>
                 <td>${obj.organization}</td>
                 <td>${obj.linkman}</td>
                 <td>
