@@ -13,14 +13,40 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
 <META name="keywords" content="延安市科技局，延安市科学技术局">
 <META name="description" content="延安市科学技术局是延安市政府综合管理全市科技工作的职能部门，延安科技网是延安市科学技术局的官方网站。">
 <LINK href="${pageContext.request.contextPath}/img/front/default.css" rel="stylesheet" type="text/css">
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/admin/swiper/swiper.min.css">
 <SCRIPT language="javascript" src="css/function.js"></SCRIPT>
+<style>
+    .swiper-container {
+        width: 458px;
+        height: 345px;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
 
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+</style>
 <META name="GENERATOR" content="MSHTML 11.00.10586.162"></HEAD>
 <BODY><LINK href="${pageContext.request.contextPath}/img/front/top.css" rel="stylesheet" type="text/css">
 <TABLE width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
     <TBODY>
     <TR>
-        <TD height="26" style='background-image: url("/image/top_bg.gif");'>
+        <TD height="26" style='background-image: url("${pageContext.request.contextPath}/image/top_bg.gif");'>
             <TABLE width="1004" align="center" border="0" cellspacing="0" cellpadding="0">
                 <TBODY>
                 <TR>
@@ -97,14 +123,54 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                            cellpadding="0">
                                         <TBODY>
                                         <TR>
-                                            <TD align="right" class="tupian"><A href="http://www.xainfo.gov.cn/admin/class1.asp?text=图片新闻"
-                                                                                target="_blank">更多&gt;&gt;</A></TD></TR>
-                                        <TR>
-                                            <TD><IFRAME name="tupianlist" width="458" height="345"
-                                                        src="${pageContext.request.contextPath}/img/front/tupianlist.htm" border="0" frameborder="no"
-                                                        marginwidth="0" marginheight="0"
-                                                        scrolling="no"></IFRAME>
-                                            </TD></TR></TBODY></TABLE></TD>
+                                            <TD>
+                                                <!-- Swiper -->
+                                                <div class="swiper-container">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <img style="width: 455px;height: 380px;" src="${pageContext.request.contextPath}/img/admin/swiper/swiper_1.jpg" />
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <img style="width: 455px;height: 380px;" src="${pageContext.request.contextPath}/img/admin/swiper/swiper_2.jpg" />
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <img style="width: 455px;height: 380px;" src="${pageContext.request.contextPath}/img/admin/swiper/swiper_3.jpg" />
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <img style="width: 455px;height: 380px;" src="${pageContext.request.contextPath}/img/admin/swiper/swiper_4.jpg" />
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <img style="width: 455px;height: 380px;" src="${pageContext.request.contextPath}/img/admin/swiper/swiper_5.jpg" />
+                                                        </div>
+                                                        <%--<div class="swiper-slide">Slide 6</div>
+                                                        <div class="swiper-slide">Slide 7</div>
+                                                        <div class="swiper-slide">Slide 8</div>
+                                                        <div class="swiper-slide">Slide 9</div>
+                                                        <div class="swiper-slide">Slide 10</div>--%>
+                                                    </div>
+                                                    <!-- Add Pagination -->
+                                                    <div class="swiper-pagination"></div>
+                                                    <!-- Add Arrows -->
+                                                    <div class="swiper-button-next"></div>
+                                                    <div class="swiper-button-prev"></div>
+                                                </div>
+
+                                                <!-- Swiper JS -->
+                                                <script src="${pageContext.request.contextPath}/js/admin/swiper/swiper.min.js"></script>
+
+                                                <!-- Initialize Swiper -->
+                                                <script>
+                                                    var swiper = new Swiper('.swiper-container', {
+                                                        pagination: '.swiper-pagination',
+                                                        paginationClickable: '.swiper-pagination',
+                                                        nextButton: '.swiper-button-next',
+                                                        prevButton: '.swiper-button-prev',
+                                                        spaceBetween: 30,
+                                                        autoplay: 2500,
+                                                    });
+                                                </script>
+                                            </TD>
+                                        </TR></TBODY></TABLE></TD>
                                 <TD width="5"></TD>
                                 <TD width="517" class="border" valign="top" style="background: rgb(255, 255, 255); padding: 0px 10px;">
                                     <TABLE width="100%" align="center" border="0" cellspacing="0"
