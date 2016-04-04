@@ -20,4 +20,6 @@ public interface ProductMapper {
     void updateProduct(ProductInfo product);
 
     ProductInfo getProductById(Integer id);
+
+    void updateStatus(Map map);
 }

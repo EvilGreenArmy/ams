@@ -64,6 +64,12 @@
         ZIP_CODE=#{zipCode,jdbcType=VARCHAR}, EDIT_DATE=#{editDate}, EDIT_USER_ID=#{editUser.id}
         WHERE PRD_ID=#{id}
     </update>
+
+    <update id="updateStatus" parameterType="java.util.Map">
+        UPDATE  T_PRODUCT SET STATUS=#{status} WHERE PRD_ID=#{id}
+    </update>
+
+
     <select id="getProductById" parameterType="com.ams.entities.admin.ProductInfo" resultMap="productMap">
         SELECT * FROM T_PRODUCT t WHERE t.PRD_ID=#{id}
     </select>

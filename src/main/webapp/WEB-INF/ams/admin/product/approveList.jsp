@@ -71,7 +71,7 @@
         });
     }
 </script>
-<form action="${basePath}/product/list.do" method="post" id="productList" name="productList">
+<form action="${basePath}/product/approveList.do" method="post" id="productList" name="productList">
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -116,14 +116,6 @@
 
     </div>
 
-    <div class="tools">
-
-        <ul class="toolbar">
-            <li onclick="delCategory();"><span><img src="${basePath}/img/admin/login/t03.png" /></span>删除</li>
-        </ul>
-    </div>
-
-
     <table class="tablelist">
         <thead>
         <tr>
@@ -155,8 +147,8 @@
                 <td><fmt:formatDate value="${obj.editDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                 <td>${obj.addUser.userName}</td>
                 <td>
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/edit.do?id=${obj.id}','','workspace');">修改</a>
-                </td>
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/approve.do?id=${obj.id}&status=1','','workspace');">同意</a>|
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/approve.do?id=${obj.id}&status=0','','workspace');">驳回</a>
             </tr>
         </c:forEach>
         </tbody>

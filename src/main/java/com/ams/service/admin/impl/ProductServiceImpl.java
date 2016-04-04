@@ -7,6 +7,7 @@ import com.ams.service.admin.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,5 +50,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteProduct(Integer id) {
 
+    }
+
+    @Override
+    public void approve(Integer id, String status) {
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("id",id);
+        paramMap.put("status",status);
+        productDao.updateStatus(paramMap);
     }
 }

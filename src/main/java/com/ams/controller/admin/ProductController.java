@@ -64,6 +64,8 @@ public class ProductController extends BaseController {
         Map<String, Object> paramMap = new HashMap<String, Object>();
         if("my".equals(flag)){
             paramMap.put("addUserId", currentUser.getId());
+        }else{
+            paramMap.put("status", Constant.ACTIVE_STATUS);
         }
         if(null != type){
             paramMap.put("type", type);
@@ -82,6 +84,28 @@ public class ProductController extends BaseController {
         }
 
     }
+
+    @RequestMapping(value = "approveList")
+    public String approveList(HttpServletRequest request, HttpServletResponse response, ModelMap model, Page<ProductInfo> page,
+                       @RequestParam(value="type", required = false) String type,@RequestParam(value="name", required = false) String name) {
+
+        logger.debug("Page info : " + page);
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        if(null != type){
+            paramMap.put("type", type);
+        }
+        if(null != name){
+            paramMap.put("name", name);
+        }
+        paramMap.put("status", Constant.NO_STATUS);
+        paramMap.put("page", page);
+        page = productService.queryList(paramMap);
+        model.addAttribute("paramMap", paramMap);
+        model.addAttribute("page", page);
+        return "product/approveList";
+
+    }
+
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String initAdd(HttpServletRequest request, HttpServletResponse response, ModelMap model, String type) {
@@ -103,7 +127,7 @@ public class ProductController extends BaseController {
         product.setAddUser(currentUser);
         product.setEditDate(new Date());
         product.setEditUser(currentUser);
-        product.setStatus(Constant.ACTIVE_STATUS);
+        product.setStatus(Constant.NO_STATUS);
         this.productService.saveProduct(product);
         return "redirect:/product/frontList.do?flag=my";
     }
@@ -136,5 +160,18 @@ public class ProductController extends BaseController {
             return "redirect:/product/frontList.do?flag=my";
         }
         return "redirect:/product/list.do";
+    }
+
+
+    @RequestMapping(value = "approve", method = RequestMethod.GET)
+    public String approve(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+                          @RequestParam("id")Integer id, @RequestParam("status")Integer status) {
+
+        if(status==1){
+            productService.approve(id, Constant.ACTIVE_STATUS);
+        }else{
+            productService.approve(id, Constant.NO_STATUS);
+        }
+        return "redirect:/product/approveList.do";
     }
 }

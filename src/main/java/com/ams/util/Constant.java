@@ -108,6 +108,10 @@ public interface Constant {
     String SESSION_LOGIN_USER = "login_user";
 
     /**
+     * 待审核状态.
+     */
+    String NO_STATUS = "N";
+    /**
      * 激活状态.
      */
     String ACTIVE_STATUS = "A";
