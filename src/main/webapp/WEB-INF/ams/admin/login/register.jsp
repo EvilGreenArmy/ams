@@ -47,7 +47,8 @@
         </td>
         <td class="" width="70%">
           <input type="text" id="realName" name="xmsbRegister.realName" value="" class="input-sign" length="25&quot;" onblur="checkName()">
-          <div id="div6"><img src="${pageContext.request.contextPath}/img/admin/register/error.gif" width="15px" height="15px">&nbsp;<font color="red">姓名不能为空！</font></div>
+          <%--<div id="div6"><img src="${pageContext.request.contextPath}/img/admin/register/error.gif" width="15px" height="15px">&nbsp;<font color="red">姓名不能为空！</font></div>--%>
+          <div id="div1"></div>
         </td>
       </tr>
 

@@ -166,7 +166,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                         nextButton: '.swiper-button-next',
                                                         prevButton: '.swiper-button-prev',
                                                         spaceBetween: 30,
-                                                        autoplay: 2500,
+                                                        autoplay: 2500
                                                     });
                                                 </script>
                                             </TD>
@@ -193,45 +193,45 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                             <DIV class="tags_kjdt_con" id="tags_kjdt_con1" style="display: block;">
                                                                 <UL>
                                                                     <LI><SPAN>[2016-04-01]</SPAN><IMG width="9"
-                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于2015年度企业研发费用加计扣除项目鉴定工作的通知"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13598"
-                                                                                                                                                target="_blank">关于2015年度企业研发费用加计扣除项目鉴定工作的通知</A></LI>
+                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于2015年度企业研发费用加计扣除项目鉴定工作"
+                                                                                                                                                href="/ams/product/show.do?id=13598"
+                                                                                                                                                target="_blank">关于2015年度企业研发费用加计扣除项目鉴定工作</A></LI>
                                                                     <LI><SPAN>[2016-04-01]</SPAN><IMG width="9"
-                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于组织申报2016年延安市级众创空间认定的通知"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13596"
-                                                                                                                                                target="_blank">关于组织申报2016年延安市级众创空间认定的通知</A></LI>
+                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于组织申报2016年延安市级众创空间认定"
+                                                                                                                                                href="/ams/product/show.do?id=13596"
+                                                                                                                                                target="_blank">关于组织申报2016年延安市级众创空间认定</A></LI>
                                                                     <LI><SPAN>[2016-03-30]</SPAN><IMG width="9"
-                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局关于2015年度市级众创空间考核结果公示的通知"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13588"
-                                                                                                                                                target="_blank">延安市科学技术局关于2015年度市级众创空间考核结果公示的通知</A></LI>
+                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局关于2015年度市级众创空间考核结果公示"
+                                                                                                                                                href="/ams/product/show.do?id=13588"
+                                                                                                                                                target="_blank">延安市科学技术局关于2015年度市级众创空间考核结果公示</A></LI>
                                                                     <LI><SPAN>[2016-03-23]</SPAN><IMG width="9"
-                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于开展2016年度延安市科技企业孵化器认定工作的通知"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13580"
-                                                                                                                                                target="_blank">关于开展2016年度延安市科技企业孵化器认定工作的通知</A></LI>
+                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于开展2016年度延安市科技企业孵化器认定工作"
+                                                                                                                                                href="/ams/product/show.do?id=13580"
+                                                                                                                                                target="_blank">关于开展2016年度延安市科技企业孵化器认定工作</A></LI>
                                                                     <LI><SPAN>[2016-03-21]</SPAN><IMG width="9"
-                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于开展2016年度第一批延安市高新技术企业认定工作的通知"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13579"
-                                                                                                                                                target="_blank">关于开展2016年度第一批延安市高新技术企业认定工作的通知</A></LI>
+                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于开展2016年度第一批延安市高新技术企业认定工作"
+                                                                                                                                                href="/ams/product/show.do?id=13579"
+                                                                                                                                                target="_blank">关于开展2016年度第一批延安市高新技术企业认定工作</A></LI>
                                                                     <LI><SPAN>[2016-03-16]</SPAN><IMG width="9"
-                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局  延安市财政局关于印发延安市支持市级众创空间发展的若干措施（试行）的通知"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13578"
+                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局  延安市财政局关于印发延安市支持市级众创空间发展的若干措施（试行）"
+                                                                                                                                                href="/ams/product/show.do?id=13578"
                                                                                                                                                 target="_blank">延安市科学技术局
                                                                         延安市财政局关于印发延安市支持市级众创...</A></LI>
                                                                     <LI><SPAN>[2016-03-10]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局关于组织推荐陕西省2016年创新人才推进计划的通知"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13570"
+                                                                                                                                                href="/ams/product/show.do?id=13570"
                                                                                                                                                 target="_blank">延安市科学技术局关于组织推荐陕西省2016年创新人才推进计划...</A></LI>
                                                                     <LI><SPAN>[2016-03-10]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于公布第三批文化和科技融合示范园区示范企业的通知"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13569"
+                                                                                                                                                href="/ams/product/show.do?id=13569"
                                                                                                                                                 target="_blank">关于公布第三批文化和科技融合示范园区示范企业的通知</A></LI>
                                                                     <LI><SPAN>[2016-03-07]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市人民政府关于2015年度市科学技术奖励的决定"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13564"
+                                                                                                                                                href="/ams/product/show.do?id=13564"
                                                                                                                                                 target="_blank">延安市人民政府关于2015年度市科学技术奖励的决定</A></LI>
                                                                     <LI><SPAN>[2016-03-04]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局2016年度工作要点"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13560"
+                                                                                                                                                href="/ams/product/show.do?id=13560"
                                                                                                                                                 target="_blank">延安市科学技术局2016年度工作要点</A></LI>
                                                                     <LI><SPAN><A href="http://www.xainfo.gov.cn/admin/class1.asp?text=科技局公告"
                                                                                  target="_blank">更多&gt;&gt;</A></SPAN></LI></UL></DIV>
@@ -239,43 +239,43 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                                 <UL>
                                                                     <LI><SPAN>[2016-02-25]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="市科技局众创空间工作会议召开"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13555"
+                                                                                                                                                href="/ams/product/show.do?id=13555"
                                                                                                                                                 target="_blank">市科技局众创空间工作会议召开</A></LI>
                                                                     <LI><SPAN>[2016-02-14]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="市科技局组织春节后收假收心教育"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13534"
+                                                                                                                                                href="/ams/product/show.do?id=13534"
                                                                                                                                                 target="_blank">市科技局组织春节后收假收心教育</A></LI>
                                                                     <LI><SPAN>[2015-12-28]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="市科技局组织召开领导班子“三严三实”专题民主生活会"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13474"
+                                                                                                                                                href="/ams/product/show.do?id=13474"
                                                                                                                                                 target="_blank">市科技局组织召开领导班子“三严三实”专题民主生活会</A></LI>
                                                                     <LI><SPAN>[2015-12-28]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市通过国家知识产权示范城市复核"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13473"
+                                                                                                                                                href="/ams/product/show.do?id=13473"
                                                                                                                                                 target="_blank">延安市通过国家知识产权示范城市复核</A></LI>
                                                                     <LI><SPAN>[2015-12-22]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="局系统举办财务业务法规培训"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13470"
+                                                                                                                                                href="/ams/product/show.do?id=13470"
                                                                                                                                                 target="_blank">局系统举办财务业务法规培训</A></LI>
                                                                     <LI><SPAN>[2015-12-18]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="推动知识产权质押融资  拓宽科技企业融资途径"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13465"
+                                                                                                                                                href="/ams/product/show.do?id=13465"
                                                                                                                                                 target="_blank">推动知识产权质押融资  拓宽科技企业融资途径</A></LI>
                                                                     <LI><SPAN>[2015-12-08]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安软件企业国税政策和科技金融服务讲解会顺利召开"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13445"
+                                                                                                                                                href="/ams/product/show.do?id=13445"
                                                                                                                                                 target="_blank">延安软件企业国税政策和科技金融服务讲解会顺利召开</A></LI>
                                                                     <LI><SPAN>[2015-12-04]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局2015年度政府信息公开工作总体情况"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13436"
+                                                                                                                                                href="/ams/product/show.do?id=13436"
                                                                                                                                                 target="_blank">延安市科学技术局2015年度政府信息公开工作总体情况</A></LI>
                                                                     <LI><SPAN>[2015-12-04]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="2015延安文化科技融合培训会召开"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13430"
+                                                                                                                                                href="/ams/product/show.do?id=13430"
                                                                                                                                                 target="_blank">2015延安文化科技融合培训会召开</A></LI>
                                                                     <LI><SPAN>[2015-12-04]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="2015延安文化科技融合交流会召开"
-                                                                                                                                                href="http://www.xainfo.gov.cn/admin/class.asp?id=13429"
+                                                                                                                                                href="/ams/product/show.do?id=13429"
                                                                                                                                                 target="_blank">2015延安文化科技融合交流会召开</A></LI>
                                                                     <LI><SPAN><A href="http://www.xainfo.gov.cn/admin/class1.asp?text=科技工作信息"
                                                                                  target="_blank">更多&gt;&gt;</A></SPAN></LI></UL></DIV>
