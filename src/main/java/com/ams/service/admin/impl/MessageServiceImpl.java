@@ -46,4 +46,9 @@ public class MessageServiceImpl implements MessageService {
         paramMap.put("status","R");
         messageDao.updateStatus(paramMap);
     }
+
+    @Override
+    public Integer queryUnreadMessage(Integer id) {
+        return messageDao.queryUnreadMessage(id);
+    }
 }

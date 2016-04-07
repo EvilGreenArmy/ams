@@ -99,4 +99,10 @@ public class LoginController extends BaseController {
                         Model model) {
         return "login/register";
     }
+
+    @RequestMapping(value = "productDetail", method = RequestMethod.GET)
+    public String product(HttpServletRequest request, HttpServletResponse response,
+                               Model model) {
+        return "product/frontDetail";
+    }
 }

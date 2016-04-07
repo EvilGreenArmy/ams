@@ -20,4 +20,6 @@ public interface MessageService {
 
     public void setRead(Integer id);
 
+    public Integer queryUnreadMessage(Integer id);
+
 }

@@ -19,4 +19,6 @@ public interface MessageMapper {
 
     public void updateStatus(Map map);
 
+    public Integer queryUnreadMessage(Integer id);
+
 }

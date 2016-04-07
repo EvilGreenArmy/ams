@@ -3,7 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
 <!-- saved from url=(0025)http://www.xainfo.gov.cn/ -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><HTML><HEAD><META
 content="IE=11.0000" http-equiv="X-UA-Compatible">
@@ -51,14 +50,11 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                 <TBODY>
                 <TR>
                     <TD width="20"><IMG width="16" height="16" src="${pageContext.request.contextPath}/img/front/icon_guohui.gif"></TD>
-                    <TD width="70"><A href="http://www.most.gov.cn/"
-                                      target="_blank">科学技术部</A></TD>
+                    <TD width="70"><A href="http://www.most.gov.cn/" target="_blank">科学技术部</A></TD>
                     <TD width="20"><IMG width="16" height="16" src="${pageContext.request.contextPath}/img/front/icon_guohui.gif"></TD>
-                    <TD width="70"><A href="http://www.sninfo.gov.cn/"
-                                      target="_blank">陕西科技厅</A></TD>
+                    <TD width="70"><A href="http://www.sninfo.gov.cn/" target="_blank">陕西科技厅</A></TD>
                     <TD width="20"><IMG width="16" height="16" src="${pageContext.request.contextPath}/img/front/icon_guohui.gif"></TD>
-                    <TD width="95"><A href="http://www.xa.gov.cn/"
-                                      target="_blank">延安市人民政府</A></TD>
+                    <TD width="95"><A href="http://www.yanan.gov.cn/" target="_blank">延安市人民政府</A></TD>
                     <TD width="559" align="center">欢迎您访问延安市科学技术局（延安市知识产权局）官方网站！</TD>
                     <TD width="20"><IMG width="16" height="16" src="${pageContext.request.contextPath}/img/front/icon_home.gif"></TD>
                     <TD width="60"><A href="${pageContext.request.contextPath}/admin/index.do">登录</A></TD>
@@ -67,7 +63,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                     </TD>
                 </TR></TBODY></TABLE></TD></TR>
     <TR>
-        <TD height="160" style='background-image: url("/image/body_bg.gif");'>
+        <TD height="160" style=''>
             <TABLE width="1004" align="center" border="0" cellspacing="0" cellpadding="0">
                 <TBODY>
                 <TR>
@@ -76,7 +72,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
 <TABLE width="1004" align="center" border="0" cellspacing="0" cellpadding="0">
     <TBODY>
     <TR>
-        <TD height="30" style='background-image: url("/image/hot_bg.gif");'>
+        <TD height="30" style=''>
             <TABLE width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
                 <TBODY>
                 <TR>
@@ -192,90 +188,88 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                                 </UL></DIV>
                                                             <DIV class="tags_kjdt_con" id="tags_kjdt_con1" style="display: block;">
                                                                 <UL>
-                                                                    <LI><SPAN>[2016-04-01]</SPAN><IMG width="9"
-                                                                                                      height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于2015年度企业研发费用加计扣除项目鉴定工作"
-                                                                                                                                                href="/ams/product/show.do?id=13598"
-                                                                                                                                                target="_blank">关于2015年度企业研发费用加计扣除项目鉴定工作</A></LI>
+                                                                    <LI><SPAN>[2016-04-01]</SPAN><IMG width="9" height="9" src="${pageContext.request.contextPath}/img/front/doth.gif">
+                                                                        <A title="关于2015年度企业研发费用加计扣除项目鉴定工作"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13598"
+                                                                                                                                                target="_blank">新型的竹木混合地板</A></LI>
                                                                     <LI><SPAN>[2016-04-01]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于组织申报2016年延安市级众创空间认定"
-                                                                                                                                                href="/ams/product/show.do?id=13596"
-                                                                                                                                                target="_blank">关于组织申报2016年延安市级众创空间认定</A></LI>
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13596"
+                                                                                                                                                target="_blank">西部低碳生活体验旅游项目</A></LI>
                                                                     <LI><SPAN>[2016-03-30]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局关于2015年度市级众创空间考核结果公示"
-                                                                                                                                                href="/ams/product/show.do?id=13588"
-                                                                                                                                                target="_blank">延安市科学技术局关于2015年度市级众创空间考核结果公示</A></LI>
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13588"
+                                                                                                                                                target="_blank">城市生活垃圾及年产5万吨有机复混肥项目</A></LI>
                                                                     <LI><SPAN>[2016-03-23]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于开展2016年度延安市科技企业孵化器认定工作"
-                                                                                                                                                href="/ams/product/show.do?id=13580"
-                                                                                                                                                target="_blank">关于开展2016年度延安市科技企业孵化器认定工作</A></LI>
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13580"
+                                                                                                                                                target="_blank">年产10万吨小麦专用粉及生物功能食品项目</A></LI>
                                                                     <LI><SPAN>[2016-03-21]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于开展2016年度第一批延安市高新技术企业认定工作"
-                                                                                                                                                href="/ams/product/show.do?id=13579"
-                                                                                                                                                target="_blank">关于开展2016年度第一批延安市高新技术企业认定工作</A></LI>
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13579"
+                                                                                                                                                target="_blank">年产1万吨脱水真空包装绿色蔬菜项目</A></LI>
                                                                     <LI><SPAN>[2016-03-16]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局  延安市财政局关于印发延安市支持市级众创空间发展的若干措施（试行）"
-                                                                                                                                                href="/ams/product/show.do?id=13578"
-                                                                                                                                                target="_blank">延安市科学技术局
-                                                                        延安市财政局关于印发延安市支持市级众创...</A></LI>
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13578"
+                                                                                                                                                target="_blank">年产30万吨酒糟和秸秆混合发酵蛋白饲料项目 ...</A></LI>
                                                                     <LI><SPAN>[2016-03-10]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局关于组织推荐陕西省2016年创新人才推进计划的通知"
-                                                                                                                                                href="/ams/product/show.do?id=13570"
-                                                                                                                                                target="_blank">延安市科学技术局关于组织推荐陕西省2016年创新人才推进计划...</A></LI>
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13570"
+                                                                                                                                                target="_blank">年产10万吨小麦专用粉及生物功能食品项目</A></LI>
                                                                     <LI><SPAN>[2016-03-10]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="关于公布第三批文化和科技融合示范园区示范企业的通知"
-                                                                                                                                                href="/ams/product/show.do?id=13569"
-                                                                                                                                                target="_blank">关于公布第三批文化和科技融合示范园区示范企业的通知</A></LI>
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13569"
+                                                                                                                                                target="_blank">濮阳开发区科技城标准厂房招商项目</A></LI>
                                                                     <LI><SPAN>[2016-03-07]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市人民政府关于2015年度市科学技术奖励的决定"
-                                                                                                                                                href="/ams/product/show.do?id=13564"
-                                                                                                                                                target="_blank">延安市人民政府关于2015年度市科学技术奖励的决定</A></LI>
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13564"
+                                                                                                                                                target="_blank">桦褐孔菌抗癌、降血糖及抗爱滋病的研究</A></LI>
                                                                     <LI><SPAN>[2016-03-04]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局2016年度工作要点"
-                                                                                                                                                href="/ams/product/show.do?id=13560"
-                                                                                                                                                target="_blank">延安市科学技术局2016年度工作要点</A></LI>
-                                                                    <LI><SPAN><A href="http://www.xainfo.gov.cn/admin/class1.asp?text=科技局公告"
-                                                                                 target="_blank">更多&gt;&gt;</A></SPAN></LI></UL></DIV>
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13560"
+                                                                                                                                                target="_blank">蔬菜常见病害的农药防治方法</A></LI>
+                                                                    </UL></DIV>
                                                             <DIV class="tags_kjdt_con" id="tags_kjdt_con2" style="display: none;">
                                                                 <UL>
                                                                     <LI><SPAN>[2016-02-25]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="市科技局众创空间工作会议召开"
-                                                                                                                                                href="/ams/product/show.do?id=13555"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13555"
                                                                                                                                                 target="_blank">市科技局众创空间工作会议召开</A></LI>
                                                                     <LI><SPAN>[2016-02-14]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="市科技局组织春节后收假收心教育"
-                                                                                                                                                href="/ams/product/show.do?id=13534"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13534"
                                                                                                                                                 target="_blank">市科技局组织春节后收假收心教育</A></LI>
                                                                     <LI><SPAN>[2015-12-28]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="市科技局组织召开领导班子“三严三实”专题民主生活会"
-                                                                                                                                                href="/ams/product/show.do?id=13474"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13474"
                                                                                                                                                 target="_blank">市科技局组织召开领导班子“三严三实”专题民主生活会</A></LI>
                                                                     <LI><SPAN>[2015-12-28]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市通过国家知识产权示范城市复核"
-                                                                                                                                                href="/ams/product/show.do?id=13473"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13473"
                                                                                                                                                 target="_blank">延安市通过国家知识产权示范城市复核</A></LI>
                                                                     <LI><SPAN>[2015-12-22]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="局系统举办财务业务法规培训"
-                                                                                                                                                href="/ams/product/show.do?id=13470"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13470"
                                                                                                                                                 target="_blank">局系统举办财务业务法规培训</A></LI>
                                                                     <LI><SPAN>[2015-12-18]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="推动知识产权质押融资  拓宽科技企业融资途径"
-                                                                                                                                                href="/ams/product/show.do?id=13465"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13465"
                                                                                                                                                 target="_blank">推动知识产权质押融资  拓宽科技企业融资途径</A></LI>
                                                                     <LI><SPAN>[2015-12-08]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安软件企业国税政策和科技金融服务讲解会顺利召开"
-                                                                                                                                                href="/ams/product/show.do?id=13445"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13445"
                                                                                                                                                 target="_blank">延安软件企业国税政策和科技金融服务讲解会顺利召开</A></LI>
                                                                     <LI><SPAN>[2015-12-04]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="延安市科学技术局2015年度政府信息公开工作总体情况"
-                                                                                                                                                href="/ams/product/show.do?id=13436"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13436"
                                                                                                                                                 target="_blank">延安市科学技术局2015年度政府信息公开工作总体情况</A></LI>
                                                                     <LI><SPAN>[2015-12-04]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="2015延安文化科技融合培训会召开"
-                                                                                                                                                href="/ams/product/show.do?id=13430"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13430"
                                                                                                                                                 target="_blank">2015延安文化科技融合培训会召开</A></LI>
                                                                     <LI><SPAN>[2015-12-04]</SPAN><IMG width="9"
                                                                                                       height="9" src="${pageContext.request.contextPath}/img/front/doth.gif"> <A title="2015延安文化科技融合交流会召开"
-                                                                                                                                                href="/ams/product/show.do?id=13429"
+                                                                                                                                                href="/ams/admin/productDetail.do?id=13429"
                                                                                                                                                 target="_blank">2015延安文化科技融合交流会召开</A></LI>
                                                                     <LI><SPAN><A href="http://www.xainfo.gov.cn/admin/class1.asp?text=科技工作信息"
                                                                                  target="_blank">更多&gt;&gt;</A></SPAN></LI></UL></DIV>
@@ -321,6 +315,14 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                         <SCRIPT language="JavaScript" src="http://s175.cnzz.com/stat.php?id=1882140&amp;web_id=1882140&amp;show=pic" charset="gb2312"></SCRIPT>
                     </TD></TR>
                 <TR>
-                    <TD
-                            height="15"></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></BODY></HTML>
+                    <TD height="15"></TD>
+                </TR>
+                </TBODY>
+            </TABLE>
+        </TD>
+    </TR>
+    </TBODY>
+</TABLE>
+</BODY>
+</HTML>
 

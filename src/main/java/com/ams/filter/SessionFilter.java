@@ -28,6 +28,9 @@ public class SessionFilter implements Filter {
         if(requestURI.indexOf("admin/register.do") >= 0) {
             isLogin = true;
         }
+        if(requestURI.indexOf("admin/productdetail.do") >= 0) {
+            isLogin = true;
+        }
         UserInfo loginUser = (UserInfo) requestHttp.getSession().getAttribute(Constant.SESSION_LOGIN_USER);
         if (!isLogin && loginUser == null) {
             //如果判断是 AJAX 请求,直接设置为session超时
