@@ -4,7 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0051)http://221.11.34.116:8081/yakj/xmsb/register.action -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>延安市科技计划项目申报系统</title>
 
@@ -12,10 +11,116 @@
   <link href="${pageContext.request.contextPath}/css/admin/register/sign_style_xmsb.css" rel="stylesheet" type="text/css">
 
   <meta http-equiv="Pragma" content="no-cache">
- <%-- <script language="javascript" type="text/javascript" src="./延安市科技计划项目申报系统_files/WdatePicker.js"></script><style type="text/css"></style>
-  <script src="./延安市科技计划项目申报系统_files/common.js"></script>
-  <script type="text/javascript" src="./延安市科技计划项目申报系统_files/jquery-1.8.2.min.js"></script>
-  <script type="text/javascript" src="./延安市科技计划项目申报系统_files/jquery.form.js"></script>--%>
+  <script type="text/javascript" src="${basePath}/js/admin/layout/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="${basePath}/js/admin/layer/layer.js"></script>
+  <script type="text/javascript">
+    // 验证身份证
+    function checkIdNo() {
+      var card = $("#acctName").val();
+      var pattern = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+      if(!pattern.test(card)) {
+        layer.msg('身份证号不合法！');
+        return false;
+      } else {
+        return true;
+      }
+    }
+    function checkName() {
+      var name=$("#userName").val();
+      // 判断名称
+      if ($.trim(name).length == 0) {
+        layer.msg('请输入姓名！');
+        return false;
+      } else {
+        if (isChinaName($.trim(name)) == false) {
+          layer.msg('姓名不合法！');
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+    // 验证中文名称
+    function isChinaName(name){
+      var pattern = /^[\u4E00-\u9FA5]{1,6}$/;
+      return pattern.test(name);
+    }
+    function checkPhone() {
+      var phone = $("#phone").val();
+      // 判断手机号码
+      if ($.trim(phone).length == 0) {
+        layer.msg('请输入手机号码！');
+        return false;
+      } else {
+        if(isPhoneNo($.trim(phone) == false)) {
+          layer.msg('手机号码不合法！');
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+    // 验证手机号
+    function isPhoneNo(phone) {
+      var pattern = /^1[34578]\d{9}$/;
+      return pattern.test(phone);
+    }
+    function checkEmail() {
+      var email = $("#email").val();
+      // 判断手机号码
+      if ($.trim(email).length == 0) {
+        layer.msg('请输入电子邮箱！');
+        return false;
+      } else {
+        if(isEmail($.trim(email) == false)) {
+          layer.msg('电子邮箱不合法！');
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+    function isEmail(str){
+      var reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+      return reg.test(str);
+    }
+    function checkPasswdLength() {
+      var pwd = $("#passwd1").val();
+      if ($.trim(pwd).length == 0) {
+        layer.msg('请输入登录密码！');
+        return false;
+      } else {
+        return true;
+      }
+    }
+    function checkPassword() {
+      var password = $("#passwd1").val();
+      var repeat = $("#passwd2").val();
+      if($.trim(password) != $.trim(repeat)) {
+        layer.msg('两次登录密码不一致！');
+        return false;
+      } else {
+        return true;
+      }
+    }
+    function button_onsubmit() {
+      if(checkIdNo()) {
+        if(checkName()) {
+          if(checkPhone()) {
+            if(checkEmail()) {
+              if(checkPasswdLength()) {
+                if(checkPassword()) {
+                  $("#accountForm").submit();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
 </head>
 
 <body>
@@ -27,17 +132,17 @@
 
 
 <div class="form-main" id="form_div2">
-  <form name="accountForm" id="accountForm" method="post" action="">
+  <form name="accountForm" id="accountForm" method="post" action="${basePath}/admin/register.do">
     <input type="hidden" name="xmsbRegister.flag" value="0">
     <table class="sign-table">
 
-      <tbody><tr class="">
+      <tbody>
+      <tr class="">
         <td width="30%" align="right">
           身份证号<font color="red">*</font>：
         </td>
         <td class="" width="70%">
-          <input type="text" id="loginName" name="xmsbRegister.username" value="" class="input-sign" length="25&quot;" onblur="checkLoginName()">
-          <div id="div1"></div>
+          <input type="text" id="acctName" name="acctName" value="" class="input-sign" length="25" onblur="checkIdNo()">
         </td>
       </tr>
 
@@ -46,9 +151,7 @@
           姓名<font color="red">*</font>：
         </td>
         <td class="" width="70%">
-          <input type="text" id="realName" name="xmsbRegister.realName" value="" class="input-sign" length="25&quot;" onblur="checkName()">
-          <%--<div id="div6"><img src="${pageContext.request.contextPath}/img/admin/register/error.gif" width="15px" height="15px">&nbsp;<font color="red">姓名不能为空！</font></div>--%>
-          <div id="div1"></div>
+          <input type="text" id="userName" name="userName" value="" class="input-sign" length="25" onblur="checkName()">
         </td>
       </tr>
 
@@ -57,8 +160,7 @@
           手机号码<font color="red">*</font>：
         </td>
         <td class="" width="70%">
-          <input type="text" id="cellphone" name="xmsbRegister.cellphone" value="" class="input-sign" length="25&quot;" onblur="checkPhone()">
-          <div id="div2"></div>
+          <input type="text" id="phone" name="phone" value="" class="input-sign" length="25" onblur="checkPhone()">
         </td>
       </tr>
 
@@ -67,8 +169,7 @@
           电子邮箱<font color="red">*</font>：
         </td>
         <td class="" width="70%">
-          <input type="text" id="email" name="xmsbRegister.email" value="" class="input-sign" length="25&quot;" onblur="checkEmail()">
-          <div id="div3"></div>
+          <input type="text" id="email" name="email" value="" class="input-sign" length="25" onblur="checkEmail()">
         </td>
       </tr>
 
@@ -77,8 +178,7 @@
           登录密码<font color="red">*</font>：
         </td>
         <td class="" width="70%">
-          <input type="password" id="passwd1" name="xmsbRegister.password" value="" class="input-sign" length="25&quot;" onblur="checkPasswdLength()">
-          <div id="div4"></div>
+          <input type="password" id="passwd1" name="password" value="" class="input-sign" length="25" onblur="checkPasswdLength()">
         </td>
       </tr>
 
@@ -87,8 +187,7 @@
           确认密码<font color="red">*</font>：
         </td>
         <td class="" width="70%">
-          <input type="password" id="passwd2" value="" class="input-sign" length="25&quot;" onblur="checkPassword()">
-          <div id="div5"></div>
+          <input type="password" id="passwd2" value="" class="input-sign" length="25" onblur="checkPassword()">
         </td>
       </tr>
 
@@ -104,4 +203,6 @@
   </form>
 </div>
 
-</body></html>
+</body>
+
+</html>

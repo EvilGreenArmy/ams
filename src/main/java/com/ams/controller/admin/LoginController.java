@@ -97,7 +97,20 @@ public class LoginController extends BaseController {
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public String initRegister(HttpServletRequest request, HttpServletResponse response,
                         Model model) {
+        HttpSession session = getSession(request);
+        StringBuffer basePath = new StringBuffer();
+        basePath.append(request.getScheme()).append("://");
+        basePath.append(request.getServerName()).append(":");
+        basePath.append(request.getServerPort()).append(request.getContextPath());
+        session.setAttribute(Constant.BASE_PATH, basePath.toString());
         return "login/register";
+    }
+    @RequestMapping(value = "register", method = RequestMethod.POST)
+    public String register(HttpServletRequest request, HttpServletResponse response,
+                               Model model, UserInfo userInfo) {
+        userInfo.setStatus(Constant.ACTIVE_STATUS);
+        this.userService.saveUser(userInfo);
+        return "login/login";
     }
 
     @RequestMapping(value = "productDetail", method = RequestMethod.GET)

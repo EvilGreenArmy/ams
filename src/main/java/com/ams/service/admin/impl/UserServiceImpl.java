@@ -7,6 +7,7 @@ import com.ams.pagination.Page;
 import com.ams.security.PwdEncoder;
 import com.ams.service.admin.UserService;
 import com.ams.util.Constant;
+import com.ams.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,8 +37,13 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     public void saveUser(UserInfo user) {
-        String password = pwdEncoder.encodePassword(Constant.DEFAULT_PASSWORD, salt);
-        user.setPassword(password);
+        if(StringUtil.isEmpty(user.getPassword())) {
+            String password = pwdEncoder.encodePassword(Constant.DEFAULT_PASSWORD, salt);
+            user.setPassword(password);
+        } else {
+            String password = pwdEncoder.encodePassword(user.getPassword(), salt);
+            user.setPassword(password);
+        }
         //删除状态默认为A 未删除
         user.setDelState(Constant.ACTIVE_STATUS);
         userDao.insertUser(user);
