@@ -30,7 +30,7 @@
             select SEQ_AMS.nextval  from dual
         </selectKey>
         insert into B_ACCOUNT (ACCT_ID, ACCT_NAME, USER_NAME, FULL_NAME, ACCT_PWD, STATUS, GENDER, EMAIL, PHONE, DEL_STATE)
-        values(#{id}, #{acctName}, #{userName},#{fullName},#{password},#{status},#{gender},#{email},#{phone}, #{delState})
+        values(#{id}, #{acctName}, #{userName},#{fullName, jdbcType=VARCHAR},#{password},#{status},#{gender, jdbcType=VARCHAR},#{email},#{phone}, #{delState})
     </insert>
     <select id="getUser" parameterType="com.ams.entities.admin.UserInfo" resultMap="userMap">
         SELECT * FROM b_account t WHERE t.ACCT_NAME=#{acctName} AND t.DEL_STATE='A'
