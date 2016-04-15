@@ -42,16 +42,28 @@
         values (#{id}, #{title},#{content}, #{status},#{sendDate}, #{fromUser.id,jdbcType=NUMERIC}, #{toUser.id,jdbcType=NUMERIC})
     </insert>
 
+    <insert id="insertUserMessage"  parameterType="java.util.Map">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select SEQ_AMS.Nextval from dual
+        </selectKey>
+        insert into T_USER_MESSAGE (USER_MSG_ID, STATUS,MSG_ID, TO_USER_ID)
+        values (#{id}, 'N', #{messageId}, #{toUserId})
+    </insert>
+
     <select id="getMessageById" parameterType="int" resultMap="messageMap">
         select t.*, u.ACCT_ID, u.USER_NAME
         FROM T_MESSAGE t LEFT JOIN B_ACCOUNT u on t.FROM_USER_ID = u.ACCT_ID
         where t.MSG_ID = #{id}
     </select>
 
-    <select id="queryUnreadMessage" parameterType="int" resultMap="messageMap">
+    <select id="getAllUserIds" parameterType="int" resultType="java.lang.Integer">
+        select ACCT_ID FROM B_ACCOUNT
+    </select>
+
+    <select id="queryUnreadMessage" parameterType="int" resultType="java.lang.Integer">
         select count(*)
-        FROM T_MESSAGE t
-        where t.status='N' AND (t.TO_USER_ID=#{id} OR t.TO_USER_ID IS NULL )
+        FROM T_MESSAGE t LEFT JOIN t_user_message u on t.MSG_ID = u.MSG_ID
+        where t.status='A' AND u.status='N' AND u.TO_USER_ID=#{id}
     </select>
 
     <update id="deleteMessages">

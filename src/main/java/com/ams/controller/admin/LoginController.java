@@ -1,9 +1,11 @@
 package com.ams.controller.admin;
 
 import com.ams.entities.admin.UserInfo;
+import com.ams.service.admin.MessageService;
 import com.ams.service.admin.SourceService;
 import com.ams.service.admin.UserService;
 import com.ams.util.Constant;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,9 @@ public class LoginController extends BaseController {
     private UserService userService;
     @Autowired
     private SourceService sourceService;
+
+    @Autowired
+    private MessageService messageService;
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String index(String userName, String password, HttpServletRequest request, HttpServletResponse response,
@@ -68,6 +73,8 @@ public class LoginController extends BaseController {
         model.addAttribute("parentList", sourceService.getParentSource(user));
         //二级菜单
         model.addAttribute("menuList", sourceService.getChildrenSource(user));
+        //未读消息数量
+        model.addAttribute("UnreadMessages", messageService.queryUnreadMessage(user.getId()));
         return "base.definition";
     }
     @RequestMapping(value = "modifyPassword", method = RequestMethod.GET)

@@ -30,8 +30,23 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public void saveMessage(MessageInfo message, Integer[] toUsers) {
+    public void saveMessage(MessageInfo message, Integer toUser) {
         messageDao.insertMessage(message);
+
+        if(null == toUser){
+            List<Integer> toUsers = messageDao.getAllUserIds();
+            for(Integer id : toUsers){
+                Map<String, Object> param = new HashMap<String, Object>();
+                param.put("messageId",message.getId());
+                param.put("toUserId",id);
+                messageDao.insertUserMessage(param);
+            }
+        }else{
+            Map<String, Object> param = new HashMap<String, Object>();
+            param.put("messageId",message.getId());
+            param.put("toUserId",toUser);
+            messageDao.insertUserMessage(param);
+        }
     }
 
     @Override

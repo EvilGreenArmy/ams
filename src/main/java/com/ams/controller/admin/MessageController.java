@@ -49,6 +49,10 @@ public class MessageController extends BaseController {
         page = messageService.queryList(paramMap);
         model.addAttribute("page", page);
         model.addAttribute("paramMap", paramMap);
+
+        UserInfo currentUser = (UserInfo)getSession(request).getAttribute(Constant.SESSION_LOGIN_USER);
+        logger.debug("Messages:"+messageService.queryUnreadMessage(currentUser.getId()));
+
         return "message/list";
 
     }
@@ -88,15 +92,10 @@ public class MessageController extends BaseController {
                        @ModelAttribute MessageInfo message, Integer toUserId) {
 
         UserInfo currentUser = (UserInfo)getSession(request).getAttribute(Constant.SESSION_LOGIN_USER);
-        if(null != toUserId){
-            UserInfo toUser = new UserInfo();
-            toUser.setId(toUserId);
-            message.setToUser(toUser);
-        }
         message.setFromUser(currentUser);
         message.setSendDate(new Date());
-        message.setStatus("N");
-        this.messageService.saveMessage(message, null);
+        message.setStatus("A");
+        this.messageService.saveMessage(message, toUserId);
         if(null != toUserId){
             return "redirect:/message/frontList.do";
         }

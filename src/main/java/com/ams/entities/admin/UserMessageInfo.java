@@ -1,10 +1,16 @@
 package com.ams.entities.admin;
 
+import java.util.Date;
+
 /**
  * Created by Reason on 2016/3/28.
  */
 public class UserMessageInfo {
     private Integer id;
+
+    private String status;
+
+    private Date readDate;
 
     private MessageInfo message;
 
@@ -16,6 +22,22 @@ public class UserMessageInfo {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getReadDate() {
+        return readDate;
+    }
+
+    public void setReadDate(Date readDate) {
+        this.readDate = readDate;
     }
 
     public MessageInfo getMessage() {
@@ -32,14 +54,5 @@ public class UserMessageInfo {
 
     public void setToUser(UserInfo toUser) {
         this.toUser = toUser;
-    }
-
-    @Override
-    public String toString() {
-        return "UserMessageInfo{" +
-                "id=" + id +
-                ", message=" + message +
-                ", toUser=" + toUser +
-                '}';
     }
 }

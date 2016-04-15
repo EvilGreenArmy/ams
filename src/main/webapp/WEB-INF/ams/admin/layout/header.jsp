@@ -25,7 +25,9 @@
   <div class="user">
     <span><c:out value="${login_user.userName}" /></span>
     <i>消息</i>
-    <b>5</b>
+      <c:if test="${UnreadMessages ne 0}">
+          <b>${UnreadMessages}</b>
+      </c:if>
   </div>
 </div>
 <script type="text/javascript">

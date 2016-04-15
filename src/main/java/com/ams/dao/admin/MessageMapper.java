@@ -21,4 +21,8 @@ public interface MessageMapper {
 
     public Integer queryUnreadMessage(Integer id);
 
+    public List<Integer> getAllUserIds();
+
+    public void insertUserMessage(Map map);
+
 }

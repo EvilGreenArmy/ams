@@ -135,11 +135,11 @@
                 <td>${obj.fromUser.userName}</td>
                 <td>${obj.content}</td>
                 <td>
-                    <c:if test="${'N' eq obj.status}">
-                        未读
+                    <c:if test="${'A' eq obj.status}">
+                        正常
                     </c:if>
-                    <c:if test="${'R' eq obj.status}">
-                        已读
+                    <c:if test="${'D' eq obj.status}">
+                        删除
                     </c:if>
                 </td>
                 <td><fmt:formatDate value="${obj.sendDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
