@@ -16,6 +16,9 @@
             <if test="name!=null and name !=''">
               AND u.DUTY_NAME LIKE '%'||#{name}||'%'
             </if>
+        <if test="description!=null and description !=''">
+            AND u.DESCRIPTION LIKE '%'||#{description}||'%'
+        </if>
     </select>
     <insert id="insertRole" parameterType="com.ams.entities.admin.RoleInfo" >
         <selectKey keyProperty="id" resultType="int" order="BEFORE">

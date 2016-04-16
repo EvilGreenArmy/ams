@@ -35,14 +35,19 @@ public class UserController extends BaseController {
     @RequestMapping(value = "list")
     public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model,
                        @RequestParam(value="currentPage", defaultValue = "1") Integer currentPage,
-                       @RequestParam(value="pageSize", defaultValue = "10") Integer pageSize) {
+                       @RequestParam(value="pageSize", defaultValue = "10") Integer pageSize,
+                       @RequestParam(value="acctName", required = false) String acctName,
+                       @RequestParam(value="userName", required = false) String userName) {
         Page<UserInfo> page = new Page<UserInfo>();
         page.setCurrentPage(currentPage);
         page.setShowCount(pageSize);
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("page", page);
+        paramMap.put("acctName", acctName);
+        paramMap.put("userName", userName);
         page = this.userService.queryList(paramMap);
         model.addAttribute("page", page);
+        model.addAttribute("paramMap", paramMap);
         return "user/list";
     }
 

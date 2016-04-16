@@ -65,6 +65,9 @@
             }
         }
     }
+    function queryUser(){
+        postDataByFormName('userList','workspace');
+    }
 </script>
 <form action="${basePath}/user/list.do" method="post" id="userList" name="userList">
 <div class="place">
@@ -76,7 +79,36 @@
 </div>
 
 <div class="rightinfo">
+    <div class="seach_box">
 
+        <fieldset>
+            <legend>消息查询</legend>
+            <table>
+                <tbody>
+                <tr>
+                    <td class="tabel_title">账号</td>
+                    <td class="table_cont">
+                        <input type="text" name="acctName" placeholder="账号" value="${paramMap.acctName}" class="search_input"/>
+                    </td>
+                    <td  class="tabel_title">用户名</td>
+                    <td  class="table_cont">
+                        <input type="text" name="userName" placeholder="用户名" value="${paramMap.userName}" class="search_input"/>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>
+                        <button type="button" class="search_btn" onclick="queryUser();">查询</button>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </fieldset>
+
+
+    </div>
     <div class="tools">
 
         <ul class="toolbar">

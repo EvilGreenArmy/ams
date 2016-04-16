@@ -53,6 +53,9 @@
             <if test="name!=null and name !=''">
                AND u.SOURCE_NAME LIKE '%'||#{name}||'%'
             </if>
+        <if test="code!=null and code !=''">
+            AND u.SOURCE_CODE LIKE '%'||#{code}||'%'
+        </if>
     </select>
     <select id="getParentSource" parameterType="com.ams.entities.admin.UserInfo" resultMap="sourceMap">
       SELECT * from B_SOURCE u WHERE u.SOURCE_ID IN (

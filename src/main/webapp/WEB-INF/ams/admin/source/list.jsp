@@ -58,6 +58,9 @@
         }, function(){
         });
     }
+    function querySource(){
+        postDataByFormName('sourceList','workspace');
+    }
 </script>
 <form action="${basePath}/source/list.do" method="post" id="sourceList" name="sourceList">
 <div class="place">
@@ -69,7 +72,36 @@
 </div>
 
 <div class="rightinfo">
+    <div class="seach_box">
 
+        <fieldset>
+            <legend>消息查询</legend>
+            <table>
+                <tbody>
+                <tr>
+                    <td class="tabel_title">菜单名称</td>
+                    <td class="table_cont">
+                        <input type="text" name="name" placeholder="菜单名称" value="${paramMap.name}" class="search_input"/>
+                    </td>
+                    <td  class="tabel_title">对应URL</td>
+                    <td  class="table_cont">
+                        <input type="text" name="code" placeholder="对应URL" value="${paramMap.code}" class="search_input"/>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>
+                        <button type="button" class="search_btn" onclick="querySource();">查询</button>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </fieldset>
+
+
+    </div>
     <div class="tools">
 
        <%-- <ul class="toolbar">

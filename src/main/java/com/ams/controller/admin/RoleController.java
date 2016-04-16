@@ -34,14 +34,19 @@ public class RoleController extends BaseController {
     @RequestMapping(value = "list")
     public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model,
                        @RequestParam(value = "currentPage", defaultValue = "1") Integer currentPage,
-                       @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+                       @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
+                       @RequestParam(value="name", required = false) String name,
+                       @RequestParam(value="description", required = false) String description) {
         Page<RoleInfo> page = new Page<RoleInfo>();
         page.setCurrentPage(currentPage);
         page.setShowCount(pageSize);
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("page", page);
+        paramMap.put("name", name);
+        paramMap.put("description", description);
         page = this.roleService.queryList(paramMap);
         model.addAttribute("page", page);
+        model.addAttribute("paramMap", paramMap);
         return "role/list";
     }
 

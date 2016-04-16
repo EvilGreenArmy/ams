@@ -65,6 +65,9 @@
             }
         }
     }
+    function queryRole(){
+        postDataByFormName('roleList','workspace');
+    }
 </script>
 <form action="${basePath}/role/list.do" method="post" id="roleList" name="roleList">
 <div class="place">
@@ -76,7 +79,36 @@
 </div>
 
 <div class="rightinfo">
+    <div class="seach_box">
 
+        <fieldset>
+            <legend>消息查询</legend>
+            <table>
+                <tbody>
+                <tr>
+                    <td class="tabel_title">角色名称</td>
+                    <td class="table_cont">
+                        <input type="text" name="name" placeholder="角色名称" value="${paramMap.name}" class="search_input"/>
+                    </td>
+                    <td  class="tabel_title">描述</td>
+                    <td  class="table_cont">
+                        <input type="text" name="description" placeholder="描述" value="${paramMap.description}" class="search_input"/>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>
+                        <button type="button" class="search_btn" onclick="queryRole();">查询</button>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </fieldset>
+
+
+    </div>
     <div class="tools">
 
         <ul class="toolbar">
