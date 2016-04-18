@@ -29,13 +29,13 @@ a img {
 	border-bottom-color: rgb(222, 222, 222); border-bottom-width: 1px; border-bottom-style: dashed;
 }
 .focus a {
-	color: rgb(255, 0, 0); font-family: Î¢ÈíÑÅºÚ; font-size: 18px; font-weight: bold;
+	color: rgb(255, 0, 0); font-family: Î¢ï¿½ï¿½ï¿½Åºï¿½; font-size: 18px; font-weight: bold;
 }
 .focus a:hover {
-	color: rgb(255, 0, 0); font-family: Î¢ÈíÑÅºÚ; font-size: 18px; font-weight: bold;
+	color: rgb(255, 0, 0); font-family: Î¢ï¿½ï¿½ï¿½Åºï¿½; font-size: 18px; font-weight: bold;
 }
 .tags_kjdt_title {
-	width: 517px;
+	width: 450px;
 }
 .tags_kjdt_title ul {
 	height: 26px; border-bottom-color: rgb(224, 224, 224); border-bottom-width: 1px; border-bottom-style: solid;
@@ -53,10 +53,10 @@ a img {
 	background: rgb(255, 0, 0); color: rgb(255, 255, 255);
 }
 .tags_kjdt_con {
-	width: 517px; padding-top: 10px;
+	width: 450px; padding-top: 10px;
 }
 .tags_kjdt_con ul li {
-	list-style: none; width: 517px; height: 24px; line-height: 24px; overflow: hidden;
+	list-style: none; width: 450px; height: 24px; line-height: 24px; overflow: hidden;
 }
 .tags_kjdt_con ul li a {
 	font-size: 14px;
@@ -67,14 +67,14 @@ a img {
 .tags_kjdt_con ul li span a {
 	color: rgb(255, 0, 0); font-size: 14px;
 }
-.tags_kjdt_con ul li span a£ºhover {
+.tags_kjdt_con ul li span aï¿½ï¿½hover {
 	color: rgb(255, 0, 0); font-size: 14px;
 }
 .title_left {
 	background: url("/image/title_left_bg.gif") no-repeat; height: 32px; padding-left: 10px;
 }
 .title_left span {
-	height: 32px; color: rgb(254, 0, 0); line-height: 32px; font-family: »ªÎÄÏ¸ºÚ; font-size: 16px; font-weight: bold;
+	height: 32px; color: rgb(254, 0, 0); line-height: 32px; font-family: ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½; font-size: 16px; font-weight: bold;
 }
 .title_left div {
 	color: rgb(255, 51, 0); font-weight: bold;
@@ -89,7 +89,7 @@ a img {
 	background: url("/image/title_right_bg.gif"); height: 32px;
 }
 .title_right span {
-	height: 32px; color: rgb(0, 0, 0); line-height: 32px; font-family: Î¢ÈíÑÅºÚ; font-size: 14px; font-weight: bold;
+	height: 32px; color: rgb(0, 0, 0); line-height: 32px; font-family: Î¢ï¿½ï¿½ï¿½Åºï¿½; font-size: 14px; font-weight: bold;
 }
 .zwgk {
 	background: url("/image/zwgk_bg.gif"); height: 26px; line-height: 26px;
