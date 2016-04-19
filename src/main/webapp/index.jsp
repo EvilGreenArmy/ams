@@ -65,7 +65,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                     <TD width="559" align="center">欢迎您访问延安市科学技术局（延安市知识产权局）官方网站！</TD>
                     <TD width="20"><IMG width="16" height="16"
                                         src="${pageContext.request.contextPath}/img/front/icon_home.gif"></TD>
-                    <TD width="60"><A href="${pageContext.request.contextPath}/admin/index.do">登录</A></TD>
+                    <TD width="60"><A href="${pageContext.request.contextPath}/admin/index.do?t=1">登录</A></TD>
                     <TD width="20"><IMG width="16" height="16"
                                         src="${pageContext.request.contextPath}/img/front/icon_fav.gif"></TD>
                     <TD width="25" align="right"><A href="${pageContext.request.contextPath}/admin/register.do">注册</A>
@@ -116,7 +116,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
 <TABLE width="1004" align="center" border="0" cellspacing="0" cellpadding="0">
     <TBODY>
     <TR>
-        <TD><A href="http://www.xainfo.gov.cn/admin/2015syss/index.asp" target="_blank"><IMG
+        <TD><A href="#####" target="_blank"><IMG
                 width="1004" height="70" src="${pageContext.request.contextPath}/img/front/2015syss.jpg"></A></TD>
     </TR>
     <TR>
@@ -130,7 +130,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
         <TD height="5"></TD>
     </TR>
     <TR>
-        <TD><A href="http://www.xainfo.gov.cn/admin/2015sc/index.asp" target="_blank"><IMG
+        <TD><A href="#####" target="_blank"><IMG
                 width="1004" height="70" src="${pageContext.request.contextPath}/img/front/zckj.png"></A></TD>
     </TR>
     <TR>
@@ -357,7 +357,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                                            href="/ams/admin/productDetail.do?id=13429"
                                                                            target="_blank">2015延安文化科技融合交流会召开</A></LI>
                                                                     <LI><SPAN><A
-                                                                            href="http://www.xainfo.gov.cn/admin/class1.asp?text=科技工作信息"
+                                                                            href="#####"
                                                                             target="_blank">更多&gt;&gt;</A></SPAN></LI>
                                                                 </UL>
                                                             </DIV>
@@ -530,7 +530,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                                            href="/ams/admin/productDetail.do?id=13429"
                                                                            target="_blank">2015延安文化科技融合交流会召开</A></LI>
                                                                     <LI><SPAN><A
-                                                                            href="http://www.xainfo.gov.cn/admin/class1.asp?text=科技工作信息"
+                                                                            href="#####"
                                                                             target="_blank">更多&gt;&gt;</A></SPAN></LI>
                                                                 </UL>
                                                             </DIV>
@@ -560,7 +560,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
         <TD height="5"></TD>
     </TR>
     <TR>
-        <TD><A href="http://www.xainfo.gov.cn/admin/2014xjr/index.asp" target="_blank"><IMG
+        <TD><A href="#####" target="_blank"><IMG
                 width="1004" height="70" src="${pageContext.request.contextPath}/img/front/banner_xjr.jpg"></A></TD>
     </TR>
     <TR>
@@ -603,33 +603,33 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>孵化器（国家级孵化器、省级孵化器、市级孵化器）</A><SPAN style="float: right;">[2016-04-12]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14> <IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>楼宇（市级科技楼宇）</A><SPAN style="float: right;">[2016-04-08]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14> <IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>大学科技园（国家级大学科技园）</A><SPAN style="float: right;">[2016-03-25]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="####"
+                                                                            height=9> <A href="/ams/admin/productDetail.do?t=2"
                                                                                          target=_blank>加速器（市级加速器）</A><SPAN style="float: right;">[2016-03-18]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="####"
+                                                                            height=9> <A href="/ams/admin/productDetail.do?t=2"
                                                                                          target=_blank>苗圃（市级创业苗圃）</A><SPAN style="float: right;">[2016-03-05]</SPAN></TD>
                                                                 </TR>
                                                                 </TBODY>
@@ -673,33 +673,33 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>高校咨询服务团队及能力</A><SPAN style="float: right;">[2016-04-12]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14> <IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>文献信息服务</A><SPAN style="float: right;">[2016-04-08]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14> <IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>决策咨询与评估服务</A><SPAN style="float: right;">[2016-03-25]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="####"
+                                                                            height=9> <A href="/ams/admin/productDetail.do?t=2"
                                                                                          target=_blank>传播与推广服务</A><SPAN style="float: right;">[2016-03-18]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="####"
+                                                                            height=9> <A href="/ams/admin/productDetail.do?t=2"
                                                                                          target=_blank>资产评估服务</A><SPAN style="float: right;">[2016-03-05]</SPAN></TD>
                                                                 </TR>
                                                                 </TBODY>
@@ -727,7 +727,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                 <TD height=5></TD>
                             </TR>
                             <TR>
-                                <TD><A href="####" target=_blank><IMG
+                                <TD><A href="/ams/admin/productDetail.do?t=2" target=_blank><IMG
                                         src="${pageContext.request.contextPath}/img/front/banner_kjwx.jpg" width=699
                                         height=65></A></TD>
                             </TR>
@@ -761,33 +761,33 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>专利申请代理</A><SPAN style="float: right;">[2016-04-12]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14> <IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>发明专利申请代理</A><SPAN style="float: right;">[2016-04-08]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14> <IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>专利诉讼代理</A><SPAN style="float: right;">[2016-03-25]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="####"
+                                                                            height=9> <A href="/ams/admin/productDetail.do?t=2"
                                                                                      target=_blank>维权援助服务</A><SPAN style="float: right;">[2016-03-18]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="####"
+                                                                            height=9> <A href="/ams/admin/productDetail.do?t=2"
                                                                                      target=_blank>学习晋升服务</A><SPAN style="float: right;">[2016-03-05]</SPAN></TD>
                                                                 </TR>
                                                                 </TBODY>
@@ -831,33 +831,33 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>债权融资服务</A><SPAN style="float: right;">[2016-04-12]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14> <IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>股权融资服务</A><SPAN style="float: right;">[2016-04-08]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14> <IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="####"
+                                                                            href="/ams/admin/productDetail.do?t=2"
                                                                             target=_blank>上市融资服务</A><SPAN style="float: right;">[2016-03-25]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="####"
+                                                                            height=9> <A href="/ams/admin/productDetail.do?t=2"
                                                                                          target=_blank>科技与专利保险服务</A><SPAN style="float: right;">[2016-03-18]</SPAN></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="####"
+                                                                            height=9> <A href="/ams/admin/productDetail.do?t=2"
                                                                                          target=_blank>投融资中介服务</A><SPAN style="float: right;">[2016-03-05]</SPAN></TD>
                                                                 </TR>
                                                                 </TBODY>
@@ -906,39 +906,35 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                                 <TBODY>
                                                                 <TR>
                                                                     <TD width=58><A
-                                                                            href="${pageContext.request.contextPath}/admin/index.do"
+                                                                            href="${pageContext.request.contextPath}/admin/index.do?t=1"
                                                                             target=_blank><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/icon_zxts.jpg" width=58
                                                                             height=53></A></TD>
-                                                                    <TD width=13></TD>
+                                                                    <TD width=50></TD>
                                                                     <TD width=58><A
-                                                                            href="${pageContext.request.contextPath}/admin/index.do"
+                                                                            href="${pageContext.request.contextPath}/admin/index.do?t=2"
                                                                             target=_blank><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/icon_gzly.jpg" width=58
                                                                             height=53></A></TD>
-                                                                    <TD width=13></TD>
+                                                                    <TD width=50></TD>
                                                                     <TD width=58><A
-                                                                            href="${pageContext.request.contextPath}/admin/index.do"
+                                                                            href="${pageContext.request.contextPath}/admin/index.do?t=3"
                                                                             target=_blank><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/icon_wsjy.jpg" width=58
                                                                             height=53></A></TD>
-                                                                    <TD width=13></TD>
-                                                                    <TD width=58></TD>
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=28 align=center><A
-                                                                            href="${pageContext.request.contextPath}/admin/index.do"
+                                                                            href="${pageContext.request.contextPath}/admin/index.do?t=1"
                                                                             target=_blank>追踪转化</A></TD>
                                                                     <TD></TD>
                                                                     <TD align=center><A
-                                                                            href="${pageContext.request.contextPath}/admin/index.do"
+                                                                            href="${pageContext.request.contextPath}/admin/index.do?t=2"
                                                                             target=_blank>交易撮合</A></TD>
                                                                     <TD></TD>
                                                                     <TD align=center><A
-                                                                            href="${pageContext.request.contextPath}/admin/index.do"
+                                                                            href="${pageContext.request.contextPath}/admin/index.do?t=3"
                                                                             target=_blank>大众创业</A></TD>
-                                                                    <TD></TD>
-                                                                    <TD align=center></TD>
                                                                 </TR>
                                                                 </TBODY>
                                                             </TABLE>
@@ -988,17 +984,17 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                     <TBODY>
                                                     <TR>
                                                         <TD height=24>·<A
-                                                                href="http://www.xainfo.gov.cn/admin/2016nykj/index.asp"
+                                                                href="#####"
                                                                 target=_blank>创业苗圃</A></TD>
                                                     </TR>
                                                     <TR>
                                                         <TD height=24>·<A
-                                                                href="http://www.xainfo.gov.cn/admin/2016cmds/index.asp"
+                                                                href="#####"
                                                                 target=_blank>孵化器</A></TD>
                                                     </TR>
                                                     <TR>
                                                         <TD height=24>·<A
-                                                                href="http://www.xainfo.gov.cn/admin/2015sc/index.asp"
+                                                                href="#####"
                                                                 target=_blank>大学生创业园</A></TD>
                                                     </TR>
                                                     </TBODY>
@@ -1029,11 +1025,11 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                        align=center border=0>
                                                     <TBODY>
                                                     <TR>
-                                                        <TD height=24>·<A href="####"
+                                                        <TD height=24>·<A href="/ams/admin/productDetail.do?t=2"
                                                                           target=_blank>政府资助</A></TD>
                                                     </TR>
                                                     <TR>
-                                                        <TD height=24>·<A href="http://www.xatrm.com/"
+                                                        <TD height=24>·<A href="#####"
                                                                           target=_blank>社会资金</A></TD>
                                                     </TR>
                                                     </TBODY>
@@ -1064,15 +1060,15 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                        align=center border=0>
                                                     <TBODY>
                                                     <TR>
-                                                        <TD height=24>·<A href="####"
+                                                        <TD height=24>·<A href="/ams/admin/productDetail.do?t=2"
                                                                           target=_blank>企业注册</A></TD>
                                                     </TR>
                                                     <TR>
-                                                        <TD height=24>·<A href="http://www.xatrm.com/"
+                                                        <TD height=24>·<A href="#####"
                                                                           target=_blank>知识产权</A></TD>
                                                     </TR>
                                                     <TR>
-                                                        <TD height=24>·<A href="http://www.xastec.com/"
+                                                        <TD height=24>·<A href="#####"
                                                                           target=_blank>法律事务</A></TD>
                                                     </TR>
                                                     <TR>
@@ -1111,7 +1107,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                                                        align=center border=0>
                                                     <TBODY>
                                                     <TR>
-                                                        <TD height=24>·<A href="####"
+                                                        <TD height=24>·<A href="/ams/admin/productDetail.do?t=2"
                                                                           target=_blank>创业导师</A></TD>
                                                     </TR>
                                                     <TR>

@@ -35,8 +35,9 @@ public class LoginController extends BaseController {
 
     @RequestMapping(value = "index", method = RequestMethod.GET)
     public String index(String userName, String password, HttpServletRequest request, HttpServletResponse response,
-                        Model model) {
-        return "login/login";
+                        Model model, @RequestParam(value="t", required = false, defaultValue = "") String type) {
+
+        return "login/login"+type;
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
@@ -122,7 +123,7 @@ public class LoginController extends BaseController {
 
     @RequestMapping(value = "productDetail", method = RequestMethod.GET)
     public String product(HttpServletRequest request, HttpServletResponse response,
-                               Model model) {
-        return "product/frontDetail";
+                               Model model, @RequestParam(value="t", required = false, defaultValue = "") String type) {
+        return "product/frontDetail"+type;
     }
 }
