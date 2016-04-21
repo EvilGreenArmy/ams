@@ -30,6 +30,14 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
+    public Page<MessageInfo> queryFrontList(Map<String, Object> paramMap) {
+        Page<MessageInfo> page = (Page<MessageInfo>)paramMap.get("page");
+        List<MessageInfo> result = messageDao.messageFrontQueryPage(paramMap);
+        page.setResultList(result);
+        return page;
+    }
+
+    @Override
     public void saveMessage(MessageInfo message, Integer toUser) {
         messageDao.insertMessage(message);
 

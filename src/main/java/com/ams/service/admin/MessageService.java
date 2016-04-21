@@ -14,6 +14,8 @@ public interface MessageService {
 
     public Page<MessageInfo> queryList(Map<String, Object> paramMap);
 
+    public Page<MessageInfo> queryFrontList(Map<String, Object> paramMap);
+
     public void saveMessage(MessageInfo message, Integer toUsers);
 
     public  MessageInfo getMessageById(Integer id);

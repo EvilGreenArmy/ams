@@ -117,9 +117,9 @@
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
                 <td><input name="id" type="checkbox" value="${obj.id}" /></td>
-                <td><a href="#" onclick="getData('${basePath}/message/detail.do?id=${obj.id}','','workspace');">${obj.title}</a></td>
-                <td>${obj.fromUser.userName}</td>
-                <td>${obj.content}</td>
+                <td><a href="#" onclick="getData('${basePath}/message/detail.do?id=${obj.id}','','workspace');">${obj.message.title}</a></td>
+                <td>${obj.message.fromUser.userName}</td>
+                <td>${obj.message.content}</td>
                 <td>
                     <c:if test="${'N' eq obj.status}">
                         未读
@@ -128,9 +128,9 @@
                         已读
                     </c:if>
                 </td>
-                <td><fmt:formatDate value="${obj.sendDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+                <td><fmt:formatDate value="${obj.message.sendDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                 <td>
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?toUserId=${obj.fromUser.id}','','workspace');">回复</a>
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/message/add.do?toUserId=${obj.message.fromUser.id}','','workspace');">回复</a>
                 </td>
             </tr>
         </c:forEach>

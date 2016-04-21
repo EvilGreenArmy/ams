@@ -13,6 +13,8 @@ public interface MessageMapper {
 
     public List<MessageInfo> messageQueryPage(Map map);
 
+    public List<MessageInfo> messageFrontQueryPage(Map map);
+
     public void insertMessage(MessageInfo message);
 
     public MessageInfo getMessageById(Integer id);

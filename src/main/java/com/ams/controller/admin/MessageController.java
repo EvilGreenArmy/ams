@@ -67,7 +67,7 @@ public class MessageController extends BaseController {
         paramMap.put("title", title);
         paramMap.put("content", content);
         paramMap.put("toUserId", currentUser.getId());
-        page = messageService.queryList(paramMap);
+        page = messageService.queryFrontList(paramMap);
         model.addAttribute("page", page);
         model.addAttribute("paramMap", paramMap);
         return "message/frontList";

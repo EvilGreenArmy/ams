@@ -33,6 +33,38 @@
         ORDER by t.MSG_ID DESC
     </select>
 
+    <resultMap type="com.ams.entities.admin.UserMessageInfo" id="messageFrontMap">
+        <!-- 主键必须用id标签映射 -->
+        <id column="USER_MSG_ID" property="id"  jdbcType="NUMERIC"/>
+        <result column="UM_STATUS" property="status"  jdbcType="VARCHAR"/>
+        <result column="READ_DATE" property="readDate"  jdbcType="TIMESTAMP"/>
+        <association property="message" column="MSG_ID" resultMap="messageMap">
+        </association>
+    </resultMap>
+
+    <select id="messageFrontQueryPage" parameterType="java.util.Map" resultMap="messageFrontMap">
+        select um.USER_MSG_ID ,um.status as UM_STATUS, um.read_date,
+        m.MSG_ID,m.MSG_TITLE, m.MSG_CONTENT, m.STATUS, m.SEND_DATE,
+        u.ACCT_ID, u.USER_NAME
+        from t_user_message um
+        left join t_message m on um.msg_id=m.msg_id
+        left join b_account u on m.FROM_USER_ID=u.acct_id
+        where 1=1 AND m.STATUS='A'
+        <if test="toUserId!=null and toUserId !=''">
+            AND um.TO_USER_ID=#{toUserId}
+        </if>
+        <if test="title!=null and title !=''">
+            AND m.MSG_TITLE LIKE '%'||#{title}||'%'
+        </if>
+        <if test="status!=null and status !=''">
+            AND um.status = #{status}
+        </if>
+        <if test="content!=null and content !=''">
+            AND m.MSG_CONTENT LIKE '%'||#{content}||'%'
+        </if>
+        ORDER by um.USER_MSG_ID DESC
+    </select>
+
 
     <insert id="insertMessage" parameterType="com.ams.entities.admin.MessageInfo" >
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
