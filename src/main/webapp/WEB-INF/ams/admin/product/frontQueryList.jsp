@@ -91,7 +91,7 @@
                     <td class="tabel_title">类型：</td>
                     <td class="table_cont">
                         <select name="type" class="search_input">
-                            <option value=""></option>
+                            <option value="">全部</option>
                             <option value="1" <c:if test="${'1'eq paramMap.type}">selected</c:if>>成果</option>
                             <option value="2" <c:if test="${'2'eq paramMap.type}">selected</c:if>>专利</option>
                         </select>
@@ -130,7 +130,7 @@
         <tbody>
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
-                <td>${obj.name}</td>
+                <td><a href="#" onclick="getData('${basePath}/product/detail.do?t=f&id=${obj.id}','','workspace');">${obj.name}</a></td>
                 <td>${obj.organization}</td>
                 <td>${obj.linkman}</td>
                 <td>

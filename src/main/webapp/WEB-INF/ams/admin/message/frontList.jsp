@@ -117,7 +117,7 @@
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
                 <td><input name="id" type="checkbox" value="${obj.id}" /></td>
-                <td><a href="#" onclick="getData('${basePath}/message/detail.do?id=${obj.id}','','workspace');">${obj.message.title}</a></td>
+                <td><a href="#" onclick="getData('${basePath}/message/detail.do?um=${obj.id}&m=${obj.message.id}','','workspace');">${obj.message.title}</a></td>
                 <td>${obj.message.fromUser.userName}</td>
                 <td>${obj.message.content}</td>
                 <td>

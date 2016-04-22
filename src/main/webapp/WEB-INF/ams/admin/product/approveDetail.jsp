@@ -29,6 +29,8 @@
           <textarea id="content" name="content" cols="" rows="" class="textinput" readonly>${product.content}</textarea><i style="color: red;"></i>
       </li>
       <li>
+          <label>&nbsp;</label><input  onclick="getData('${basePath}/product/approve.do?id=${product.id}&status=0','','workspace');" type="button" class="btn" value="驳回"/>
+          <label>&nbsp;</label><input  onclick="getData('${basePath}/product/approve.do?id=${product.id}&status=1','','workspace');" type="button" class="btn" value="同意"/>
       </li>
     </ul>
   </div>

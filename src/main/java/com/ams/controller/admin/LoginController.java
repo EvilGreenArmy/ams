@@ -124,6 +124,6 @@ public class LoginController extends BaseController {
     @RequestMapping(value = "productDetail", method = RequestMethod.GET)
     public String product(HttpServletRequest request, HttpServletResponse response,
                                Model model, @RequestParam(value="t", required = false, defaultValue = "") String type) {
-        return "product/frontDetail"+type;
+        return "frontpage/frontDetail"+type;
     }
 }

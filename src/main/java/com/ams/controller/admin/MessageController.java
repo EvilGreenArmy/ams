@@ -37,6 +37,9 @@ public class MessageController extends BaseController {
     @Autowired
     private MessageService messageService;
 
+    /**
+     * 后台管理员查询
+     */
     @RequestMapping(value = "list")
     public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model, Page<MessageInfo> page,
                        @RequestParam(value="title", required = false) String title, @RequestParam(value="content", required = false)String content) {
@@ -57,6 +60,9 @@ public class MessageController extends BaseController {
 
     }
 
+    /**
+     * 前台用户查询
+     */
     @RequestMapping(value = "frontList")
     public String frontList(HttpServletRequest request, HttpServletResponse response, ModelMap model, Page<MessageInfo> page,
                        @RequestParam(value="title", required = false) String title, @RequestParam(value="content", required = false)String content) {
@@ -75,8 +81,14 @@ public class MessageController extends BaseController {
     }
 
 
+    /**
+     * 进入发送信息页面
+     */
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String initAdd(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer toUserId){
+    public String initAdd(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer toUserId, @RequestParam(value="um", required = false)Integer um){
+        if(null != um){
+            this.messageService.setRead(um);
+        }
         if(null != toUserId){
             UserInfo toUser = userService.getUserById(toUserId);
             model.addAttribute("toUser",toUser);
@@ -87,6 +99,9 @@ public class MessageController extends BaseController {
     }
 
 
+    /**
+     * 保存发送消息
+     */
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String save(HttpServletRequest request, HttpServletResponse response, ModelMap model,
                        @ModelAttribute MessageInfo message, Integer toUserId) {
@@ -102,11 +117,13 @@ public class MessageController extends BaseController {
         return "redirect:/message/list.do";
     }
 
-
+    /**
+     * 显示消息信息
+     */
     @RequestMapping(value = "detail", method = RequestMethod.GET)
-    public String detail(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer id){
-        MessageInfo message = this.messageService.getMessageById(id);
-        this.messageService.setRead(id);
+    public String detail(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer um,Integer m){
+        MessageInfo message = this.messageService.getMessageById(m);
+        this.messageService.setRead(um);
         model.addAttribute("message",message);
         return "message/frontDetail";
     }

@@ -76,7 +76,7 @@
     <span>位置：</span>
     <ul class="placeul">
         <li><a href="#">业务管理</a></li>
-        <li><a href="#">成果专利维护</a></li>
+        <li><a href="#">我的成果、专利</a></li>
     </ul>
 </div>
 
@@ -91,7 +91,7 @@
                     <td class="tabel_title">类型：</td>
                     <td class="table_cont">
                         <select name="type" class="search_input">
-                            <option value=""></option>
+                            <option value="">全部</option>
                             <option value="1" <c:if test="${'1'eq paramMap.type}">selected</c:if>>成果</option>
                             <option value="2" <c:if test="${'2'eq paramMap.type}">selected</c:if>>专利</option>
                         </select>
@@ -143,7 +143,7 @@
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
                 <td><input name="id" type="checkbox" value="${obj.id}" /></td>
-                <td>${obj.name}</td>
+                <td><a href="#" onclick="getData('${basePath}/product/detail.do?id=${obj.id}','','workspace');">${obj.name}</a></td>
                 <td>${obj.organization}</td>
                 <td>${obj.linkman}</td>
                 <td>
