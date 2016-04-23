@@ -71,7 +71,10 @@
 
 
     <select id="getProductById" parameterType="com.ams.entities.admin.ProductInfo" resultMap="productMap">
-        SELECT * FROM T_PRODUCT t WHERE t.PRD_ID=#{id}
+        SELECT t.*, a.ACCT_ID, a.USER_NAME
+        FROM T_PRODUCT t
+        LEFT JOIN B_ACCOUNT a ON t.ADD_USER_ID=a.ACCT_ID
+        WHERE t.PRD_ID=#{id}
     </select>
 
     <update id="deleteProduct">

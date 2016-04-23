@@ -26,7 +26,7 @@
     <span><c:out value="${login_user.userName}" /></span>
     <i>消息</i>
       <c:if test="${UnreadMessages ne 0}">
-          <b>${UnreadMessages}</b>
+          <b style="cursor: pointer" onclick="getData('${basePath}/message/frontList.do','','workspace');">${UnreadMessages}</b>
       </c:if>
   </div>
 </div>

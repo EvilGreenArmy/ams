@@ -130,7 +130,7 @@
         <tbody>
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
-                <td><a href="#" onclick="getData('${basePath}/product/detail.do?t=f&id=${obj.id}','','workspace');">${obj.name}</a></td>
+                <td><a href="#" onclick="getData('${basePath}/product/detail.do?flag=f&id=${obj.id}','','workspace');">${obj.name}</a></td>
                 <td>${obj.organization}</td>
                 <td>${obj.linkman}</td>
                 <td>

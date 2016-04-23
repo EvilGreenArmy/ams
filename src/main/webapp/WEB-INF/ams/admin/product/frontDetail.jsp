@@ -4,13 +4,31 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<script  type="text/javascript">
+
+    function favourite(productId) {
+        $.ajax({
+            type: "POST",
+            url: '${basePath}/favorites/add.do?t=' + Math.random(),
+            data: {productId:productId},
+            dataType: "json",
+            success: function(data) {
+                data = eval("(" + data +")");
+                if(data.state != '0') {
+                    layer.msg('收藏成功！');
+                } else {
+                    layer.msg('收藏失败！');
+                }
+            }
+        });
+    }
+</script>
 <form action="${basePath}/product/edit.do" method="post" id="product" name="product">
     <div class="place">
         <span>位置：</span>
         <ul class="placeul">
             <li><a href="#">业务管理</a></li>
-            <li><a href="#">成果、专利维护</a></li>
-            <li><a href="#">修改${typeName}</a></li>
+            <li><a href="#">成果、专利详情</a></li>
         </ul>
     </div>
     <div class="formbody">
@@ -18,8 +36,8 @@
         <ul class="forminfo">
             <li><label>${typeName}名称<b>*</b></label><input name="name" id="name" value="${product.name}" type="text" class="dfinput" readonly /><i style="color: red;"></i></li>
             <li><label>单位名称</label><input name="organization" id="organization" value="${product.organization}" type="text" value="" class="dfinput" readonly/><i style="color: red;"></i></li>
-            <li><label>开始时间</label><input name="startDate" id="startDate" value="<fmt:formatDate value='${product.startDate}' pattern='yyyy-MM-dd'/>" readonly type="text" class="dfinput"  onClick="WdatePicker()"/><i style="color: red;"></i></li>
-            <li><label>结束时间</label><input name="endDate" id="endDate" value="<fmt:formatDate value='${product.endDate}' pattern='yyyy-MM-dd'/>" readonly type="text" class="dfinput"  onClick="WdatePicker()"/><i style="color: red;"></i></li>
+            <li><label>研究开始时间</label><input name="startDate" id="startDate" value="<fmt:formatDate value='${product.startDate}' pattern='yyyy-MM-dd'/>" readonly type="text" class="dfinput"/><i style="color: red;"></i></li>
+            <li><label>研究结束时间</label><input name="endDate" id="endDate" value="<fmt:formatDate value='${product.endDate}' pattern='yyyy-MM-dd'/>" readonly type="text" class="dfinput"/><i style="color: red;"></i></li>
             <li><label>通讯地址</label><input name="addr" id="addr" value="${product.addr}" type="text" value="" class="dfinput" readonly/><i style="color: red;"></i></li>
             <li><label>联系人</label><input name="linkman" id="linkman" value="${product.linkman}" type="text" value="" class="dfinput" readonly/><i style="color: red;"></i></li>
             <li><label>联系电话</label><input name="telephone" id="telephone" value="${product.telephone}" type="text" value="" class="dfinput" readonly/><i style="color: red;"></i></li>
@@ -29,8 +47,8 @@
                 <textarea id="content" name="content" cols="" rows="" class="textinput" readonly>${product.content}</textarea><i style="color: red;"></i>
             </li>
             <li>
-                <label>&nbsp;</label><input  onclick="getData('${basePath}/product/approve.do?id=${product.id}&status=0','','workspace');" type="button" class="btn" value="回复"/>
-                <label>&nbsp;</label><input  onclick="getData('${basePath}/product/approve.do?id=${product.id}&status=1','','workspace');" type="button" class="btn" value="收藏"/>
+                <label>&nbsp;</label><input  onclick="getData('${basePath}/message/add.do?toUserId=${product.addUser.id}','','workspace');" type="button" class="btn" value="回复"/>
+                <label>&nbsp;</label><input  onclick="favourite(${product.id});" type="button" class="btn" value="收藏"/>
             </li>
         </ul>
     </div>

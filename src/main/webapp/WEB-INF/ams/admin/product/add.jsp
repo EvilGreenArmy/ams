@@ -28,8 +28,6 @@
           postDataByFormName('product','workspace');
       }, function(){
       });
-
-
   }
 
 </script>
@@ -48,8 +46,8 @@
     <ul class="forminfo">
       <li><label>${typeName}名称<b>*</b></label><input name="name" id="name" type="text" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>单位名称</label><input name="organization" id="organization" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
-      <li><label>开始时间</label><input name="startDate" id="startDate" type="text" value="" class="dfinput" onClick="WdatePicker()" /><i style="color: red;"></i></li>
-      <li><label>结束时间</label><input name="endDate" id="endDate" type="text" value="" class="dfinput" onClick="WdatePicker()" /><i style="color: red;"></i></li>
+      <li><label>研究开始时间</label><input name="startDate" id="startDate" type="text" value="" class="dfinput" onClick="WdatePicker()" /><i style="color: red;"></i></li>
+      <li><label>研究结束时间</label><input name="endDate" id="endDate" type="text" value="" class="dfinput" onClick="WdatePicker()" /><i style="color: red;"></i></li>
       <li><label>通讯地址</label><input name="addr" id="addr" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>联系人</label><input name="linkman" id="linkman" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
       <li><label>联系电话</label><input name="telephone" id="telephone" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>

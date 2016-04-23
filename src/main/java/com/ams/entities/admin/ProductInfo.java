@@ -12,7 +12,9 @@ public class ProductInfo {
     private Integer id;
     // 名称
     private String name;
-    // 单位
+    // 中文名称
+    private String chineseName;
+    // 单位名称
     private String organization;
     // 研究开始时间
     private Date startDate;
@@ -32,6 +34,14 @@ public class ProductInfo {
     private String priceUnit;
     // 邮编
     private String zipCode;
+    // 任务来源
+    private String taskSource;
+    // 有无密级
+    private String isSecret;
+    // 密级
+    private String secretLevel;
+    // 技术资料目录
+    private String technologyDirectory;
     // 类型 成果 | 专利
     private String type;
     // 状态 A-可用 D-删除
