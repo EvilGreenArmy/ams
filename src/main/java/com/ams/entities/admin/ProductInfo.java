@@ -71,6 +71,14 @@ public class ProductInfo {
         this.name = name;
     }
 
+    public String getChineseName() {
+        return chineseName;
+    }
+
+    public void setChineseName(String chineseName) {
+        this.chineseName = chineseName;
+    }
+
     public String getOrganization() {
         return organization;
     }
@@ -149,6 +157,38 @@ public class ProductInfo {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public String getTaskSource() {
+        return taskSource;
+    }
+
+    public void setTaskSource(String taskSource) {
+        this.taskSource = taskSource;
+    }
+
+    public String getIsSecret() {
+        return isSecret;
+    }
+
+    public void setIsSecret(String isSecret) {
+        this.isSecret = isSecret;
+    }
+
+    public String getSecretLevel() {
+        return secretLevel;
+    }
+
+    public void setSecretLevel(String secretLevel) {
+        this.secretLevel = secretLevel;
+    }
+
+    public String getTechnologyDirectory() {
+        return technologyDirectory;
+    }
+
+    public void setTechnologyDirectory(String technologyDirectory) {
+        this.technologyDirectory = technologyDirectory;
     }
 
     public String getType() {

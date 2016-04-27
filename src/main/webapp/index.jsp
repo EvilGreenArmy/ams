@@ -62,7 +62,7 @@ content="IE=11.0000" http-equiv="X-UA-Compatible">
                     <TD width="20"><IMG width="16" height="16"
                                         src="${pageContext.request.contextPath}/img/front/icon_guohui.gif"></TD>
                     <TD width="95"><A href="http://www.yanan.gov.cn/" target="_blank">延安市人民政府</A></TD>
-                    <TD width="559" align="center">欢迎您访问延安市科学技术局（延安市知识产权局）官方网站！</TD>
+                    <TD width="559" align="center">欢迎您访问延安市科学技术局官方网站！</TD>
                     <TD width="20"><IMG width="16" height="16"
                                         src="${pageContext.request.contextPath}/img/front/icon_home.gif"></TD>
                     <TD width="60"><A href="${pageContext.request.contextPath}/admin/index.do?t=1">登录</A></TD>

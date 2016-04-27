@@ -21,6 +21,12 @@
         <result column="ADD_DATE" property="addDate" jdbcType="TIMESTAMP"/>
         <result column="EDIT_DATE" property="editDate" jdbcType="TIMESTAMP"/>
 
+        <result column="PRD_CN_NAME" property="chineseName" jdbcType="VARCHAR"/>
+        <result column="TASK_SOURCE" property="taskSource" jdbcType="VARCHAR"/>
+        <result column="IS_SECRET" property="isSecret" jdbcType="VARCHAR"/>
+        <result column="SECRET_LEVEL" property="secretLevel" jdbcType="VARCHAR"/>
+        <result column="TECHNOLOGY_DIRECTORY" property="technologyDirectory" jdbcType="VARCHAR"/>
+
         <association property="addUser" column="ADD_USER_ID" javaType="com.ams.entities.admin.UserInfo">
             <id column="ACCT_ID" property="id" jdbcType="NUMERIC"/>
             <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
@@ -49,18 +55,22 @@
         </selectKey>
         insert into T_PRODUCT (PRD_ID, PRD_NAME, PRD_ORGANIZATION, START_DATE, END_DATE,
         ADDR, LINKMAN, AREA, CONTENT, TELEPHONE,
-        PRICE_UNIT, ZIP_CODE, TYPE, STATUS, ADD_DATE,
-        EDIT_DATE, ADD_USER_ID, EDIT_USER_ID)
+        PRICE_UNIT, ZIP_CODE, TYPE, STATUS,
+        PRD_CN_NAME, TASK_SOURCE, IS_SECRET, SECRET_LEVEL, TECHNOLOGY_DIRECTORY
+        ADD_DATE, EDIT_DATE, ADD_USER_ID, EDIT_USER_ID)
         values(#{id}, #{name,jdbcType=VARCHAR}, #{organization,jdbcType=VARCHAR},#{startDate,jdbcType=TIMESTAMP},#{endDate,jdbcType=TIMESTAMP},
         #{addr,jdbcType=VARCHAR},#{linkman,jdbcType=VARCHAR},#{area,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR},
-        #{priceUnit,jdbcType=VARCHAR}, #{zipCode,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{addDate},
-        #{editDate}, #{addUser.id,jdbcType=NUMERIC}, #{editUser.id,jdbcType=NUMERIC})
+        #{priceUnit,jdbcType=VARCHAR}, #{zipCode,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+        #{chineseName,jdbcType=VARCHAR}, #{taskSource,jdbcType=VARCHAR}, #{isSecret,jdbcType=VARCHAR}, #{secretLevel,jdbcType=VARCHAR}, #{technologyDirectory,jdbcType=VARCHAR},
+        #{addDate}, #{editDate}, #{addUser.id,jdbcType=NUMERIC}, #{editUser.id,jdbcType=NUMERIC})
     </insert>
     <update id="updateProduct" parameterType="com.ams.entities.admin.ProductInfo" >
         UPDATE  T_PRODUCT SET
         PRD_NAME=#{name,jdbcType=VARCHAR}, PRD_ORGANIZATION= #{organization,jdbcType=VARCHAR}, START_DATE=#{startDate,jdbcType=TIMESTAMP},
         END_DATE=#{endDate,jdbcType=TIMESTAMP}, ADDR=#{addr,jdbcType=VARCHAR}, LINKMAN=#{linkman,jdbcType=VARCHAR}, AREA=#{area,jdbcType=VARCHAR},
         CONTENT=#{content,jdbcType=VARCHAR}, TELEPHONE=#{telephone,jdbcType=VARCHAR}, PRICE_UNIT=#{priceUnit,jdbcType=VARCHAR},
+        PRD_CN_NAME=#{chineseName,jdbcType=VARCHAR}, TASK_SOURCE=#{taskSource,jdbcType=VARCHAR}, IS_SECRET=#{isSecret,jdbcType=VARCHAR},
+        SECRET_LEVEL=#{secretLevel,jdbcType=VARCHAR}, TECHNOLOGY_DIRECTORY=#{technologyDirectory,jdbcType=VARCHAR},
         ZIP_CODE=#{zipCode,jdbcType=VARCHAR}, EDIT_DATE=#{editDate}, EDIT_USER_ID=#{editUser.id}
         WHERE PRD_ID=#{id}
     </update>
