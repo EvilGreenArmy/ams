@@ -14,18 +14,22 @@ public class ProductInfo {
     private String name;
     // 中文名称
     private String chineseName;
+    // 隶属省部
+    private String province;
+    // 单位属性
+    private String organsAttribute;
     // 单位名称
     private String organization;
     // 研究开始时间
     private Date startDate;
     // 研究结束时间
     private Date endDate;
+    // 所在地区
+    private String area;
     // 通讯地址
     private String addr;
     // 联系人
     private String linkman;
-    // 所在区域
-    private String area;
     // 内容简介
     private String content;
     // 联系电话
@@ -44,7 +48,7 @@ public class ProductInfo {
     private String technologyDirectory;
     // 类型 成果 | 专利
     private String type;
-    // 状态 A-可用 D-删除
+    // 状态 R-发布 申报 交易  完成  竞标  实施  D-删除
     private String status;
     // 添加时间
     private Date addDate;
@@ -103,6 +107,30 @@ public class ProductInfo {
         this.endDate = endDate;
     }
 
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getOrgansAttribute() {
+        return organsAttribute;
+    }
+
+    public void setOrgansAttribute(String organsAttribute) {
+        this.organsAttribute = organsAttribute;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
     public String getAddr() {
         return addr;
     }
@@ -117,14 +145,6 @@ public class ProductInfo {
 
     public void setLinkman(String linkman) {
         this.linkman = linkman;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
     }
 
     public String getContent() {

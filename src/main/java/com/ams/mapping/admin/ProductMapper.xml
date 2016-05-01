@@ -26,12 +26,15 @@
         <result column="IS_SECRET" property="isSecret" jdbcType="VARCHAR"/>
         <result column="SECRET_LEVEL" property="secretLevel" jdbcType="VARCHAR"/>
         <result column="TECHNOLOGY_DIRECTORY" property="technologyDirectory" jdbcType="VARCHAR"/>
+        <result column="PROVINCE" property="province" jdbcType="VARCHAR"/>
+        <result column="ORGANSATTRIBUTE" property="organsAttribute" jdbcType="VARCHAR"/>
 
         <association property="addUser" column="ADD_USER_ID" javaType="com.ams.entities.admin.UserInfo">
             <id column="ACCT_ID" property="id" jdbcType="NUMERIC"/>
             <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
         </association>
     </resultMap>
+
     <select id="productQueryPage" parameterType="java.util.Map" resultMap="productMap">
         select u.*, a.ACCT_ID, a.USER_NAME
         from T_PRODUCT u LEFT join B_ACCOUNT a on u.ADD_USER_ID=a.ACCT_ID
@@ -49,6 +52,7 @@
             AND u.TYPE=#{type}
         </if>
     </select>
+
     <insert id="insertProduct" parameterType="com.ams.entities.admin.ProductInfo" >
         <selectKey keyProperty="id" resultType="int" order="BEFORE">
             select SEQ_AMS.nextval  from dual
@@ -56,14 +60,17 @@
         insert into T_PRODUCT (PRD_ID, PRD_NAME, PRD_ORGANIZATION, START_DATE, END_DATE,
         ADDR, LINKMAN, AREA, CONTENT, TELEPHONE,
         PRICE_UNIT, ZIP_CODE, TYPE, STATUS,
-        PRD_CN_NAME, TASK_SOURCE, IS_SECRET, SECRET_LEVEL, TECHNOLOGY_DIRECTORY
+        PRD_CN_NAME, TASK_SOURCE, IS_SECRET, SECRET_LEVEL, TECHNOLOGY_DIRECTORY,
+        PROVINCE, ORGANSATTRIBUTE,
         ADD_DATE, EDIT_DATE, ADD_USER_ID, EDIT_USER_ID)
         values(#{id}, #{name,jdbcType=VARCHAR}, #{organization,jdbcType=VARCHAR},#{startDate,jdbcType=TIMESTAMP},#{endDate,jdbcType=TIMESTAMP},
         #{addr,jdbcType=VARCHAR},#{linkman,jdbcType=VARCHAR},#{area,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR},
         #{priceUnit,jdbcType=VARCHAR}, #{zipCode,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
         #{chineseName,jdbcType=VARCHAR}, #{taskSource,jdbcType=VARCHAR}, #{isSecret,jdbcType=VARCHAR}, #{secretLevel,jdbcType=VARCHAR}, #{technologyDirectory,jdbcType=VARCHAR},
+        #{province,jdbcType=VARCHAR},#{organsAttribute,jdbcType=VARCHAR},
         #{addDate}, #{editDate}, #{addUser.id,jdbcType=NUMERIC}, #{editUser.id,jdbcType=NUMERIC})
     </insert>
+
     <update id="updateProduct" parameterType="com.ams.entities.admin.ProductInfo" >
         UPDATE  T_PRODUCT SET
         PRD_NAME=#{name,jdbcType=VARCHAR}, PRD_ORGANIZATION= #{organization,jdbcType=VARCHAR}, START_DATE=#{startDate,jdbcType=TIMESTAMP},
@@ -71,6 +78,7 @@
         CONTENT=#{content,jdbcType=VARCHAR}, TELEPHONE=#{telephone,jdbcType=VARCHAR}, PRICE_UNIT=#{priceUnit,jdbcType=VARCHAR},
         PRD_CN_NAME=#{chineseName,jdbcType=VARCHAR}, TASK_SOURCE=#{taskSource,jdbcType=VARCHAR}, IS_SECRET=#{isSecret,jdbcType=VARCHAR},
         SECRET_LEVEL=#{secretLevel,jdbcType=VARCHAR}, TECHNOLOGY_DIRECTORY=#{technologyDirectory,jdbcType=VARCHAR},
+        PROVINCE=#{province,jdbcType=VARCHAR},ORGANSATTRIBUTE=#{organsAttribute,jdbcType=VARCHAR},
         ZIP_CODE=#{zipCode,jdbcType=VARCHAR}, EDIT_DATE=#{editDate}, EDIT_USER_ID=#{editUser.id}
         WHERE PRD_ID=#{id}
     </update>
@@ -78,7 +86,6 @@
     <update id="updateStatus" parameterType="java.util.Map">
         UPDATE  T_PRODUCT SET STATUS=#{status} WHERE PRD_ID=#{id}
     </update>
-
 
     <select id="getProductById" parameterType="com.ams.entities.admin.ProductInfo" resultMap="productMap">
         SELECT t.*, a.ACCT_ID, a.USER_NAME

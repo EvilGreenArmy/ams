@@ -45,8 +45,10 @@
 
     </style>
     <link href="${basePath}/css/admin/login/style.css" rel="stylesheet" type="text/css" />
+    <link href="${basePath}/css/admin/login/select.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="${basePath}/js/admin/layout/jquery.min.js"></script>
     <script type="text/javascript" src="${basePath}/js/admin/layout/common.js"></script>
+    <script type="text/javascript" src="${basePath}/js/admin/select-ui.min.js"></script>
     <style type="text/css"></style>
     <script type="text/javascript"
             src="${basePath}/js/admin/layout/jquery.layout-latest.js"></script>

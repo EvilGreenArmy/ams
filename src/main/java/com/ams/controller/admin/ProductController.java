@@ -109,6 +109,16 @@ public class ProductController extends BaseController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String initAdd(HttpServletRequest request, HttpServletResponse response, ModelMap model, String type) {
+
+        // 单位属性
+        model.addAttribute("organsAttributes",categoryService.querySubCategorys(17));
+        // 任务来源
+        model.addAttribute("taskSources",categoryService.querySubCategorys(125));
+        // 密级
+        model.addAttribute("secretLevels",categoryService.querySubCategorys(132));
+        // 竞价单位
+        model.addAttribute("priceUnits",categoryService.querySubCategorys(156));
+
         logger.debug("initEdit type:" + type);
         if("1".equals(type))
             model.addAttribute("typeName", "成果");
@@ -135,6 +145,15 @@ public class ProductController extends BaseController {
     @RequestMapping(value = "edit", method = RequestMethod.GET)
     public String initEdit(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer id) {
         logger.debug("initEdit id:"+id);
+        // 单位属性
+        model.addAttribute("organsAttributes",categoryService.querySubCategorys(17));
+        // 任务来源
+        model.addAttribute("taskSources",categoryService.querySubCategorys(125));
+        // 密级
+        model.addAttribute("secretLevels",categoryService.querySubCategorys(132));
+        // 竞价单位
+        model.addAttribute("priceUnits",categoryService.querySubCategorys(156));
+
         ProductInfo product = this.productService.getProductById(id);
         model.addAttribute("product", product);
         return "product/edit";
@@ -143,6 +162,15 @@ public class ProductController extends BaseController {
     @RequestMapping(value = "frontEdit", method = RequestMethod.GET)
     public String frontEdit(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer id) {
         logger.debug("initEdit id:"+id);
+        // 单位属性
+        model.addAttribute("organsAttributes",categoryService.querySubCategorys(17));
+        // 任务来源
+        model.addAttribute("taskSources",categoryService.querySubCategorys(125));
+        // 密级
+        model.addAttribute("secretLevels",categoryService.querySubCategorys(132));
+        // 竞价单位
+        model.addAttribute("priceUnits",categoryService.querySubCategorys(156));
+
         ProductInfo product = this.productService.getProductById(id);
         logger.debug("edit product: " + product);
         model.addAttribute("product", product);
@@ -166,6 +194,15 @@ public class ProductController extends BaseController {
     @RequestMapping(value = "approve", method = RequestMethod.GET)
     public String approve(HttpServletRequest request, HttpServletResponse response, ModelMap model,
                           @RequestParam("id")Integer id, @RequestParam("status")Integer status) {
+
+        // 单位属性
+        model.addAttribute("organsAttributes",categoryService.querySubCategorys(17));
+        // 任务来源
+        model.addAttribute("taskSources",categoryService.querySubCategorys(125));
+        // 密级
+        model.addAttribute("secretLevels",categoryService.querySubCategorys(132));
+        // 竞价单位
+        model.addAttribute("priceUnits",categoryService.querySubCategorys(156));
 
         if(status==1){
             productService.approve(id, Constant.ACTIVE_STATUS);

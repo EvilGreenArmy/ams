@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ams.dao.admin.SystemMapper" >
+    <update id="updateTimeliness" parameterType="int" >
+        UPDATE T_SYSTEM
+        SET TIMELINESS=#{days, jdbcType=NUMERIC}
+        WHERE SYSTEM_ID=1
+    </update>
+
+    <select id="getTimeliness" resultType="java.lang.Integer">
+        select t.TIMELINESS
+        FROM T_SYSTEM t
+        WHERE t.SYSTEM_ID=1
+    </select>
+</mapper>

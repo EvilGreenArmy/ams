@@ -75,7 +75,7 @@
     <div class="seach_box">
 
         <fieldset>
-            <legend>消息查询</legend>
+            <legend>菜单查询</legend>
             <table>
                 <tbody>
                 <tr>
