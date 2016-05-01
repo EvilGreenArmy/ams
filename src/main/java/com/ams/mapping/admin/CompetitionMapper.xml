@@ -23,7 +23,7 @@
         select t.*, u.USER_NAME, p.PRD_NAME, p.TYPE
         from T_COMPETITION t left outer join B_ACCOUNT u on t.ACCT_ID = u.ACCT_ID
         left outer join T_PRODUCT p ON t.PRODUCT_ID=p.PRD_ID
-        WHERE 1=1
+        WHERE 1=1 AND t.STATUS='A'
         <if test="acctId != null">
             AND (t.ACCT_ID=#{acctId} )
         </if>
@@ -37,4 +37,8 @@
         insert into T_COMPETITION (COM_ID, PRODUCT_ID,COM_VALUE, STATUS, ACCT_ID, CREATE_TIME)
         values (#{id}, #{productInfo.id},#{comValue}, #{status}, #{userInfo.id}, #{createTime})
     </insert>
+    <update id="deleteCompetition">
+        update  T_COMPETITION SET STATUS='D' where COM_ID in
+        <foreach collection="array" item="id" open="(" separator="," close=")">#{id}</foreach>
+    </update>
 </mapper>

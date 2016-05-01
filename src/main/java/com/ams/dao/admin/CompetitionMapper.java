@@ -16,4 +16,6 @@ public interface CompetitionMapper {
 
     void insertCompetition(CompetitionInfo competitionInfo);
 
+    void deleteCompetition(Integer[] ids);
+
 }

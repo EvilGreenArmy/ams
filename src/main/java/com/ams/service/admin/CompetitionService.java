@@ -13,4 +13,6 @@ public interface CompetitionService {
     public Page<CompetitionInfo> queryList(Map<String, Object> paramMap);
 
     public void saveCompetition(CompetitionInfo competition);
+
+    public void deleteCompetition(Integer[] ids);
 }

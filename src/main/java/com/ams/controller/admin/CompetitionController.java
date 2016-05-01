@@ -80,10 +80,10 @@ public class CompetitionController extends BaseController {
         }
     }
 
-   /* @RequestMapping(value = "delete", method = RequestMethod.POST)
+   @RequestMapping(value = "delete", method = RequestMethod.POST)
     public String delete(HttpServletRequest request, HttpServletResponse response, ModelMap model,
                          @RequestParam("id") Integer[] ids) {
-        this.favoritesService.deleteFavorites(ids);
-        return "redirect:/favorites/list.do";
-    }*/
+        this.competitionService.deleteCompetition(ids);
+        return "redirect:/competition/list.do";
+    }
 }

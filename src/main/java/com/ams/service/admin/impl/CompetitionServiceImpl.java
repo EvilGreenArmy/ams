@@ -31,4 +31,9 @@ public class CompetitionServiceImpl implements CompetitionService {
     public void saveCompetition(CompetitionInfo competition) {
         dao.insertCompetition(competition);
     }
+
+    @Transactional
+    public void deleteCompetition(Integer[] ids) {
+        dao.deleteCompetition(ids);
+    }
 }

@@ -79,7 +79,7 @@
             <th>类型</th>
             <th>出价金额</th>
             <th>出价时间</th>
-            <th>是否最高价</th>
+          <%--  <th>是否最高价</th>--%>
             <th>操作</th>
         </tr>
         </thead>
@@ -100,15 +100,15 @@
                 <td><fmt:formatNumber value="${obj.comValue}" pattern="#,#00.0#"/> </td>
 
                 <td><fmt:formatDate value="${obj.createTime}"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                <c:if test="${obj.status eq '1'}">
+              <%--  <c:if test="${obj.status eq '1'}">
                     <td>是</td>
                 </c:if>
                 <c:if test="${obj.status eq '0'}">
                     <td>否</td>
-                </c:if>
-                <%--<td>
+                </c:if>--%>
+                <td>
                     <a href="javascript:;" onclick="singleDelete(${obj.id})" class="tablelink"> 删除</a>
-                </td>--%>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
