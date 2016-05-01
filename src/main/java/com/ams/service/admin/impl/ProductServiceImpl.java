@@ -65,4 +65,9 @@ public class ProductServiceImpl implements ProductService {
         paramMap.put("status",status);
         productDao.updateStatus(paramMap);
     }
+
+    @Override
+    public List<ProductInfo> frontQuery(String status) {
+        return productDao.frontQuery(status);
+    }
 }

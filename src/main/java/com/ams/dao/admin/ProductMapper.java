@@ -22,4 +22,6 @@ public interface ProductMapper {
     ProductInfo getProductById(Integer id);
 
     void updateStatus(Map map);
+
+    List<ProductInfo> frontQuery(String status);
 }

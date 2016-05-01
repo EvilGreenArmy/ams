@@ -3,6 +3,7 @@ package com.ams.service.admin;
 import com.ams.entities.admin.ProductInfo;
 import com.ams.pagination.Page;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,4 +24,6 @@ public interface ProductService {
     public void deleteProduct(Integer id);
 
     public void approve(Integer id, String status);
+
+    public List<ProductInfo> frontQuery(String status);
 }
