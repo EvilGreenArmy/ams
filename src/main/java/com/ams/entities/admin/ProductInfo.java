@@ -48,10 +48,12 @@ public class ProductInfo {
     private String technologyDirectory;
     // 类型 成果 | 专利
     private String type;
-    // 状态 R-发布 申报 交易  完成  竞标  实施  D-删除
+    // 状态 1-发布 2-申报 3-交易 4- 完成  5-竞标  6-实施  0-过期 -1 - 删除
     private String status;
     // 添加时间
     private Date addDate;
+    // 过期时间
+    private Date pastDate;
     // 添加用户
     private UserInfo addUser;
     // 修改时间
@@ -257,6 +259,14 @@ public class ProductInfo {
 
     public void setEditUser(UserInfo editUser) {
         this.editUser = editUser;
+    }
+
+    public Date getPastDate() {
+        return pastDate;
+    }
+
+    public void setPastDate(Date pastDate) {
+        this.pastDate = pastDate;
     }
 
     @Override

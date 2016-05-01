@@ -4,12 +4,11 @@ import com.ams.dao.admin.ProductMapper;
 import com.ams.entities.admin.ProductInfo;
 import com.ams.pagination.Page;
 import com.ams.service.admin.ProductService;
+import com.ams.service.admin.SystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Reason on 2016/3/26.
@@ -18,6 +17,8 @@ import java.util.Map;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductMapper productDao;
+    @Autowired
+    public SystemService systemService;
 
     @Override
     public Page<ProductInfo> queryList(Map<String, Object> paramMap) {
@@ -29,6 +30,11 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void saveProduct(ProductInfo product) {
+        Integer days = systemService.getTimeliness();
+        Calendar calendar=Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DAY_OF_MONTH,days);
+        product.setPastDate(calendar.getTime());
         productDao.insertProduct(product);
     }
 

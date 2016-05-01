@@ -34,6 +34,10 @@ public class SessionFilter implements Filter {
         if(requestURI.indexOf("portal.do") >= 0) {
             isLogin = true;
         }
+        System.out.println(requestURI);
+        if(requestURI.indexOf("webservice") >= 0) {
+            isLogin = true;
+        }
         UserInfo loginUser = (UserInfo) requestHttp.getSession().getAttribute(Constant.SESSION_LOGIN_USER);
         if (!isLogin && loginUser == null) {
             //如果判断是 AJAX 请求,直接设置为session超时

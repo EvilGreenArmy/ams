@@ -127,4 +127,38 @@ public interface Constant {
      * 默认密码：111111.
      * */
     String DEFAULT_PASSWORD = "111111";
+
+    /**
+     * 成果状态：删除
+     */
+    String PRODUCT_STATUS_D = "-1";
+    /**
+     * 成果状态：过期
+     */
+    String PRODUCT_STATUS_0 = "0";
+    /**
+     * 成果状态：发布
+     */
+    String PRODUCT_STATUS_1 = "1";
+    /**
+     * 成果状态：申报
+     */
+    String PRODUCT_STATUS_2 = "2";
+    /**
+     * 成果状态：交易
+     */
+    String PRODUCT_STATUS_3 = "3";
+    /**
+     * 成果状态：完成
+     */
+    String PRODUCT_STATUS_4 = "4";
+    /**
+     * 成果状态：竞标
+     */
+    String PRODUCT_STATUS_5 = "5";
+    /**
+     * 成果状态：实施
+     */
+    String PRODUCT_STATUS_6 = "6";
+
   }

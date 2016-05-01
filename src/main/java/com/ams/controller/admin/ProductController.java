@@ -4,6 +4,7 @@ import com.ams.entities.admin.ProductInfo;
 import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
 import com.ams.service.admin.ProductService;
+import com.ams.service.admin.SystemService;
 import com.ams.util.Constant;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,8 +65,6 @@ public class ProductController extends BaseController {
         Map<String, Object> paramMap = new HashMap<String, Object>();
         if("my".equals(flag)){
             paramMap.put("addUserId", currentUser.getId());
-        }else{
-            paramMap.put("status", Constant.ACTIVE_STATUS);
         }
         if(null != type){
             paramMap.put("type", type);
@@ -85,6 +84,7 @@ public class ProductController extends BaseController {
 
     }
 
+    @Deprecated
     @RequestMapping(value = "approveList")
     public String approveList(HttpServletRequest request, HttpServletResponse response, ModelMap model, Page<ProductInfo> page,
                        @RequestParam(value="type", required = false) String type,@RequestParam(value="name", required = false) String name) {
@@ -137,7 +137,7 @@ public class ProductController extends BaseController {
         product.setAddUser(currentUser);
         product.setEditDate(new Date());
         product.setEditUser(currentUser);
-        product.setStatus(Constant.NO_STATUS);
+        product.setStatus(Constant.PRODUCT_STATUS_1);
         this.productService.saveProduct(product);
         return "redirect:/product/frontList.do?flag=my";
     }
@@ -191,6 +191,7 @@ public class ProductController extends BaseController {
     }
 
 
+    @Deprecated
     @RequestMapping(value = "approve", method = RequestMethod.GET)
     public String approve(HttpServletRequest request, HttpServletResponse response, ModelMap model,
                           @RequestParam("id")Integer id, @RequestParam("status")Integer status) {

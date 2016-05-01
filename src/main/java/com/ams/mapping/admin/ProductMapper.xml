@@ -62,13 +62,13 @@
         PRICE_UNIT, ZIP_CODE, TYPE, STATUS,
         PRD_CN_NAME, TASK_SOURCE, IS_SECRET, SECRET_LEVEL, TECHNOLOGY_DIRECTORY,
         PROVINCE, ORGANSATTRIBUTE,
-        ADD_DATE, EDIT_DATE, ADD_USER_ID, EDIT_USER_ID)
+        ADD_DATE, EDIT_DATE, PAST_DATE, ADD_USER_ID, EDIT_USER_ID)
         values(#{id}, #{name,jdbcType=VARCHAR}, #{organization,jdbcType=VARCHAR},#{startDate,jdbcType=TIMESTAMP},#{endDate,jdbcType=TIMESTAMP},
         #{addr,jdbcType=VARCHAR},#{linkman,jdbcType=VARCHAR},#{area,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR},
         #{priceUnit,jdbcType=VARCHAR}, #{zipCode,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
         #{chineseName,jdbcType=VARCHAR}, #{taskSource,jdbcType=VARCHAR}, #{isSecret,jdbcType=VARCHAR}, #{secretLevel,jdbcType=VARCHAR}, #{technologyDirectory,jdbcType=VARCHAR},
         #{province,jdbcType=VARCHAR},#{organsAttribute,jdbcType=VARCHAR},
-        #{addDate}, #{editDate}, #{addUser.id,jdbcType=NUMERIC}, #{editUser.id,jdbcType=NUMERIC})
+        #{addDate}, #{editDate}, #{pastDate}, #{addUser.id,jdbcType=NUMERIC}, #{editUser.id,jdbcType=NUMERIC})
     </insert>
 
     <update id="updateProduct" parameterType="com.ams.entities.admin.ProductInfo" >
