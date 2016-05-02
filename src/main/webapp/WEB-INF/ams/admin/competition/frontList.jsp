@@ -41,7 +41,7 @@
         });
     }
 </script>
-<form action="${basePath}/competition/list.do" method="post" id="competitionList" name="competitionList">
+<form action="${basePath}/competition/frontList.do" method="post" id="competitionList" name="competitionList">
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
@@ -67,20 +67,16 @@
 
     </div>
 
-
     <table class="tablelist" style="table-layout:fixed; ">
         <thead>
         <tr>
             <th width="5%"><input id="chk_all" type="checkbox" value="" /></th>
-            <c:if test="${isAdmin eq '1'}">
-                <th width="10%">竞价人</th>
-            </c:if>
             <th width="20%">名称</th>
             <th width="10%">类型</th>
-            <th width="10%">出价金额</th>
+            <th width="15%">出价金额</th>
             <th>评价</th>
             <th width="15%">时间</th>
-          <%--  <th>是否最高价</th>--%>
+            <%--  <th>是否最高价</th>--%>
             <th width="5%">操作</th>
         </tr>
         </thead>
@@ -101,12 +97,12 @@
                 <td><fmt:formatNumber value="${obj.comValue}" pattern="#,#00.0#"/> ${obj.productInfo.priceUnit}</td>
                 <td style="text-overflow:ellipsis; white-space:nowrap; width:16em; overflow:hidden;" title="${obj.content}">${obj.content}</td>
                 <td><fmt:formatDate value="${obj.createTime}"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
-              <%--  <c:if test="${obj.status eq '1'}">
-                    <td>是</td>
-                </c:if>
-                <c:if test="${obj.status eq '0'}">
-                    <td>否</td>
-                </c:if>--%>
+                    <%--  <c:if test="${obj.status eq '1'}">
+                          <td>是</td>
+                      </c:if>
+                      <c:if test="${obj.status eq '0'}">
+                          <td>否</td>
+                      </c:if>--%>
                 <td>
                     <a href="javascript:;" onclick="singleDelete(${obj.id})" class="tablelink"> 删除</a>
                 </td>

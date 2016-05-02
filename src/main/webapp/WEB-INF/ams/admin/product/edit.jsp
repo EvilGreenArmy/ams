@@ -31,7 +31,11 @@
 
 
   }
-
+  $(document).ready(function(e) {
+      $(".select1").uedSelect({
+          width: 345
+      });
+  });
 </script>
 <form action="${basePath}/product/edit.do" method="post" id="product" name="product">
     <input type="hidden" name="id" value="${product.id}"/>
@@ -72,7 +76,7 @@
         <li><label>邮政编码</label><input name="zipCode" id="zipCode" value="${product.zipCode}" type="text" value="" class="dfinput" /><i style="color: red;"></i></li>
         <li><label>任务来源</label>
             <div class="vocation">
-                <select class="select2" name="taskSource">
+                <select class="select1" name="taskSource">
                     <option>-- 请选择 --</option>
                     <c:forEach items="${taskSources}" var="item">
                         <option value="${item.name}"
@@ -94,6 +98,18 @@
                     <c:forEach items="${secretLevels}" var="item">
                         <option value="${item.name}"
                                 <c:if test="${product.secretLevel eq item.name}">selected </c:if>
+                                >${item.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+        </li>
+        <li><label>竞价单位</label>
+            <div class="vocation">
+                <select class="select1" name="priceUnit">
+                    <option>-- 请选择 --</option>
+                    <c:forEach items="${priceUnits}" var="item">
+                        <option value="${item.name}"
+                                <c:if test="${product.priceUnit eq item.name}">selected </c:if>
                                 >${item.name}</option>
                     </c:forEach>
                 </select>

@@ -61,7 +61,7 @@
   <div style="width: 100%; height: 200px;">
       <p style="height: 150px;"></p>
       <div style="text-align: center; font-size: 34px; line-height:30px; font-weight: bold; color: #ffffff; font-family: 宋体; ">
-          <img width="60" height="60" src="${pageContext.request.contextPath}/img/admin/login/loginlogo1.png" alt="" style="position:relative; top:20px;"/> 交 易 撮 合 系 统
+          <img width="60" height="60" src="${pageContext.request.contextPath}/img/admin/login/loginlogo1.png" alt="" style="position:relative; top:20px;"/> 追 踪 转 化 系 统
       </div>
   </div>
   <form action="${pageContext.request.contextPath}/admin/login.do" method="post" id="loginForm">

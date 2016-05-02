@@ -41,16 +41,32 @@ public class CompetitionController extends BaseController {
         page.setCurrentPage(currentPage);
         page.setShowCount(pageSize);
         Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("isCom", 0);
         paramMap.put("page", page);
-        UserInfo userInfo = (UserInfo) getSession(request).getAttribute(Constant.SESSION_LOGIN_USER);
         int isAdmin = 1;
-        if (!userService.isAdmin(userInfo.getId())) {
-            paramMap.put("acctId", userInfo.getId());
-            isAdmin = 0;
-        }
         page = this.competitionService.queryList(paramMap);
         model.addAttribute("page", page);
         model.addAttribute("isAdmin", isAdmin);
+        return "competition/list";
+
+    }
+
+    @RequestMapping(value = "frontList")
+    public String frontList(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+                       @RequestParam(value = "currentPage", defaultValue = "1") Integer currentPage,
+                       @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+        Page<CompetitionInfo> page = new Page<CompetitionInfo>();
+        page.setCurrentPage(currentPage);
+        page.setShowCount(pageSize);
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("page", page);
+        UserInfo userInfo = (UserInfo) getSession(request).getAttribute(Constant.SESSION_LOGIN_USER);
+
+        paramMap.put("acctId", userInfo.getId());
+        paramMap.put("isCom", 0);
+
+        page = this.competitionService.queryList(paramMap);
+        model.addAttribute("page", page);
         return "competition/list";
 
     }

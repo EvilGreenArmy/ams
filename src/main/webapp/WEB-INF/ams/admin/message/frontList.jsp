@@ -101,25 +101,25 @@
 
   </div>
 
-    <table class="tablelist">
+    <table class="tablelist" style="table-layout:fixed; ">
         <thead>
         <tr>
-            <th><input name="" type="checkbox" id="chk_all" /></th>
-            <th>标题</th>
-            <th>发信人</th>
+            <th width="5%"><input name="" type="checkbox" id="chk_all" /></th>
+            <th width="15%">标题</th>
+            <th width="15%">发信人</th>
             <th>内容</th>
-            <th>状态</th>
-            <th>发信时间</th>
-            <th>操作</th>
+            <th width="5%">状态</th>
+            <th width="15%">发信时间</th>
+            <th width="5%">操作</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
                 <td><input name="id" type="checkbox" value="${obj.id}" /></td>
-                <td><a href="#" onclick="getData('${basePath}/message/detail.do?um=${obj.id}&m=${obj.message.id}','','workspace');">${obj.message.title}</a></td>
+                <td style="text-overflow:ellipsis; white-space:nowrap; width:16em; overflow:hidden;" title="${obj.message.content}" ><a href="#" onclick="getData('${basePath}/message/detail.do?um=${obj.id}&m=${obj.message.id}','','workspace');">${obj.message.title}</a></td>
                 <td>${obj.message.fromUser.userName}</td>
-                <td>${obj.message.content}</td>
+                <td style="text-overflow:ellipsis; white-space:nowrap; width:16em; overflow:hidden;" title="${obj.message.content}" >${obj.message.content}</td>
                 <td>
                     <c:if test="${'N' eq obj.status}">
                         未读

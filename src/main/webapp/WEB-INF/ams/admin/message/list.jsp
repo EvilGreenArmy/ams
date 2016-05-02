@@ -115,16 +115,16 @@
     </div>
 
 
-    <table class="tablelist">
+    <table class="tablelist" style="table-layout:fixed; ">
         <thead>
         <tr>
-            <th><input name="" type="checkbox" id="chk_all" /></th>
-            <th>标题</th>
-            <th>发信人</th>
+            <th width="5%"><input name="" type="checkbox" id="chk_all" /></th>
+            <th width="15%">标题</th>
+            <th width="15%">发信人</th>
             <th>内容</th>
-            <th>状态</th>
-            <th>发信时间</th>
-            <th>操作</th>
+            <th width="5%">状态</th>
+            <th width="15%">发信时间</th>
+            <th width="5%">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -133,7 +133,7 @@
                 <td><input name="id" type="checkbox" value="${obj.id}" /></td>
                 <td>${obj.title}</td>
                 <td>${obj.fromUser.userName}</td>
-                <td>${obj.content}</td>
+                <td style="text-overflow:ellipsis; white-space:nowrap; width:16em; overflow:hidden;" title="${obj.content}">${obj.content}</td>
                 <td>
                     <c:if test="${'A' eq obj.status}">
                         正常

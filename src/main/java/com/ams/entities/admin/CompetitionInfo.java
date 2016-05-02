@@ -12,6 +12,8 @@ public class CompetitionInfo {
 
     private BigDecimal comValue;
 
+    private String content;
+
     private Date createTime;
 
     private UserInfo userInfo;
@@ -34,6 +36,14 @@ public class CompetitionInfo {
 
     public void setComValue(BigDecimal comValue) {
         this.comValue = comValue;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Date getCreateTime() {

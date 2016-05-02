@@ -7,6 +7,7 @@
         <!-- column为数据库字段名,property为实体类属性名 -->
         <result column="CREATE_TIME" property="createTime"  jdbcType="TIMESTAMP"/>
         <result column="COM_VALUE" property="comValue"  jdbcType="NUMERIC"/>
+        <result column="COM_CONTENT" property="content"  jdbcType="VARCHAR"/>
         <result column="STATUS" property="status"  jdbcType="VARCHAR"/>
         <association property="userInfo" column="ACCT_ID" javaType="com.ams.entities.admin.UserInfo">
             <id column="ACCT_ID" property="id" jdbcType="NUMERIC"/>
@@ -15,12 +16,13 @@
         <association property="productInfo" column="PRODUCT_ID" javaType="com.ams.entities.admin.ProductInfo">
             <id column="PRD_ID" property="id" jdbcType="NUMERIC"/>
             <result column="PRD_NAME" property="name" jdbcType="VARCHAR"/>
+            <result column="PRICE_UNIT" property="priceUnit" jdbcType="VARCHAR"/>
             <result column="TYPE" property="type" jdbcType="VARCHAR"/>
         </association>
     </resultMap>
 
     <select id="competitionQueryPage" parameterType="java.util.Map" resultMap="competitionMap">
-        select t.*, u.USER_NAME, p.PRD_NAME, p.TYPE
+        select t.*, u.USER_NAME, p.PRD_NAME, p.PRICE_UNIT, p.TYPE
         from T_COMPETITION t left outer join B_ACCOUNT u on t.ACCT_ID = u.ACCT_ID
         left outer join T_PRODUCT p ON t.PRODUCT_ID=p.PRD_ID
         WHERE 1=1 AND t.STATUS='A'
