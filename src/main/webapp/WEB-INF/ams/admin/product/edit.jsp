@@ -57,7 +57,7 @@
         <li><label>单位属性</label>
             <div class="vocation">
                 <select class="select1" name="organsAttribute">
-                    <option>-- 请选择 --</option>
+                    <option value="">-- 请选择 --</option>
                     <c:forEach items="${organsAttributes}" var="item">
                         <option value="${item.name}"
                                 <c:if test="${product.organsAttribute eq item.name}">selected </c:if>
@@ -77,7 +77,7 @@
         <li><label>任务来源</label>
             <div class="vocation">
                 <select class="select1" name="taskSource">
-                    <option>-- 请选择 --</option>
+                    <option value="">-- 请选择 --</option>
                     <c:forEach items="${taskSources}" var="item">
                         <option value="${item.name}"
                                 <c:if test="${product.taskSource eq item.name}">selected </c:if>
@@ -94,7 +94,7 @@
         <li><label>密级</label>
             <div class="vocation">
                 <select class="select1" name="secretLevel">
-                    <option>-- 请选择 --</option>
+                    <option value="">-- 请选择 --</option>
                     <c:forEach items="${secretLevels}" var="item">
                         <option value="${item.name}"
                                 <c:if test="${product.secretLevel eq item.name}">selected </c:if>
@@ -106,7 +106,7 @@
         <li><label>竞价单位</label>
             <div class="vocation">
                 <select class="select1" name="priceUnit">
-                    <option>-- 请选择 --</option>
+                    <option value="">-- 请选择 --</option>
                     <c:forEach items="${priceUnits}" var="item">
                         <option value="${item.name}"
                                 <c:if test="${product.priceUnit eq item.name}">selected </c:if>

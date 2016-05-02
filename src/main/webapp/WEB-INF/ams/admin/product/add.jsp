@@ -62,7 +62,7 @@
       <li><label>单位属性</label>
           <div class="vocation">
                 <select class="select1" name="organsAttribute">
-                    <option>-- 请选择 --</option>
+                    <option value="">-- 请选择 --</option>
                     <c:forEach items="${organsAttributes}" var="item">
                         <option value="${item.name}">${item.name}</option>
                     </c:forEach>
@@ -80,7 +80,7 @@
       <li><label>任务来源</label>
           <div class="vocation">
               <select class="select2" name="taskSource">
-                  <option>-- 请选择 --</option>
+                  <option value="">-- 请选择 --</option>
                   <c:forEach items="${taskSources}" var="item">
                       <option value="${item.name}">${item.name}</option>
                   </c:forEach>
@@ -95,7 +95,7 @@
       <li><label>密级</label>
           <div class="vocation">
               <select class="select3" name="secretLevel">
-                  <option>-- 请选择 --</option>
+                  <option value="">-- 请选择 --</option>
                   <c:forEach items="${secretLevels}" var="item">
                       <option value="${item.name}">${item.name}</option>
                   </c:forEach>
@@ -105,7 +105,7 @@
       <li><label>竞价单位</label>
             <div class="vocation">
                 <select class="select3" name="priceUnit">
-                    <option>-- 请选择 --</option>
+                    <option value="">-- 请选择 --</option>
                     <c:forEach items="${priceUnits}" var="item">
                         <option value="${item.name}">${item.name}</option>
                     </c:forEach>

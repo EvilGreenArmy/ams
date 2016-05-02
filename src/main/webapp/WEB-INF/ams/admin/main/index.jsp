@@ -85,7 +85,7 @@
                     <TD width="559" align="center">欢迎您访问延安市科学技术局官方网站！</TD>
                     <TD width="20"><IMG width="16" height="16"
                                         src="${pageContext.request.contextPath}/img/front/icon_home.gif"></TD>
-                    <TD width="60"><A href="${pageContext.request.contextPath}/admin/index.do?t=1">登录</A></TD>
+                    <TD width="60"><A href="${pageContext.request.contextPath}/admin/index.do">登录</A></TD>
                     <TD width="20"><IMG width="16" height="16"
                                         src="${pageContext.request.contextPath}/img/front/icon_fav.gif"></TD>
                     <TD width="25" align="right"><A href="${pageContext.request.contextPath}/admin/register.do">注册</A>
@@ -199,6 +199,7 @@
                                                                                                           height="9"
                                                                                                           src="${pageContext.request.contextPath}/img/front/doth.gif">
                                                                             <A title="${item.name}"
+                                                                               style="text-overflow:ellipsis;"
                                                                                href="/ams/index/detail.do?id=${item.id}"
                                                                                target="_blank">${item.name}</A></LI>
                                                                     </c:forEach>
@@ -720,7 +721,7 @@
                                                                 <TBODY>
                                                                 <TR>
                                                                     <TD width=58><A
-                                                                            href="${pageContext.request.contextPath}/admin/index.do?t=1"
+                                                                            href="${pageContext.request.contextPath}/admin/index.do"
                                                                             target=_blank><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/icon_zxts.jpg" width=58
                                                                             height=53></A></TD>
@@ -739,7 +740,7 @@
                                                                 </TR>
                                                                 <TR>
                                                                     <TD height=28 align=center><A
-                                                                            href="${pageContext.request.contextPath}/admin/index.do?t=1"
+                                                                            href="${pageContext.request.contextPath}/admin/index.do"
                                                                             target=_blank>追踪转化</A></TD>
                                                                     <TD></TD>
                                                                     <TD align=center><A
