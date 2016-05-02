@@ -28,13 +28,15 @@ public class SessionFilter implements Filter {
         if(requestURI.indexOf("admin/register.do") >= 0) {
             isLogin = true;
         }
-        if(requestURI.indexOf("admin/productdetail.do") >= 0) {
+        if(requestURI.indexOf("index/productdetail.do") >= 0) {
             isLogin = true;
         }
         if(requestURI.indexOf("portal.do") >= 0) {
             isLogin = true;
         }
-        System.out.println(requestURI);
+        if(requestURI.indexOf("index/detail.do") >= 0) {
+            isLogin = true;
+        }
         if(requestURI.indexOf("webservice") >= 0) {
             isLogin = true;
         }

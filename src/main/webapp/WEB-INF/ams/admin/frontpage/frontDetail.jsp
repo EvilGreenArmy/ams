@@ -98,18 +98,18 @@
                                         <TR>
                                             <TD width="15"></TD>
                                             <TD width="756" class="content">
-                                                <DIV align="center" style="line-height: 30px; font-size: 16px; font-weight: bold;">一种新型的竹木混合地板一种使用高密度人造纤维板做底板的竹木</DIV>
+                                                <DIV align="center" style="line-height: 30px; font-size: 16px; font-weight: bold;">${pro.name}</DIV>
                                                 <DIV align="left">
-                                                    <P><font style="font-weight: bold; font-size: 18px;">专利简介：</font></P>
-                                                    <P><FONT face="Verdana">　　一种新型的竹木混合地板，属人造胶合板的结构，有一个双层板，双层板的上面为竹面板，下面为木底板。由于该产品采用竹木双层混合胶合板，同时利用了下脚料，将其加工成竹板状再与木板结合，且利用材料的纹路重叠排列，再用涂胶热压成胶合板。</FONT></P>
-                                                    <P><FONT face="Verdana">　　一种使用高密度人造纤维板做底板的竹木混合地板，属于人造胶合板的结构。有一个双层板，双层板的上面为竹板，竹板分别可用单板、竹片板和重竹板，下面为高密度人造纤维板。由于采用竹木双层混合胶合板，同时利用了毛竹的下点料，将其加工成竹板状再与高密度人造纤维板结合，再用涂胶热压成胶合板，制造简单，成本低。上述两项产品是在该专利权人知识积累的基础上，经过三十多年实践研究而得，上述产品综合利用了下脚料，节约了木材资源，既节省了使用的胶水，又提高了胶合板的质量。该产品可广泛用于建筑领域中的地板。而且上述产品具有结构简单，强度高，韧性好，耐磨性强，平整度好，且使用寿命长等特点，适合应用于室内装修，地面、吊顶和墙面装修，全球通用，销量广，属于节能减排产品，符合政府倡导的节能环保政策，一旦深入推广应用，将会给国家和人民带来极大的经济效益和社会效益。</FONT></P>
-                                                    <P><font style="font-weight: bold; font-size: 18px;">专利类型：</font><FONT face="Verdana">实用新型<BR></FONT></P>
-                                                    <P><font style="font-weight: bold; font-size: 18px;">专利申请号：</font><FONT face="Verdana">ZL201628323576.8；ZL201620323577.2<BR></FONT></P>
-                                                    <P><font style="font-weight: bold; font-size: 18px;">合作方式：</font><FONT face="Verdana">专利权转让,技术入股,许可生产<BR></FONT></P>
-                                                    <P><font style="font-weight: bold; font-size: 18px;">产权单位：</font><FONT face="Verdana">延安大学<BR></FONT></P>
+                                                    <P><font style="font-weight: bold; font-size: 18px;">内容介绍：</font></P>
+                                                    <P><FONT face="Verdana">${pro.content}</FONT></P>
+                                                    <P><font style="font-weight: bold; font-size: 18px;">单位名称：</font><FONT face="Verdana">${pro.organization}<BR></FONT></P>
+                                                    <P><font style="font-weight: bold; font-size: 18px;">单位属性：</font><FONT face="Verdana">${pro.organsAttribute}<BR></FONT></P>
+                                                    <P><font style="font-weight: bold; font-size: 18px;">联系人：</font><FONT face="Verdana">${pro.linkman}<BR></FONT></P>
+                                                    <P><font style="font-weight: bold; font-size: 18px;">联系电话：</font><FONT face="Verdana">${pro.telephone}<BR></FONT></P>
+                                                    <P><font style="font-weight: bold; font-size: 18px;">通讯地址：</font><FONT face="Verdana">${pro.addr}<BR></FONT></P>
                                                 </DIV>
                                                 <DIV align="center" style="line-height: 30px;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间：2016-03-29 </DIV>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间：<fmt:formatDate value="${pro.addDate}" pattern="yyyy-MM-dd"/> </DIV>
                                                 <DIV align="right" style="line-height: 30px;"><A href="javascript:window.print();">打印</A>&nbsp;&nbsp;<A
                                                         href="javascript:window.close();">关闭</A></DIV></TD>
                                             <TD width="15"></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>

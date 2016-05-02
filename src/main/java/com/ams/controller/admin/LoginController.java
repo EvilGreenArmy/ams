@@ -120,10 +120,4 @@ public class LoginController extends BaseController {
         this.userService.saveUser(userInfo);
         return "login/login";
     }
-
-    @RequestMapping(value = "productDetail", method = RequestMethod.GET)
-    public String product(HttpServletRequest request, HttpServletResponse response,
-                               Model model, @RequestParam(value="t", required = false, defaultValue = "") String type) {
-        return "frontpage/frontDetail"+type;
-    }
 }
