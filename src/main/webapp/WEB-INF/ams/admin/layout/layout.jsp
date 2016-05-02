@@ -38,7 +38,7 @@
         .seach_box table .tabel_title{width:25%;; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
         .seach_box table .table_cont{ width:45%;}
         .seach_box table td{ height:40px; border:1px solid #ccc; border-collapse: collapse; padding:0 10px;}
-        .search_input{border:1px solid #ccc; border-radius: 3px; width: 90%; padding-left:10px; height:26px; line-height:16px; margin-right:10px; display:block; float:left;}
+        .search_input{border:1px solid #ccc; border-radius: 3px; width: 90%; padding-left:10px; height:26px; line-height:16px; margin-right:10px; display:block; float:left; opacity: 1;}
         .search_btn{  border:1px solid #ccc; border-radius: 3px;line-height:26px; color:#333; padding:0 20px;}
         .search_btn:hover{ background:rgb(61,128,218); color:#fff;}
         .right_side{ overflow: auto;}
