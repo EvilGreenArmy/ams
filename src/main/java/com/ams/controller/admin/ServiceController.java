@@ -1,6 +1,7 @@
 package com.ams.controller.admin;
 
 import com.ams.entities.admin.ProductInfo;
+import com.ams.entities.admin.ServiceRequest;
 import com.ams.entities.admin.ServiceResponse;
 import com.ams.service.admin.ProductService;
 import org.apache.log4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * Created by Reason on 2016/5/1.
@@ -34,6 +36,20 @@ public class ServiceController extends BaseController {
 
 
         ServiceResponse res = new ServiceResponse();
+
+        //productService.saveProduct(productInfo);
+        return res;
+    }
+
+
+    @RequestMapping(value = "rest/list")
+    @ResponseBody
+    public ServiceResponse list(HttpServletRequest request, HttpServletResponse response, ModelMap model, ServiceRequest serviceRequest) {
+
+        logger.info(serviceRequest);
+        ServiceResponse res = new ServiceResponse();
+        List<ProductInfo> list = productService.serviceQueryList(serviceRequest);
+        res.setData(list);
 
         //productService.saveProduct(productInfo);
         return res;

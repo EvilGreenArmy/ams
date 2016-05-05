@@ -50,6 +50,10 @@ public class ProductInfo {
     private String type;
     // 状态 1-发布 2-申报 3-交易 4- 完成  5-竞标  6-实施  0-过期 -1 - 删除
     private String status;
+    // 成交时间
+    private Date transactionDate;
+    // 添加用户
+    private UserInfo transactionUser;
     // 添加时间
     private Date addDate;
     // 过期时间

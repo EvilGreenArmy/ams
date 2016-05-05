@@ -1,6 +1,7 @@
 package com.ams.service.admin;
 
 import com.ams.entities.admin.ProductInfo;
+import com.ams.entities.admin.ServiceRequest;
 import com.ams.pagination.Page;
 
 import java.util.List;
@@ -26,4 +27,6 @@ public interface ProductService {
     public void approve(Integer id, String status);
 
     public List<ProductInfo> frontQuery(String status);
+
+    public List<ProductInfo> serviceQueryList(ServiceRequest request);
 }

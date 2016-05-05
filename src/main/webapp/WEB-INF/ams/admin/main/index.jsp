@@ -307,30 +307,15 @@
                                                             </DIV>
                                                             <DIV class="tags_kjdt_con tags_kjdt_slt1" style="display: block;">
                                                                 <UL>
-                                                                    <LI><SPAN>[2016-04-01]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="关于2015年度企业研发费用加计扣除项目鉴定工作"
-                                                                           href="/ams/index/productDetail.do?id=13598"
-                                                                           target="_blank">新型的竹木混合地板</A></LI>
-                                                                    <LI><SPAN>[2016-04-01]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="关于组织申报2016年延安市级众创空间认定"
-                                                                           href="/ams/index/productDetail.do?id=13596"
-                                                                           target="_blank">西部低碳生活体验旅游项目</A></LI>
-                                                                    <LI><SPAN>[2016-03-30]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="延安市科学技术局关于2015年度市级众创空间考核结果公示"
-                                                                           href="/ams/index/productDetail.do?id=13588"
-                                                                           target="_blank">城市生活垃圾及年产5万吨有机复混肥项目</A></LI>
-                                                                    <LI><SPAN>[2016-03-23]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="关于开展2016年度延安市科技企业孵化器认定工作"
-                                                                           href="/ams/index/productDetail.do?id=13580"
-                                                                           target="_blank">年产10万吨小麦专用粉及生物功能食品项目</A></LI>
+                                                                    <c:forEach var="item" items="${list3}">
+                                                                        <LI><SPAN>[<fmt:formatDate value="${item.addDate}" pattern="yyyy-MM-dd"/>]</SPAN><IMG width="9"
+                                                                                                                                                              height="9"
+                                                                                                                                                              src="${pageContext.request.contextPath}/img/front/doth.gif">
+                                                                            <A title="${item.name}"
+                                                                               style="text-overflow:ellipsis;"
+                                                                               href="/ams/index/detail.do?id=${item.id}"
+                                                                               target="_blank">${item.name}</A></LI>
+                                                                    </c:forEach>
                                                                 </UL>
                                                             </DIV>
                                                             <DIV class="tags_kjdt_con tags_kjdt_slt1" style="display: none;">

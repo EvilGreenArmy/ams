@@ -51,6 +51,7 @@
         <if test="type!=null and type !=''">
             AND u.TYPE=#{type}
         </if>
+        order by prd_id desc
     </select>
 
     <select id="frontQuery" parameterType="String" resultMap="productMap">
@@ -60,7 +61,25 @@
         <if test="value!=null and value !=''">
             AND u.STATUS in (#{value})
         </if>
-        ) tmp_tb where ROWNUM &lt;= 10
+        ) tmp_tb where ROWNUM &lt;= 10 order by prd_id desc
+    </select>
+
+    <select id="serviceQueryList" parameterType="com.ams.entities.admin.ServiceRequest" resultMap="productMap">
+        select *
+        from T_PRODUCT WHERE 1=1
+        <if test="type!=null and type !=''">
+            AND TYPE = #{type}
+        </if>
+        <if test="status!=null and status !=''">
+            AND STATUS = #{status}
+        </if>
+        <if test="startDate!=null and startDate !=''">
+            AND ADD_DATE &gt; #{startDate}
+        </if>
+        <if test="endDate!=null and endDate !=''">
+            AND ADD_DATE &lt; #{endDate}
+        </if>
+        order by prd_id desc
     </select>
 
     <insert id="insertProduct" parameterType="com.ams.entities.admin.ProductInfo" >

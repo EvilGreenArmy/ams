@@ -2,6 +2,7 @@ package com.ams.service.admin.impl;
 
 import com.ams.dao.admin.ProductMapper;
 import com.ams.entities.admin.ProductInfo;
+import com.ams.entities.admin.ServiceRequest;
 import com.ams.pagination.Page;
 import com.ams.service.admin.ProductService;
 import com.ams.service.admin.SystemService;
@@ -69,5 +70,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductInfo> frontQuery(String status) {
         return productDao.frontQuery(status);
+    }
+
+
+    public List<ProductInfo> serviceQueryList(ServiceRequest request) {
+        return productDao.serviceQueryList(request);
     }
 }

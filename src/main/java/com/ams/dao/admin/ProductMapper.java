@@ -1,6 +1,7 @@
 package com.ams.dao.admin;
 
 import com.ams.entities.admin.ProductInfo;
+import com.ams.entities.admin.ServiceRequest;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,4 +25,6 @@ public interface ProductMapper {
     void updateStatus(Map map);
 
     List<ProductInfo> frontQuery(String status);
+
+    List<ProductInfo> serviceQueryList(ServiceRequest request);
 }
