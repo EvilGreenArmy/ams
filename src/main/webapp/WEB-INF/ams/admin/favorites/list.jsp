@@ -87,7 +87,7 @@
                 <c:if test="${isAdmin eq '1'}">
                     <td>${obj.userInfo.userName}</td>
                 </c:if>
-                <td>${obj.productInfo.name}</td>
+                <td><a href="#" onclick="getData('${basePath}/product/detail.do?flag=f&favorite=Y&id=${obj.productInfo.id}','','workspace');">${obj.productInfo.name}</a></td>
                 <c:if test="${obj.productInfo.type eq '1'}">
                     <td>成果</td>
                 </c:if>

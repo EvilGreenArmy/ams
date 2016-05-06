@@ -18,7 +18,7 @@
     </resultMap>
 
     <select id="favoritesQueryPage" parameterType="java.util.Map" resultMap="favoritesMap">
-        select t.*, u.USER_NAME, p.PRD_NAME, p.TYPE
+        select t.*, u.USER_NAME,p.PRD_ID, p.PRD_NAME, p.TYPE
         from T_FAVORITES t left outer join B_ACCOUNT u on t.ACCT_ID = u.ACCT_ID
         left outer join T_PRODUCT p ON t.PRODUCT_ID=p.PRD_ID
         WHERE 1=1

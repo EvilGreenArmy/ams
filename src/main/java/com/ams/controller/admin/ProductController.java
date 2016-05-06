@@ -215,9 +215,10 @@ public class ProductController extends BaseController {
 
     @RequestMapping(value = "detail", method = RequestMethod.GET)
     public String detail(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer id,
-            @RequestParam(value="flag", required = false)String flag) {
+            @RequestParam(value="flag", required = false)String flag,@RequestParam(value="favorite", required = false)String favorite) {
         ProductInfo product = this.productService.getProductById(id);
         model.addAttribute("product", product);
+        model.addAttribute("favorite", favorite);
         if("a".equals(flag)){
             return "product/approveDetail";
         }else if("f".equals(flag)){

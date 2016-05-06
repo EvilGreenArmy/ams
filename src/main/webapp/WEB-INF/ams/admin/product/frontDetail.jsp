@@ -59,7 +59,9 @@
             </li>
             <li>
                 <label>&nbsp;</label><input  onclick="getData('${basePath}/message/add.do?toUserId=${product.addUser.id}','','workspace');" type="button" class="btn" value="回复"/>
-                <label>&nbsp;</label><input  onclick="favourite(${product.id});" type="button" class="btn" value="收藏"/>
+                <c:if test="${favorite ne 'Y'}">
+                    <label>&nbsp;</label><input  onclick="favourite(${product.id});" type="button" class="btn" value="收藏"/>
+                </c:if>
             </li>
         </ul>
     </div>
