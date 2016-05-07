@@ -1,6 +1,8 @@
 package com.ams.controller.admin;
 
+import com.ams.entities.admin.NewsInfo;
 import com.ams.entities.admin.ProductInfo;
+import com.ams.service.NewsService;
 import com.ams.service.admin.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,14 +27,17 @@ import java.util.Map;
 public class IndexController extends BaseController {
     @Value("${tms.url}")
     String tmsUrl;
-
+    @Value("${cms.url}")
+    String cmsUrl;
     @Autowired
     private ProductService productService;
+    @Autowired
+    private NewsService newsService;
 
     @RequestMapping(value = "portal")
     public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         model.addAttribute("tmsUrl", tmsUrl);
-
+        model.addAttribute("cmsUrl", cmsUrl);
         model.addAttribute("list1", productService.frontQuery("1"));
         model.addAttribute("list2", productService.frontQuery("2"));
         model.addAttribute("list5", productService.frontQuery("5"));
@@ -40,6 +45,7 @@ public class IndexController extends BaseController {
 
         model.addAttribute("list3", productService.frontQuery("3"));
         model.addAttribute("list4", productService.frontQuery("4"));
+        model.addAttribute("newsMap", this.newsService.getNewsInfo());
 
 
 
@@ -60,8 +66,23 @@ public class IndexController extends BaseController {
                           Model model, @RequestParam(value="t", required = false, defaultValue = "") String type) {
         return "frontpage/frontDetail"+type;
     }
+    @RequestMapping(value = "news", method = RequestMethod.GET)
+    public String news(HttpServletRequest request, HttpServletResponse response,
+                          Model model, @RequestParam(value="id", required = true) Integer id) {
+        NewsInfo newsInfo = this.newsService.getNewsById(id);
+        model.addAttribute("newsInfo", newsInfo);
+        return "frontpage/news";
+    }
 
     public void setTmsUrl(String tmsUrl) {
         this.tmsUrl = tmsUrl;
+    }
+
+    public String getCmsUrl() {
+        return cmsUrl;
+    }
+
+    public void setCmsUrl(String cmsUrl) {
+        this.cmsUrl = cmsUrl;
     }
 }

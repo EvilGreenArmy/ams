@@ -399,39 +399,15 @@
                                                         <TD vAlign=top width=340>
                                                             <TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
                                                                 <TBODY>
+                                                                <c:forEach items="${newsMap['1']}" var="obj">
                                                                 <TR>
                                                                     <TD height=26 width=14><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
                                                                             height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>孵化器（国家级孵化器、省级孵化器、市级孵化器）</A><SPAN style="float: right;">[2016-04-12]</SPAN></TD>
+                                                                            href="/ams/index/news.do?id=${obj.id}"
+                                                                            target=_blank>${obj.title}</A><SPAN style="float: right;">[<fmt:formatDate value="${obj.createTime}" pattern="yyyy-MM-dd"/>]</SPAN></TD>
                                                                 </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14> <IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>楼宇（市级科技楼宇）</A><SPAN style="float: right;">[2016-04-08]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14> <IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>大学科技园（国家级大学科技园）</A><SPAN style="float: right;">[2016-03-25]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="/ams/index/productDetail.do?t=2"
-                                                                                         target=_blank>加速器（市级加速器）</A><SPAN style="float: right;">[2016-03-18]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="/ams/index/productDetail.do?t=2"
-                                                                                         target=_blank>苗圃（市级创业苗圃）</A><SPAN style="float: right;">[2016-03-05]</SPAN></TD>
-                                                                </TR>
+                                                                </c:forEach>
                                                                 </TBODY>
                                                             </TABLE>
                                                         </TD>
@@ -469,39 +445,15 @@
                                                         <TD vAlign=top width=340>
                                                             <TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
                                                                 <TBODY>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>高校咨询服务团队及能力</A><SPAN style="float: right;">[2016-04-12]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14> <IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>文献信息服务</A><SPAN style="float: right;">[2016-04-08]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14> <IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>决策咨询与评估服务</A><SPAN style="float: right;">[2016-03-25]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="/ams/index/productDetail.do?t=2"
-                                                                                         target=_blank>传播与推广服务</A><SPAN style="float: right;">[2016-03-18]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="/ams/index/productDetail.do?t=2"
-                                                                                         target=_blank>资产评估服务</A><SPAN style="float: right;">[2016-03-05]</SPAN></TD>
-                                                                </TR>
+                                                                <c:forEach items="${newsMap['2']}" var="obj">
+                                                                    <TR>
+                                                                        <TD height=26 width=14><IMG
+                                                                                src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
+                                                                                height=9> <A
+                                                                                href="/ams/index/news.do?id=${obj.id}"
+                                                                                target=_blank>${obj.title}</A><SPAN style="float: right;">[<fmt:formatDate value="${obj.createTime}" pattern="yyyy-MM-dd"/>]</SPAN></TD>
+                                                                    </TR>
+                                                                </c:forEach>
                                                                 </TBODY>
                                                             </TABLE>
                                                         </TD>
@@ -557,39 +509,15 @@
                                                         <TD vAlign=top width=340>
                                                             <TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
                                                                 <TBODY>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>专利申请代理</A><SPAN style="float: right;">[2016-04-12]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14> <IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>发明专利申请代理</A><SPAN style="float: right;">[2016-04-08]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14> <IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>专利诉讼代理</A><SPAN style="float: right;">[2016-03-25]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="/ams/index/productDetail.do?t=2"
-                                                                                     target=_blank>维权援助服务</A><SPAN style="float: right;">[2016-03-18]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="/ams/index/productDetail.do?t=2"
-                                                                                     target=_blank>学习晋升服务</A><SPAN style="float: right;">[2016-03-05]</SPAN></TD>
-                                                                </TR>
+                                                                <c:forEach items="${newsMap['3']}" var="obj">
+                                                                    <TR>
+                                                                        <TD height=26 width=14><IMG
+                                                                                src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
+                                                                                height=9> <A
+                                                                                href="/ams/index/news.do?id=${obj.id}"
+                                                                                target=_blank>${obj.title}</A><SPAN style="float: right;">[<fmt:formatDate value="${obj.createTime}" pattern="yyyy-MM-dd"/>]</SPAN></TD>
+                                                                    </TR>
+                                                                </c:forEach>
                                                                 </TBODY>
                                                             </TABLE>
                                                         </TD>
@@ -627,39 +555,15 @@
                                                         <TD vAlign=top width=340>
                                                             <TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
                                                                 <TBODY>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>债权融资服务</A><SPAN style="float: right;">[2016-04-12]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14> <IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>股权融资服务</A><SPAN style="float: right;">[2016-04-08]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14> <IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A
-                                                                            href="/ams/index/productDetail.do?t=2"
-                                                                            target=_blank>上市融资服务</A><SPAN style="float: right;">[2016-03-25]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="/ams/index/productDetail.do?t=2"
-                                                                                         target=_blank>科技与专利保险服务</A><SPAN style="float: right;">[2016-03-18]</SPAN></TD>
-                                                                </TR>
-                                                                <TR>
-                                                                    <TD height=26 width=14><IMG
-                                                                            src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
-                                                                            height=9> <A href="/ams/index/productDetail.do?t=2"
-                                                                                         target=_blank>投融资中介服务</A><SPAN style="float: right;">[2016-03-05]</SPAN></TD>
-                                                                </TR>
+                                                                <c:forEach items="${newsMap['4']}" var="obj">
+                                                                    <TR>
+                                                                        <TD height=26 width=14><IMG
+                                                                                src="${pageContext.request.contextPath}/img/front/dotn.gif" width=9
+                                                                                height=9> <A
+                                                                                href="/ams/index/news.do?id=${obj.id}"
+                                                                                target=_blank>${obj.title}</A><SPAN style="float: right;">[<fmt:formatDate value="${obj.createTime}" pattern="yyyy-MM-dd"/>]</SPAN></TD>
+                                                                    </TR>
+                                                                </c:forEach>
                                                                 </TBODY>
                                                             </TABLE>
                                                         </TD>
@@ -718,7 +622,7 @@
                                                                             height=53></A></TD>
                                                                     <TD width=50></TD>
                                                                     <TD width=58><A
-                                                                            href="${pageContext.request.contextPath}/admin/index.do?t=3"
+                                                                            href="${cmsUrl}"
                                                                             target=_blank><IMG
                                                                             src="${pageContext.request.contextPath}/img/front/icon_wsjy.jpg" width=58
                                                                             height=53></A></TD>
@@ -733,7 +637,7 @@
                                                                             target=_blank>交易撮合</A></TD>
                                                                     <TD></TD>
                                                                     <TD align=center><A
-                                                                            href="${pageContext.request.contextPath}/admin/index.do?t=3"
+                                                                            href="${cmsUrl}"
                                                                             target=_blank>大众创业</A></TD>
                                                                 </TR>
                                                                 </TBODY>
@@ -782,21 +686,13 @@
                                                 <TABLE cellSpacing=0 cellPadding=0 width="100%"
                                                        align=center border=0>
                                                     <TBODY>
+                                                <c:forEach items="${newsMap['5']}" var="obj">
                                                     <TR>
                                                         <TD height=24>·<A
-                                                                href="#####"
-                                                                target=_blank>创业苗圃</A></TD>
+                                                                href="/ams/index/news.do?id=${obj.id}"
+                                                                target=_blank>${obj.title}</A></TD>
                                                     </TR>
-                                                    <TR>
-                                                        <TD height=24>·<A
-                                                                href="#####"
-                                                                target=_blank>孵化器</A></TD>
-                                                    </TR>
-                                                    <TR>
-                                                        <TD height=24>·<A
-                                                                href="#####"
-                                                                target=_blank>大学生创业园</A></TD>
-                                                    </TR>
+                                                    </c:forEach>
                                                     </TBODY>
                                                 </TABLE>
                                             </TD>
@@ -824,14 +720,13 @@
                                                 <TABLE cellSpacing=0 cellPadding=0 width="100%"
                                                        align=center border=0>
                                                     <TBODY>
-                                                    <TR>
-                                                        <TD height=24>·<A href="/ams/index/productDetail.do?t=2"
-                                                                          target=_blank>政府资助</A></TD>
-                                                    </TR>
-                                                    <TR>
-                                                        <TD height=24>·<A href="#####"
-                                                                          target=_blank>社会资金</A></TD>
-                                                    </TR>
+                                                    <c:forEach items="${newsMap['6']}" var="obj">
+                                                        <TR>
+                                                            <TD height=24>·<A
+                                                                    href="/ams/index/news.do?id=${obj.id}"
+                                                                    target=_blank>${obj.title}</A></TD>
+                                                        </TR>
+                                                    </c:forEach>
                                                     </TBODY>
                                                 </TABLE>
                                             </TD>
@@ -859,26 +754,13 @@
                                                 <TABLE cellSpacing=0 cellPadding=0 width="100%"
                                                        align=center border=0>
                                                     <TBODY>
-                                                    <TR>
-                                                        <TD height=24>·<A href="/ams/index/productDetail.do?t=2"
-                                                                          target=_blank>企业注册</A></TD>
-                                                    </TR>
-                                                    <TR>
-                                                        <TD height=24>·<A href="#####"
-                                                                          target=_blank>知识产权</A></TD>
-                                                    </TR>
-                                                    <TR>
-                                                        <TD height=24>·<A href="#####"
-                                                                          target=_blank>法律事务</A></TD>
-                                                    </TR>
-                                                    <TR>
-                                                        <TD height=24>·<A href="http://www.xappc.com/"
-                                                                          target=_blank>商业计划书</A></TD>
-                                                    </TR>
-                                                    <TR>
-                                                        <TD height=24>·<A href="http://www.xasoft.gov.cn/"
-                                                                          target=_blank>技术交易</A></TD>
-                                                    </TR>
+                                                    <c:forEach items="${newsMap['7']}" var="obj">
+                                                        <TR>
+                                                            <TD height=24>·<A
+                                                                    href="/ams/index/news.do?id=${obj.id}"
+                                                                    target=_blank>${obj.title}</A></TD>
+                                                        </TR>
+                                                    </c:forEach>
                                                     </TBODY>
                                                 </TABLE>
                                             </TD>
@@ -906,18 +788,13 @@
                                                 <TABLE cellSpacing=0 cellPadding=0 width="100%"
                                                        align=center border=0>
                                                     <TBODY>
-                                                    <TR>
-                                                        <TD height=24>·<A href="/ams/index/productDetail.do?t=2"
-                                                                          target=_blank>创业导师</A></TD>
-                                                    </TR>
-                                                    <TR>
-                                                        <TD height=24>·<A href="http://www.xatrm.com/"
-                                                                          target=_blank>创业辅导</A></TD>
-                                                    </TR>
-                                                    <TR>
-                                                        <TD height=24>·<A href="http://www.xastec.com/"
-                                                                          target=_blank>创业讲座</A></TD>
-                                                    </TR>
+                                                    <c:forEach items="${newsMap['8']}" var="obj">
+                                                        <TR>
+                                                            <TD height=24>·<A
+                                                                    href="/ams/index/news.do?id=${obj.id}"
+                                                                    target=_blank>${obj.title}</A></TD>
+                                                        </TR>
+                                                    </c:forEach>
                                                     </TBODY>
                                                 </TABLE>
                                             </TD>

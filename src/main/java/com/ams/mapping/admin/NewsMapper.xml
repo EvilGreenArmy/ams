@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ams.dao.admin.NewsMapper" >
+    <resultMap type="com.ams.entities.admin.NewsInfo" id="newsMap">
+        <!-- 主键必须用id标签映射 -->
+        <id column="ID" property="id"  jdbcType="NUMERIC"/>
+        <!-- column为数据库字段名,property为实体类属性名 -->
+        <result column="CREATE_TIME" property="createTime"  jdbcType="TIMESTAMP"/>
+        <result column="TITLE" property="title"  jdbcType="VARCHAR"/>
+        <result column="TYPE" property="type"  jdbcType="VARCHAR"/>
+        <result property="content" column="NEWS_CONTENT" jdbcType="CLOB"
+                javaType = "java.lang.String"  typeHandler ="org.apache.ibatis.type.ClobTypeHandler"/>
+        <association property="creator" column="CREATOR" javaType="com.ams.entities.admin.UserInfo">
+            <id column="CREATOR" property="id" jdbcType="NUMERIC"/>
+            <result column="USER_NAME" property="userName" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+    <select id="getNewsInfo" resultMap="newsMap">
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='1') t1 where t1.n between 1 and 10
+        union all
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='2') t1 where t1.n between 1 and 10
+        union all
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='3') t1 where t1.n between 1 and 10
+        union all
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='4') t1 where t1.n between 1 and 10
+        union all
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='5') t1 where t1.n between 1 and 10
+        union all
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='6') t1 where t1.n between 1 and 10
+        union all
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='7') t1 where t1.n between 1 and 10
+        union all
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='8') t1 where t1.n between 1 and 10
+    </select>
+    <select id="getNewsById" parameterType="java.lang.Integer" resultMap="newsMap">
+       SELECT t.* FROM t_news t where t.id=#{id}
+    </select>
+</mapper>
