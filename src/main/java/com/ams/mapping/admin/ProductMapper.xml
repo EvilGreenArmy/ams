@@ -74,10 +74,10 @@
             AND STATUS = #{status}
         </if>
         <if test="startDate!=null and startDate !=''">
-            AND ADD_DATE &gt; #{startDate}
+            AND ADD_DATE &gt; to_date(#{startDate}||' 00:00:00', 'yyyy-mm-dd hh24:mi:ss')
         </if>
         <if test="endDate!=null and endDate !=''">
-            AND ADD_DATE &lt; #{endDate}
+            AND ADD_DATE &lt; to_date(#{endDate}||' 00:00:00', 'yyyy-mm-dd hh24:mi:ss')
         </if>
         order by prd_id desc
     </select>

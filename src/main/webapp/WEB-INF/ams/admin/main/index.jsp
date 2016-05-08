@@ -207,71 +207,43 @@
                                                             </DIV>
                                                             <DIV class="tags_kjdt_con tags_kjdt_slt0" style="display: none;">
                                                                 <UL>
-                                                                    <LI><SPAN>[2016-02-25]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局众创空间工作会议召开"
-                                                                           href="/ams/index/productDetail.do?id=13555"
-                                                                           target="_blank">市科技局众创空间工作会议召开</A></LI>
-                                                                    <LI><SPAN>[2016-02-14]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局组织春节后收假收心教育"
-                                                                           href="/ams/index/productDetail.do?id=13534"
-                                                                           target="_blank">市科技局组织春节后收假收心教育</A></LI>
-                                                                    <LI><SPAN>[2015-12-28]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局组织召开领导班子“三严三实”专题民主生活会"
-                                                                           href="/ams/index/productDetail.do?id=13474"
-                                                                           target="_blank">市科技局组织召开领导班子“三严三实”专题民主生活会</A>
-                                                                    </LI>
+                                                                    <c:forEach var="item" items="${list2}">
+                                                                        <LI><SPAN>[<fmt:formatDate value="${item.addDate}" pattern="yyyy-MM-dd"/>]</SPAN><IMG width="9"
+                                                                                                                                                              height="9"
+                                                                                                                                                              src="${pageContext.request.contextPath}/img/front/doth.gif">
+                                                                            <A title="${item.name}"
+                                                                               style="text-overflow:ellipsis;"
+                                                                               href="/ams/index/detail.do?id=${item.id}"
+                                                                               target="_blank">${item.name}</A></LI>
+                                                                    </c:forEach>
                                                                 </UL>
                                                             </DIV>
                                                             <DIV class="tags_kjdt_con tags_kjdt_slt0" style="display: none;">
                                                                 <UL>
-                                                                    <LI><SPAN>[2016-02-25]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局众创空间工作会议召开"
-                                                                           href="/ams/index/productDetail.do?id=13555"
-                                                                           target="_blank">市科技局众创空间工作会议召开</A></LI>
-                                                                    <LI><SPAN>[2016-02-14]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局组织春节后收假收心教育"
-                                                                           href="/ams/index/productDetail.do?id=13534"
-                                                                           target="_blank">市科技局组织春节后收假收心教育</A></LI>
-                                                                    <LI><SPAN>[2015-12-28]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局组织召开领导班子“三严三实”专题民主生活会"
-                                                                           href="/ams/index/productDetail.do?id=13474"
-                                                                           target="_blank">市科技局组织召开领导班子“三严三实”专题民主生活会</A>
-                                                                    </LI>
+                                                                    <c:forEach var="item" items="${list3}">
+                                                                        <LI><SPAN>[<fmt:formatDate value="${item.addDate}" pattern="yyyy-MM-dd"/>]</SPAN><IMG width="9"
+                                                                                                                                                              height="9"
+                                                                                                                                                              src="${pageContext.request.contextPath}/img/front/doth.gif">
+                                                                            <A title="${item.name}"
+                                                                               style="text-overflow:ellipsis;"
+                                                                               href="/ams/index/detail.do?id=${item.id}"
+                                                                               target="_blank">${item.name}</A></LI>
+                                                                    </c:forEach>
                                                                 </UL>
                                                             </DIV>
                                                             <DIV class="tags_kjdt_con tags_kjdt_slt0" style="display: none;">
                                                                 <UL>
-                                                                    <LI><SPAN>[2016-02-25]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局众创空间工作会议召开"
-                                                                           href="/ams/index/productDetail.do?id=13555"
-                                                                           target="_blank">市科技局众创空间工作会议召开</A></LI>
-                                                                    <LI><SPAN>[2016-11-14]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局组织春节后收假收心教育"
-                                                                           href="/ams/index/productDetail.do?id=13534"
-                                                                           target="_blank">市科技局组织春节后收假收心教育</A></LI>
-                                                                    <LI><SPAN>[2015-10-28]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局组织召开领导班子“三严三实”专题民主生活会"
-                                                                           href="/ams/index/productDetail.do?id=13474"
-                                                                           target="_blank">市科技局组织召开领导班子“三严三实”专题民主生活会</A>
-                                                                    </LI>
+                                                                    <UL>
+                                                                        <c:forEach var="item" items="${list6}">
+                                                                            <LI><SPAN>[<fmt:formatDate value="${item.addDate}" pattern="yyyy-MM-dd"/>]</SPAN><IMG width="9"
+                                                                                                                                                                  height="9"
+                                                                                                                                                                  src="${pageContext.request.contextPath}/img/front/doth.gif">
+                                                                                <A title="${item.name}"
+                                                                                   style="text-overflow:ellipsis;"
+                                                                                   href="/ams/index/detail.do?id=${item.id}"
+                                                                                   target="_blank">${item.name}</A></LI>
+                                                                        </c:forEach>
+                                                                    </UL>
                                                                 </UL>
                                                             </DIV>
                                                         </TD>
@@ -320,18 +292,15 @@
                                                             </DIV>
                                                             <DIV class="tags_kjdt_con tags_kjdt_slt1" style="display: none;">
                                                                 <UL>
-                                                                    <LI><SPAN>[2016-02-25]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局众创空间工作会议召开"
-                                                                           href="/ams/index/productDetail.do?id=13555"
-                                                                           target="_blank">市科技局众创空间工作会议召开</A></LI>
-                                                                    <LI><SPAN>[2016-02-14]</SPAN><IMG width="9"
-                                                                                                      height="9"
-                                                                                                      src="${pageContext.request.contextPath}/img/front/doth.gif">
-                                                                        <A title="市科技局组织春节后收假收心教育"
-                                                                           href="/ams/index/productDetail.do?id=13534"
-                                                                           target="_blank">市科技局组织春节后收假收心教育</A></LI>
+                                                                    <c:forEach var="item" items="${list4}">
+                                                                        <LI><SPAN>[<fmt:formatDate value="${item.addDate}" pattern="yyyy-MM-dd"/>]</SPAN><IMG width="9"
+                                                                                                                                                              height="9"
+                                                                                                                                                              src="${pageContext.request.contextPath}/img/front/doth.gif">
+                                                                            <A title="${item.name}"
+                                                                               style="text-overflow:ellipsis;"
+                                                                               href="/ams/index/detail.do?id=${item.id}"
+                                                                               target="_blank">${item.name}</A></LI>
+                                                                    </c:forEach>
                                                                 </UL>
                                                             </DIV>
                                                         </TD>
