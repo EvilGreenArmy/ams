@@ -24,7 +24,6 @@
 
      });*/
 
-
     function delCategory(){
         if(!checkSelect()){
             layer.alert('至少选择一个删除对象');
@@ -33,10 +32,10 @@
         layer.confirm('确定要删除数据吗？', {
             btn: ['确定','取消'] //按钮
         }, function(){
-            trimForm('categoryList');
-            $("#categoryList").attr("action","${basePath}/category/del.do")
+            trimForm('productList');
+            $("#productList").attr("action","${basePath}/product/del.do?flag=f")
             layer.closeAll();
-            postDataByFormName('categoryList','workspace');
+            postDataByFormName('productList','workspace');
         }, function(){
         });
     }

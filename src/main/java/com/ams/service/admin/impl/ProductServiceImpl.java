@@ -76,4 +76,8 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductInfo> serviceQueryList(ServiceRequest request) {
         return productDao.serviceQueryList(request);
     }
+
+    public void deletes(Integer[] ids){
+        productDao.deleteProducts(ids);
+    }
 }

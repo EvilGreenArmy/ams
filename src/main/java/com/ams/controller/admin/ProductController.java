@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -226,4 +227,16 @@ public class ProductController extends BaseController {
         }
         return "product/detail";
     }
+
+
+    @RequestMapping(value = "del", method = RequestMethod.POST)
+    public String delete(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer[] id, @RequestParam(value="flag", required = false)String flag) {
+        logger.debug("delete ids:" + Arrays.asList(id)+"->"+flag);
+        this.productService.deletes(id);
+        if("f".equals(flag)){
+            return "redirect:/product/frontList.do?flag=my";
+        }
+        return "redirect:/product/list.do";
+    }
+
 }

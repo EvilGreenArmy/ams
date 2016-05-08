@@ -27,4 +27,6 @@ public interface ProductMapper {
     List<ProductInfo> frontQuery(String status);
 
     List<ProductInfo> serviceQueryList(ServiceRequest request);
+
+    void deleteProducts(Integer[] ids);
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,12 +30,14 @@ public class ServiceController extends BaseController {
     ProductService productService;
 
     @RequestMapping(value = "rest/save")
-    public @ResponseBody ServiceResponse add(HttpServletRequest request, HttpServletResponse response, ModelMap model,@RequestBody ProductInfoTemp productInfo) {
+    public @ResponseBody ServiceResponse add(HttpServletRequest request, HttpServletResponse response, ModelMap model,@RequestBody ProductInfo productInfo) {
         logger.debug(productInfo);
         ServiceResponse res = new ServiceResponse();
         try {
             productInfo.setStatus("2");
-            //productService.saveProduct(productInfo);
+            productInfo.setAddDate(new Date());
+            productInfo.setEditDate(new Date());
+            productService.saveProduct(productInfo);
 
         }catch (Exception e) {
             logger.error("保存失败。", e);

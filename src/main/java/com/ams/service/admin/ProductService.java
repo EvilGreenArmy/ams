@@ -29,4 +29,7 @@ public interface ProductService {
     public List<ProductInfo> frontQuery(String status);
 
     public List<ProductInfo> serviceQueryList(ServiceRequest request);
+
+    public void deletes(Integer[] ids);
+
 }

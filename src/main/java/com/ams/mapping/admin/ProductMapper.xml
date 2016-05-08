@@ -123,8 +123,8 @@
         WHERE t.PRD_ID=#{id}
     </select>
 
-    <update id="deleteProduct">
-        UPDATE T_PRODUCT set STATUS='-1' WHERE PRD_ID  in
+    <update id="deleteProducts">
+        DELETE T_PRODUCT WHERE PRD_ID  in
         <foreach collection="array" item="id" open="(" separator="," close=")">#{id}</foreach>
     </update>
 </mapper>

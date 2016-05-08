@@ -33,10 +33,10 @@
         layer.confirm('确定要删除数据吗？', {
             btn: ['确定','取消'] //按钮
         }, function(){
-            trimForm('categoryList');
-            $("#categoryList").attr("action","${basePath}/category/del.do")
+            trimForm('productList');
+            $("#productList").attr("action","${basePath}/product/del.do")
             layer.closeAll();
-            postDataByFormName('categoryList','workspace');
+            postDataByFormName('productList','workspace');
         }, function(){
         });
     }
