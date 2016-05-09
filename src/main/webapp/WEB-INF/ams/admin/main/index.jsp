@@ -785,7 +785,20 @@
 
 
 <!--  ********************  reason end ******************************  -->
-
+<TABLE width="1004" align="center" border="0" cellspacing="0" cellpadding="0">
+    <TBODY>
+    <TR>
+        <TD height="5"></TD>
+    </TR>
+    <TR>
+        <TD><A href="http://www.gjzlw.com/" target="_blank"><IMG
+                width="1004" height="70" src="${pageContext.request.contextPath}/img/front/gjzlw.jpg"></A></TD>
+    </TR>
+    <TR>
+        <TD height="5"></TD>
+    </TR>
+    </TBODY>
+</TABLE>
 
 <TABLE width="1004" align="center" border="0" cellspacing="0" cellpadding="0">
     <TBODY>
@@ -795,7 +808,7 @@
                 <TBODY>
                 <TR>
                     <TD height="80" align="center">
-                        <SCRIPT type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/27/386/0000/60400486/CA273860000604004860001.js' type='text/javascript'%3E%3C/script%3E"));</SCRIPT>
+                        <IMG src="${pageContext.request.contextPath}/img/front/red.png">
                     </TD>
                 </TR>
                 <TR>
