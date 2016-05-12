@@ -1,5 +1,6 @@
 package com.ams.controller.admin;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ams.entities.admin.ProductInfo;
 import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
@@ -8,6 +9,7 @@ import com.ams.service.admin.SystemService;
 import com.ams.util.Constant;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,8 +19,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,6 +40,9 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/product")
 public class ProductController extends BaseController {
+
+    @Value("${wlgj.url}")
+    String httpToWLURL;
 
     @Autowired
     private ProductService productService;
@@ -139,6 +151,7 @@ public class ProductController extends BaseController {
         product.setEditDate(new Date());
         product.setEditUser(currentUser);
         product.setStatus(Constant.PRODUCT_STATUS_1);
+        doPost(product);
         this.productService.saveProduct(product);
         return "redirect:/product/frontList.do?flag=my";
     }
@@ -237,6 +250,81 @@ public class ProductController extends BaseController {
             return "redirect:/product/frontList.do?flag=my";
         }
         return "redirect:/product/list.do";
+    }
+
+    public void doPost(ProductInfo product){
+        try {
+            DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+            Map<String, String> param = new HashMap<String, String>();
+            param.put("name",product.getName());
+            param.put("chineseName",product.getChineseName());
+            param.put("province",product.getProvince());
+            param.put("organsAttribute",product.getOrgansAttribute());
+            param.put("organization",product.getOrganization());
+            param.put("startDate",fmt.format(product.getStartDate()));
+            param.put("endDate",fmt.format(product.getEndDate()));
+            param.put("type",product.getType());
+            param.put("area",product.getArea());
+            param.put("addr",product.getAddr());
+            param.put("linkman",product.getLinkman());
+            param.put("content",product.getContent());
+            param.put("telephone",product.getTelephone());
+            param.put("zipCode",product.getZipCode());
+            param.put("taskSource",product.getTaskSource());
+            param.put("isSecret",product.getIsSecret());
+            param.put("secretLevel",product.getSecretLevel());
+            param.put("technologyDirectory",product.getTechnologyDirectory());
+            post(httpToWLURL,param);
+        }catch (Exception e){
+            logger.error("Post to weilai fail.",e);
+        }
+
+    }
+
+
+    /**
+     * 发送HttpPost请求
+     *
+     * @param strURL
+     *            服务地址
+     * @param body
+     *            json字符串,例如: "{ \"id\":\"12345\" }" ;其中属性名必须带双引号<br/>
+     * @return 成功:返回json字符串<br/>
+     */
+    public static String post(String strURL, Object body) {
+        try {
+            URL url = new URL(strURL);// 创建连接
+            HttpURLConnection connection = (HttpURLConnection) url
+                    .openConnection();
+            connection.setDoOutput(true);
+            connection.setDoInput(true);
+            connection.setUseCaches(false);
+            connection.setInstanceFollowRedirects(true);
+            connection.setRequestMethod("POST"); // 设置请求方式
+            connection.setRequestProperty("Accept", "application/json"); // 设置接收数据的格式
+            connection.setRequestProperty("Content-Type", "application/json"); // 设置发送数据的格式
+            connection.connect();
+            OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(), "UTF-8"); // utf-8编码
+            out.append(JSONObject.toJSON(body).toString());	//fastjson
+            out.flush();
+            out.close();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(
+                    connection.getInputStream()));
+            String lines;
+            StringBuffer sb = new StringBuffer("");
+            while ((lines = reader.readLine()) != null) {
+                lines = new String(lines.getBytes(), "utf-8");
+                sb.append(lines);
+            }
+            reader.close();
+            connection.disconnect();
+            return sb.toString();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return "error"; // 自定义错误信息
     }
 
 }

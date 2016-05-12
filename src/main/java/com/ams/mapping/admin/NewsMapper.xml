@@ -16,21 +16,21 @@
         </association>
     </resultMap>
     <select id="getNewsInfo" resultMap="newsMap">
-        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='1') t1 where t1.n between 1 and 10
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='1' order by t.id desc) t1 where t1.n between 1 and 10
         union all
-        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='2') t1 where t1.n between 1 and 10
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='2' order by t.id desc) t1 where t1.n between 1 and 10
         union all
-        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='3') t1 where t1.n between 1 and 10
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='3' order by t.id desc) t1 where t1.n between 1 and 10
         union all
-        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='4') t1 where t1.n between 1 and 10
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='4' order by t.id desc) t1 where t1.n between 1 and 10
         union all
-        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='5') t1 where t1.n between 1 and 10
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='5' order by t.id desc) t1 where t1.n between 1 and 10
         union all
-        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='6') t1 where t1.n between 1 and 10
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='6' order by t.id desc) t1 where t1.n between 1 and 10
         union all
-        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='7') t1 where t1.n between 1 and 10
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='7' order by t.id desc) t1 where t1.n between 1 and 10
         union all
-        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='8') t1 where t1.n between 1 and 10
+        select * from (SELECT t.*, rownum as n FROM t_news t where t.type='8' order by t.id desc) t1 where t1.n between 1 and 10
     </select>
     <select id="getNewsById" parameterType="java.lang.Integer" resultMap="newsMap">
        SELECT t.* FROM t_news t where t.id=#{id}

@@ -791,7 +791,7 @@
         <TD height="5"></TD>
     </TR>
     <TR>
-        <TD><A href="http://www.gjzlw.com/" target="_blank"><IMG
+        <TD><A href="http://www.ctmht.net.cn/" target="_blank"><IMG
                 width="1004" height="70" src="${pageContext.request.contextPath}/img/front/gjzlw.jpg"></A></TD>
     </TR>
     <TR>
