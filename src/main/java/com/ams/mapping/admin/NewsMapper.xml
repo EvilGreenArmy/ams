@@ -32,7 +32,33 @@
         union all
         select * from (SELECT t.*, rownum as n FROM t_news t where t.type='8' order by t.id desc) t1 where t1.n between 1 and 10
     </select>
+    <select id="getNewsAmount" resultType="java.lang.Integer">
+        SELECT count(1) FROM t_news t where t.type='1'
+        union all
+        SELECT count(1) FROM t_news t where t.type='2'
+        union all
+        SELECT count(1) FROM t_news t where t.type='3'
+        union all
+        SELECT count(1) FROM t_news t where t.type='4'
+        union all
+        SELECT count(1) FROM t_news t where t.type='5'
+        union all
+        SELECT count(1) FROM t_news t where t.type='6'
+        union all
+        SELECT count(1) FROM t_news t where t.type='7'
+        union all
+        SELECT count(1) FROM t_news t where t.type='8'
+    </select>
     <select id="getNewsById" parameterType="java.lang.Integer" resultMap="newsMap">
        SELECT t.* FROM t_news t where t.id=#{id}
+    </select>
+
+    <select id="newsQueryPage" parameterType="java.util.Map" resultMap="newsMap">
+        select *
+        from t_news u
+        WHERE 1=1
+        <if test="type!=null and type !=''">
+            AND u.TYPE=#{type}
+        </if>
     </select>
 </mapper>

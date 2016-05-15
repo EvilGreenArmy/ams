@@ -43,6 +43,9 @@ public class SessionFilter implements Filter {
         if(requestURI.indexOf("index/news.do") >= 0) {
             isLogin = true;
         }
+        if(requestURI.indexOf("index/more.do") >= 0) {
+            isLogin = true;
+        }
         UserInfo loginUser = (UserInfo) requestHttp.getSession().getAttribute(Constant.SESSION_LOGIN_USER);
         if (!isLogin && loginUser == null) {
             //如果判断是 AJAX 请求,直接设置为session超时

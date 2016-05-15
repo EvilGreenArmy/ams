@@ -377,6 +377,17 @@
                                                                             target=_blank>${obj.title}</A><SPAN style="float: right;">[<fmt:formatDate value="${obj.createTime}" pattern="yyyy-MM-dd"/>]</SPAN></TD>
                                                                 </TR>
                                                                 </c:forEach>
+                                                        <c:if test="${amountMap['8'] > 10}">
+                                                                <TR>
+                                                                    <TD>
+                                                                        <hr />
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD>
+                                                                        <a href="/ams/index/more.do?type=1" target=_blank><span style="float: right;color:red">更多>></span></a></TD>
+                                                                </TR>
+                                                            </c:if>
                                                                 </TBODY>
                                                             </TABLE>
                                                         </TD>
@@ -385,6 +396,7 @@
                                                 </TABLE>
                                             </TD>
                                         </TR>
+
                                         </TBODY>
                                     </TABLE>
                                 </TD>
@@ -423,6 +435,17 @@
                                                                                 target=_blank>${obj.title}</A><SPAN style="float: right;">[<fmt:formatDate value="${obj.createTime}" pattern="yyyy-MM-dd"/>]</SPAN></TD>
                                                                     </TR>
                                                                 </c:forEach>
+                                                    <c:if test="${amountMap['2'] > 10}">
+                                                                <TR>
+                                                                    <TD>
+                                                                        <hr />
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD>
+                                                                        <a href="/ams/index/more.do?type=2" target=_blank><span style="float: right;color:red">更多>></span></a></TD>
+                                                                </TR>
+                                                        </c:if>
                                                                 </TBODY>
                                                             </TABLE>
                                                         </TD>
@@ -487,6 +510,17 @@
                                                                                 target=_blank>${obj.title}</A><SPAN style="float: right;">[<fmt:formatDate value="${obj.createTime}" pattern="yyyy-MM-dd"/>]</SPAN></TD>
                                                                     </TR>
                                                                 </c:forEach>
+                                                <c:if test="${amountMap['3'] > 10}">
+                                                                <TR>
+                                                                    <TD>
+                                                                        <hr />
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD>
+                                                                        <a href="/ams/index/more.do?type=3" target=_blank><span style="float: right;color:red">更多>></span></a></TD>
+                                                                </TR>
+                                                    </c:if>
                                                                 </TBODY>
                                                             </TABLE>
                                                         </TD>
@@ -533,6 +567,17 @@
                                                                                 target=_blank>${obj.title}</A><SPAN style="float: right;">[<fmt:formatDate value="${obj.createTime}" pattern="yyyy-MM-dd"/>]</SPAN></TD>
                                                                     </TR>
                                                                 </c:forEach>
+                                                        <c:if test="${amountMap['4'] > 10}">
+                                                                <TR>
+                                                                    <TD>
+                                                                        <hr />
+                                                                    </TD>
+                                                                </TR>
+                                                                <TR>
+                                                                    <TD>
+                                                                        <a href="/ams/index/more.do?type=4" target=_blank><span style="float: right;color:red">更多>></span></a></TD>
+                                                                </TR>
+                                                            </c:if>
                                                                 </TBODY>
                                                             </TABLE>
                                                         </TD>
@@ -662,6 +707,17 @@
                                                                 target=_blank>${obj.title}</A></TD>
                                                     </TR>
                                                     </c:forEach>
+                                                <c:if test="${amountMap['5'] > 10}">
+                                                <TR>
+                                                    <TD>
+                                                        <hr />
+                                                    </TD>
+                                                </TR>
+                                                <TR>
+                                                    <TD>
+                                                        <a href="/ams/index/more.do?type=5" target=_blank><span style="float: right;color:red">更多>></span></a></TD>
+                                                </TR>
+                                                    </c:if>
                                                     </TBODY>
                                                 </TABLE>
                                             </TD>
@@ -696,6 +752,17 @@
                                                                     target=_blank>${obj.title}</A></TD>
                                                         </TR>
                                                     </c:forEach>
+                                                <c:if test="${amountMap['6'] > 10}">
+                                                    <TR>
+                                                        <TD>
+                                                            <hr />
+                                                        </TD>
+                                                    </TR>
+                                                    <TR>
+                                                        <TD>
+                                                            <a href="/ams/index/more.do?type=6" target=_blank><span style="float: right;color:red">更多>></span></a></TD>
+                                                    </TR>
+                                                    </c:if>
                                                     </TBODY>
                                                 </TABLE>
                                             </TD>
@@ -730,6 +797,17 @@
                                                                     target=_blank>${obj.title}</A></TD>
                                                         </TR>
                                                     </c:forEach>
+                                                     <c:if test="${amountMap['7'] > 10}">
+                                                    <TR>
+                                                        <TD>
+                                                            <hr />
+                                                        </TD>
+                                                    </TR>
+                                                    <TR>
+                                                        <TD>
+                                                            <a href="/ams/index/more.do?type=7" target=_blank><span style="float: right;color:red">更多>></span></a></TD>
+                                                    </TR>
+                                                         </c:if>
                                                     </TBODY>
                                                 </TABLE>
                                             </TD>
@@ -764,6 +842,17 @@
                                                                     target=_blank>${obj.title}</A></TD>
                                                         </TR>
                                                     </c:forEach>
+                                                    <c:if test="${amountMap['8'] > 10}">
+                                                    <TR>
+                                                        <TD>
+                                                            <hr />
+                                                        </TD>
+                                                    </TR>
+                                                    <TR>
+                                                        <TD>
+                                                            <a href="/ams/index/more.do?type=8" target=_blank><span style="float: right;color:red">更多>></span></a></TD>
+                                                    </TR>
+                                                    </c:if>
                                                     </TBODY>
                                                 </TABLE>
                                             </TD>

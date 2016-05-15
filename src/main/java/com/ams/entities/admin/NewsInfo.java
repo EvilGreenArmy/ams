@@ -19,6 +19,8 @@ public class NewsInfo {
 
     private Date createTime;
 
+    private Integer total;
+
     public Integer getId() {
         return id;
     }
@@ -65,5 +67,13 @@ public class NewsInfo {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 }

@@ -1,7 +1,7 @@
 package com.ams.controller.admin;
 
 import com.ams.entities.admin.NewsInfo;
-import com.ams.entities.admin.ProductInfo;
+import com.ams.pagination.Page;
 import com.ams.service.NewsService;
 import com.ams.service.admin.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,7 +45,7 @@ public class IndexController extends BaseController {
         model.addAttribute("list3", productService.frontQuery("3"));
         model.addAttribute("list4", productService.frontQuery("4"));
         model.addAttribute("newsMap", this.newsService.getNewsInfo());
-
+        model.addAttribute("amountMap", this.newsService.getNewsAmount());
 
 
         return "main/index";
@@ -54,7 +53,7 @@ public class IndexController extends BaseController {
 
     @RequestMapping(value = "detail", method = RequestMethod.GET)
     public String productDetail(HttpServletRequest request, HttpServletResponse response,
-                          Model model, @RequestParam(value="id") Integer id) {
+                                Model model, @RequestParam(value = "id") Integer id) {
 
         model.addAttribute("pro", productService.getProductById(id));
 
@@ -63,15 +62,33 @@ public class IndexController extends BaseController {
 
     @RequestMapping(value = "productDetail", method = RequestMethod.GET)
     public String product(HttpServletRequest request, HttpServletResponse response,
-                          Model model, @RequestParam(value="t", required = false, defaultValue = "") String type) {
-        return "frontpage/frontDetail"+type;
+                          Model model, @RequestParam(value = "t", required = false, defaultValue = "") String type) {
+        return "frontpage/frontDetail" + type;
     }
+
     @RequestMapping(value = "news", method = RequestMethod.GET)
     public String news(HttpServletRequest request, HttpServletResponse response,
-                          Model model, @RequestParam(value="id", required = true) Integer id) {
+                       Model model, @RequestParam(value = "id", required = true) Integer id) {
         NewsInfo newsInfo = this.newsService.getNewsById(id);
         model.addAttribute("newsInfo", newsInfo);
         return "frontpage/news";
+    }
+
+    @RequestMapping(value = "more", method = RequestMethod.GET)
+    public String more(HttpServletRequest request, HttpServletResponse response,
+                       Model model, @RequestParam(value = "type", required = true, defaultValue = "1") String type,
+                       @RequestParam(value = "currentPage", defaultValue = "1") Integer currentPage,
+                       @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+        Page<NewsInfo> page = new Page<NewsInfo>();
+        page.setCurrentPage(currentPage);
+        page.setShowCount(pageSize);
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("page", page);
+        paramMap.put("type", type);
+        page = this.newsService.queryList(paramMap);
+        model.addAttribute("page", page);
+        model.addAttribute("type", type);
+        return "main/more";
     }
 
     public void setTmsUrl(String tmsUrl) {
