@@ -256,6 +256,7 @@ public class ProductController extends BaseController {
         try {
             DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
             Map<String, String> param = new HashMap<String, String>();
+            param.put("distinguish","zzzh");
             param.put("name",product.getName());
             param.put("chineseName",product.getChineseName());
             param.put("province",product.getProvince());
