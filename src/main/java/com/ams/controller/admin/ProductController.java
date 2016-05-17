@@ -151,7 +151,7 @@ public class ProductController extends BaseController {
         product.setEditDate(new Date());
         product.setEditUser(currentUser);
         product.setStatus(Constant.PRODUCT_STATUS_1);
-        doPost(product);
+        doPost(product,httpToWLURL);
         this.productService.saveProduct(product);
         return "redirect:/product/frontList.do?flag=my";
     }
@@ -186,6 +186,7 @@ public class ProductController extends BaseController {
         model.addAttribute("priceUnits",categoryService.querySubCategorys(156));
 
         ProductInfo product = this.productService.getProductById(id);
+        doPost(product,httpToWLURL+"/"+product.getId());
         logger.debug("edit product: " + product);
         model.addAttribute("product", product);
         return "product/frontEdit";
@@ -252,11 +253,12 @@ public class ProductController extends BaseController {
         return "redirect:/product/list.do";
     }
 
-    public void doPost(ProductInfo product){
+    public void doPost(ProductInfo product,String httpToWLURL){
         try {
             DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
             Map<String, String> param = new HashMap<String, String>();
             param.put("distinguish","zzzh");
+            param.put("prdID",product.getId()+"");
             param.put("name",product.getName());
             param.put("chineseName",product.getChineseName());
             param.put("province",product.getProvince());
@@ -272,7 +274,7 @@ public class ProductController extends BaseController {
             param.put("telephone",product.getTelephone());
             param.put("zipCode",product.getZipCode());
             param.put("taskSource",product.getTaskSource());
-            param.put("isSecret",product.getIsSecret());
+            param.put("isSecret","A".equals(product.getIsSecret())?"有":"无" );
             param.put("secretLevel",product.getSecretLevel());
             param.put("technologyDirectory",product.getTechnologyDirectory());
             post(httpToWLURL,param);

@@ -12,11 +12,54 @@
     } else {
       $("#name").next("i").text('');
     }
-      if($("#content").val() == '') {
-          $("#content").next("i").text('内容简介不能为空');
+      if($("#province").val().length > 100) {
+          $("#province").next("i").text('内容不能超过100个字符');
+          return;
+      } else {
+          $("#province").next("i").text('');
+      }
+      if($("#organization").val().length > 100) {
+          $("#organization").next("i").text('内容不能超过100个字符');
+          return;
+      } else {
+          $("#organization").next("i").text('');
+      }
+      if($("#addr").val().length > 200) {
+          $("#addr").next("i").text('内容不能超过200个字符');
+          return;
+      } else {
+          $("#addr").next("i").text('');
+      }
+      if($("#linkman").val().length > 50) {
+          $("#linkman").next("i").text('内容不能超过50个字符');
+          return;
+      } else {
+          $("#linkman").next("i").text('');
+      }
+      var phone = $("#telephone").val();
+      if(!checkPhone(phone) && phone != '') {
+          return;
+      } else {
+          $("#telephone").next("i").text('')
+      }
+      if($("#area").val().length > 100) {
+          $("#area").next("i").text('内容不能超过100个字符');
+          return;
+      } else {
+          $("#area").next("i").text('');
+      }
+
+      if($("#content").val().length > 4000) {
+          $("#content").next("i").text('内容不能超过4000个字符');
           return;
       } else {
           $("#content").next("i").text('');
+      }
+      if($("#technologyDirectory").val().length > 4000) {
+          $("#technologyDirectory").next("i").text('内容不能超过4000个字符');
+          return;
+      } else {
+          $("#technologyDirectory").next("i").text('');
       }
 
       //询问框
@@ -29,6 +72,22 @@
       }, function(){
       });
   };
+
+  function checkPhone(mobile) {
+      if(mobile.length > 0) {
+          if (mobile.length != 11) {
+              $("#telephone").next("i").text('请输入有效的手机号码');
+              return false;
+          }
+          var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+          if (!myreg.test(mobile)) {
+              $("#telephone").next("i").text('请输入有效的手机号码');
+              return false;
+          }
+          return true;
+      }
+  }
+
   $(document).ready(function(e) {
       $(".select1").uedSelect({
           width: 345

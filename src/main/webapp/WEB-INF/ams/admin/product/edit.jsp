@@ -12,12 +12,6 @@
     } else {
       $("#name").next("i").text('');
     }
-      if($("#content").val() == '') {
-          $("#content").next("i").text('内容简介不能为空');
-          return;
-      } else {
-          $("#content").next("i").text('');
-      }
 
       //询问框
       layer.confirm('确定要提交吗？', {
