@@ -253,29 +253,30 @@ public class ProductController extends BaseController {
         return "redirect:/product/list.do";
     }
 
-    public void doPost(ProductInfo product){
+    public void doPost(ProductInfo product,String httpToWLURL){
         try {
             DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
             Map<String, String> param = new HashMap<String, String>();
             param.put("distinguish","zzzh");
-            param.put("name", product.getName());
-            param.put("chineseName", product.getChineseName());
-            param.put("province", product.getProvince());
-            param.put("organsAttribute", product.getOrgansAttribute());
-            param.put("organization", product.getOrganization());
-            param.put("startDate", fmt.format(product.getStartDate()));
-            param.put("endDate", fmt.format(product.getEndDate()));
-            param.put("type", product.getType());
+            param.put("prdID",product.getId()+"");
+            param.put("name",product.getName());
+            param.put("chineseName",product.getChineseName());
+            param.put("province",product.getProvince());
+            param.put("organsAttribute",product.getOrgansAttribute());
+            param.put("organization",product.getOrganization());
+            param.put("startDate",fmt.format(product.getStartDate()));
+            param.put("endDate",fmt.format(product.getEndDate()));
+            param.put("type",product.getType());
             param.put("area",product.getArea());
-            param.put("addr", product.getAddr());
-            param.put("linkman", product.getLinkman());
-            param.put("content", product.getContent());
+            param.put("addr",product.getAddr());
+            param.put("linkman",product.getLinkman());
+            param.put("content",product.getContent());
             param.put("telephone",product.getTelephone());
             param.put("zipCode",product.getZipCode());
             param.put("taskSource",product.getTaskSource());
             param.put("isSecret","A".equals(product.getIsSecret())?"有":"无" );
-            param.put("secretLevel", product.getSecretLevel());
-            param.put("technologyDirectory", product.getTechnologyDirectory());
+            param.put("secretLevel",product.getSecretLevel());
+            param.put("technologyDirectory",product.getTechnologyDirectory());
             post(httpToWLURL,param);
         }catch (Exception e){
             logger.error("Post to weilai fail.",e);
