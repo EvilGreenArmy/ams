@@ -1,11 +1,9 @@
 package com.ams.controller.admin;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ams.entities.admin.CompetitionInfo;
 import com.ams.entities.admin.ProductInfo;
 import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
-import com.ams.service.admin.CompetitionService;
 import com.ams.service.admin.ProductService;
 import com.ams.service.admin.SystemService;
 import com.ams.util.Constant;
@@ -48,8 +46,7 @@ public class ProductController extends BaseController {
 
     @Autowired
     private ProductService productService;
-    @Autowired
-    private CompetitionService competitionService;
+
     private static Logger logger = Logger.getLogger(ProductController.class);
 
     @RequestMapping(value = "list")
@@ -131,7 +128,7 @@ public class ProductController extends BaseController {
         // 任务来源
         model.addAttribute("taskSources",categoryService.querySubCategorys(125));
         // 密级
-        model.addAttribute("secretLevels",categoryService.querySubCategorys(132));
+        model.addAttribute("secretLevels", categoryService.querySubCategorys(132));
         // 竞价单位
         model.addAttribute("priceUnits",categoryService.querySubCategorys(156));
 
@@ -154,8 +151,8 @@ public class ProductController extends BaseController {
         product.setEditDate(new Date());
         product.setEditUser(currentUser);
         product.setStatus(Constant.PRODUCT_STATUS_1);
+        doPost(product,httpToWLURL);
         this.productService.saveProduct(product);
-        doPost(product);
         return "redirect:/product/frontList.do?flag=my";
     }
 
@@ -163,11 +160,11 @@ public class ProductController extends BaseController {
     public String initEdit(HttpServletRequest request, HttpServletResponse response, ModelMap model, Integer id) {
         logger.debug("initEdit id:"+id);
         // 单位属性
-        model.addAttribute("organsAttributes",categoryService.querySubCategorys(17));
+        model.addAttribute("organsAttributes", categoryService.querySubCategorys(17));
         // 任务来源
-        model.addAttribute("taskSources",categoryService.querySubCategorys(125));
+        model.addAttribute("taskSources", categoryService.querySubCategorys(125));
         // 密级
-        model.addAttribute("secretLevels",categoryService.querySubCategorys(132));
+        model.addAttribute("secretLevels", categoryService.querySubCategorys(132));
         // 竞价单位
         model.addAttribute("priceUnits",categoryService.querySubCategorys(156));
 
@@ -189,6 +186,7 @@ public class ProductController extends BaseController {
         model.addAttribute("priceUnits",categoryService.querySubCategorys(156));
 
         ProductInfo product = this.productService.getProductById(id);
+        doPost(product,httpToWLURL+"/"+product.getId());
         logger.debug("edit product: " + product);
         model.addAttribute("product", product);
         return "product/frontEdit";
@@ -214,9 +212,9 @@ public class ProductController extends BaseController {
                           @RequestParam("id")Integer id, @RequestParam("status")Integer status) {
 
         // 单位属性
-        model.addAttribute("organsAttributes",categoryService.querySubCategorys(17));
+        model.addAttribute("organsAttributes", categoryService.querySubCategorys(17));
         // 任务来源
-        model.addAttribute("taskSources",categoryService.querySubCategorys(125));
+        model.addAttribute("taskSources", categoryService.querySubCategorys(125));
         // 密级
         model.addAttribute("secretLevels",categoryService.querySubCategorys(132));
         // 竞价单位
@@ -254,37 +252,30 @@ public class ProductController extends BaseController {
         }
         return "redirect:/product/list.do";
     }
-    @RequestMapping(value = "deal", method = RequestMethod.POST)
-    public String deal(HttpServletRequest request, HttpServletResponse response, ModelMap model,
-                         @RequestParam("id") Integer id, @RequestParam("productId") Integer productId) {
 
-        this.productService.approve(productId, "4");
-        this.competitionService.updateCompetition(id);
-        return "redirect:/product/frontList.do?flag=my";
-    }
     public void doPost(ProductInfo product){
         try {
             DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
             Map<String, String> param = new HashMap<String, String>();
             param.put("distinguish","zzzh");
-            param.put("name",product.getName());
-            param.put("chineseName",product.getChineseName());
-            param.put("province",product.getProvince());
-            param.put("organsAttribute",product.getOrgansAttribute());
-            param.put("organization",product.getOrganization());
-            param.put("startDate",fmt.format(product.getStartDate()));
-            param.put("endDate",fmt.format(product.getEndDate()));
-            param.put("type",product.getType());
+            param.put("name", product.getName());
+            param.put("chineseName", product.getChineseName());
+            param.put("province", product.getProvince());
+            param.put("organsAttribute", product.getOrgansAttribute());
+            param.put("organization", product.getOrganization());
+            param.put("startDate", fmt.format(product.getStartDate()));
+            param.put("endDate", fmt.format(product.getEndDate()));
+            param.put("type", product.getType());
             param.put("area",product.getArea());
-            param.put("addr",product.getAddr());
-            param.put("linkman",product.getLinkman());
-            param.put("content",product.getContent());
+            param.put("addr", product.getAddr());
+            param.put("linkman", product.getLinkman());
+            param.put("content", product.getContent());
             param.put("telephone",product.getTelephone());
             param.put("zipCode",product.getZipCode());
             param.put("taskSource",product.getTaskSource());
-            param.put("isSecret",product.getIsSecret());
-            param.put("secretLevel",product.getSecretLevel());
-            param.put("technologyDirectory",product.getTechnologyDirectory());
+            param.put("isSecret","A".equals(product.getIsSecret())?"有":"无" );
+            param.put("secretLevel", product.getSecretLevel());
+            param.put("technologyDirectory", product.getTechnologyDirectory());
             post(httpToWLURL,param);
         }catch (Exception e){
             logger.error("Post to weilai fail.",e);
@@ -304,7 +295,6 @@ public class ProductController extends BaseController {
      */
     public static String post(String strURL, Object body) {
         try {
-            logger.info(JSONObject.toJSON(body).toString());
             URL url = new URL(strURL);// 创建连接
             HttpURLConnection connection = (HttpURLConnection) url
                     .openConnection();
@@ -334,25 +324,9 @@ public class ProductController extends BaseController {
             return sb.toString();
         } catch (IOException e) {
             // TODO Auto-generated catch block
-            logger.error("Post to weilai fail.", e);
+            e.printStackTrace();
         }
         return "error"; // 自定义错误信息
-    }
-
-
-    public static void main(String args[]) {
-        DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-        Map<String, String> param = new HashMap<String, String>();
-        param.put("distinguish","zzzh");
-        param.put("name","eeee");
-        param.put("province","shen");
-        param.put("organsAttribute","aaaaa");
-        param.put("organization","bbbb");
-        param.put("startDate","2016-05-01");
-        param.put("endDate", "2016-05-01");
-        param.put("type","1");
-        param.put("prdID","1234");
-        post("http://192.168.1.110:8181/onesite/rest/technologyTransferInfo/1234",param);
     }
 
 }
