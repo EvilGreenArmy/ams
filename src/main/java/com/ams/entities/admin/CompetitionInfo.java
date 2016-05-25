@@ -22,6 +22,8 @@ public class CompetitionInfo {
 
     private String status;
 
+    private String dealStatus;
+
     public Integer getId() {
         return id;
     }
@@ -76,5 +78,13 @@ public class CompetitionInfo {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDealStatus() {
+        return dealStatus;
+    }
+
+    public void setDealStatus(String dealStatus) {
+        this.dealStatus = dealStatus;
     }
 }

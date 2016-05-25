@@ -5,6 +5,7 @@ import com.ams.entities.admin.ProductInfo;
 import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
 import com.ams.service.admin.CompetitionService;
+import com.ams.service.admin.ProductService;
 import com.ams.service.admin.UserService;
 import com.ams.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,22 +33,35 @@ public class CompetitionController extends BaseController {
     private CompetitionService competitionService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private ProductService productService;
 
     @RequestMapping(value = "list")
     public String list(HttpServletRequest request, HttpServletResponse response, ModelMap model,
                        @RequestParam(value = "currentPage", defaultValue = "1") Integer currentPage,
-                       @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
+                       @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
+                       @RequestParam(value = "productId", required = false)Integer productId) {
         Page<CompetitionInfo> page = new Page<CompetitionInfo>();
         page.setCurrentPage(currentPage);
         page.setShowCount(pageSize);
         Map<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("isCom", 0);
         paramMap.put("page", page);
-        int isAdmin = 1;
-        page = this.competitionService.queryList(paramMap);
-        model.addAttribute("page", page);
-        model.addAttribute("isAdmin", isAdmin);
-        return "competition/list";
+        if(productId != null) {
+            paramMap.put("productId", productId);
+            page = this.competitionService.queryList(paramMap);
+            model.addAttribute("productId", productId);
+            ProductInfo productInfo = this.productService.getProductById(productId);
+            model.addAttribute("product", productInfo);
+            model.addAttribute("page", page);
+            return "product/competitionlist";
+        } else {
+            int isAdmin = 1;
+            page = this.competitionService.queryList(paramMap);
+            model.addAttribute("page", page);
+            model.addAttribute("isAdmin", isAdmin);
+            return "competition/list";
+        }
 
     }
 

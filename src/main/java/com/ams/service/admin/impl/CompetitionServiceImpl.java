@@ -16,6 +16,8 @@ import java.util.Map;
  */
 @Service("competitionService")
 public class CompetitionServiceImpl implements CompetitionService {
+
+
     @Autowired
     private CompetitionMapper dao;
 
@@ -35,5 +37,9 @@ public class CompetitionServiceImpl implements CompetitionService {
     @Transactional
     public void deleteCompetition(Integer[] ids) {
         dao.deleteCompetition(ids);
+    }
+    @Transactional
+    public void updateCompetition(Integer id) {
+        dao.updateCompetition(id);
     }
 }

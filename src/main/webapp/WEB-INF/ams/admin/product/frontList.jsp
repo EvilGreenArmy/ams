@@ -156,7 +156,8 @@
                 <td><fmt:formatDate value="${obj.editDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                 <td>${obj.addUser.userName}</td>
                 <td>
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/frontEdit.do?id=${obj.id}','','workspace');">修改</a>
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/frontEdit.do?id=${obj.id}','','workspace');">修改</a> |
+                    <a href="#" class="tablelink" onclick="getData('${basePath}/competition/list.do?productId=${obj.id}','','workspace');">竞价详情</a>
                 </td>
             </tr>
         </c:forEach>

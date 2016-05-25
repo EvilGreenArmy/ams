@@ -15,4 +15,7 @@ public interface CompetitionService {
     public void saveCompetition(CompetitionInfo competition);
 
     public void deleteCompetition(Integer[] ids);
+
+    public void updateCompetition(Integer id);
+
 }

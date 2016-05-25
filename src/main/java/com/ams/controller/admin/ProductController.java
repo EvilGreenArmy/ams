@@ -1,9 +1,11 @@
 package com.ams.controller.admin;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ams.entities.admin.CompetitionInfo;
 import com.ams.entities.admin.ProductInfo;
 import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
+import com.ams.service.admin.CompetitionService;
 import com.ams.service.admin.ProductService;
 import com.ams.service.admin.SystemService;
 import com.ams.util.Constant;
@@ -46,7 +48,8 @@ public class ProductController extends BaseController {
 
     @Autowired
     private ProductService productService;
-
+    @Autowired
+    private CompetitionService competitionService;
     private static Logger logger = Logger.getLogger(ProductController.class);
 
     @RequestMapping(value = "list")
@@ -151,8 +154,8 @@ public class ProductController extends BaseController {
         product.setEditDate(new Date());
         product.setEditUser(currentUser);
         product.setStatus(Constant.PRODUCT_STATUS_1);
-        doPost(product);
         this.productService.saveProduct(product);
+        doPost(product);
         return "redirect:/product/frontList.do?flag=my";
     }
 
@@ -251,7 +254,14 @@ public class ProductController extends BaseController {
         }
         return "redirect:/product/list.do";
     }
+    @RequestMapping(value = "deal", method = RequestMethod.POST)
+    public String deal(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+                         @RequestParam("id") Integer id, @RequestParam("productId") Integer productId) {
 
+        this.productService.approve(productId, "4");
+        this.competitionService.updateCompetition(id);
+        return "redirect:/product/frontList.do?flag=my";
+    }
     public void doPost(ProductInfo product){
         try {
             DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
@@ -294,6 +304,7 @@ public class ProductController extends BaseController {
      */
     public static String post(String strURL, Object body) {
         try {
+            logger.info(JSONObject.toJSON(body).toString());
             URL url = new URL(strURL);// 创建连接
             HttpURLConnection connection = (HttpURLConnection) url
                     .openConnection();
@@ -323,9 +334,25 @@ public class ProductController extends BaseController {
             return sb.toString();
         } catch (IOException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error("Post to weilai fail.", e);
         }
         return "error"; // 自定义错误信息
+    }
+
+
+    public static void main(String args[]) {
+        DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+        Map<String, String> param = new HashMap<String, String>();
+        param.put("distinguish","zzzh");
+        param.put("name","eeee");
+        param.put("province","shen");
+        param.put("organsAttribute","aaaaa");
+        param.put("organization","bbbb");
+        param.put("startDate","2016-05-01");
+        param.put("endDate", "2016-05-01");
+        param.put("type","1");
+        param.put("prdID","1234");
+        post("http://192.168.1.110:8181/onesite/rest/technologyTransferInfo/1234",param);
     }
 
 }
