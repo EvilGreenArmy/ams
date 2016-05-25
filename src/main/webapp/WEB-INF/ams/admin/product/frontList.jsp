@@ -141,7 +141,7 @@
         <tbody>
         <c:forEach var="obj" items="${page.resultList}">
             <tr>
-                <td><input name="id" type="checkbox" value="${obj.id}" /></td>
+                <td><input name="id" type="checkbox" value="${obj.id}" <c:if test="${'1' ne obj.status}"> disabled </c:if> /></td>
                 <td><a href="#" onclick="getData('${basePath}/product/detail.do?id=${obj.id}','','workspace');">${obj.name}</a></td>
                 <td>${obj.organization}</td>
                 <td>${obj.linkman}</td>
@@ -156,7 +156,9 @@
                 <td><fmt:formatDate value="${obj.editDate}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
                 <td>${obj.addUser.userName}</td>
                 <td>
-                    <a href="#" class="tablelink" onclick="getData('${basePath}/product/frontEdit.do?id=${obj.id}','','workspace');">修改</a>
+                    <c:if test="${'1' eq obj.status}">
+                        <a href="#" class="tablelink" onclick="getData('${basePath}/product/frontEdit.do?id=${obj.id}','','workspace');">修改</a>
+                    </c:if>
                 </td>
             </tr>
         </c:forEach>
