@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.ams.entities.admin.ProductInfo;
 import com.ams.entities.admin.UserInfo;
 import com.ams.pagination.Page;
+import com.ams.service.admin.CompetitionService;
 import com.ams.service.admin.ProductService;
 import com.ams.service.admin.SystemService;
 import com.ams.util.Constant;
@@ -46,7 +47,8 @@ public class ProductController extends BaseController {
 
     @Autowired
     private ProductService productService;
-
+    @Autowired
+    private CompetitionService competitionService;
     private static Logger logger = Logger.getLogger(ProductController.class);
 
     @RequestMapping(value = "list")
@@ -252,7 +254,14 @@ public class ProductController extends BaseController {
         }
         return "redirect:/product/list.do";
     }
-
+    @RequestMapping(value = "deal", method = RequestMethod.POST)
+    public String edit(HttpServletRequest request, HttpServletResponse response, ModelMap model,
+                        @RequestParam(value="id") Integer id,
+                        @RequestParam(value = "productId") Integer productId) {
+        this.productService.approve(productId, "4");
+        this.competitionService.updateCompetition(id);
+        return "redirect:/product/frontList.do?flag=my";
+    }
     public void doPost(ProductInfo product,String httpToWLURL){
         try {
             DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
