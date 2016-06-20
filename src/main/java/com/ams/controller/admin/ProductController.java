@@ -153,8 +153,8 @@ public class ProductController extends BaseController {
         product.setEditDate(new Date());
         product.setEditUser(currentUser);
         product.setStatus(Constant.PRODUCT_STATUS_1);
-        doPost(product,httpToWLURL);
         this.productService.saveProduct(product);
+        doPost(product,httpToWLURL);
         return "redirect:/product/frontList.do?flag=my";
     }
 
@@ -333,8 +333,7 @@ public class ProductController extends BaseController {
             connection.disconnect();
             return sb.toString();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error(body,e);
         }
         return "error"; // 自定义错误信息
     }
